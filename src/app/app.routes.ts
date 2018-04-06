@@ -7,4 +7,4 @@ const APP_ROUTES: Routes = [
   { path: 'userLogin', component: LoginFormComponent }
 ]
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+export const Routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

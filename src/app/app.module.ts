@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { Routing } from './app.routes';
+import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { routing } from './app.routes';
+
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import { routing } from './app.routes';
   ],
   imports: [
     BrowserModule,
-    routing
+    Routing,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
