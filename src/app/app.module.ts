@@ -5,11 +5,13 @@ import { Routing } from './app.routes';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
+import { TeamMemberComponent } from './team-member/team-member.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TeamMemberComponent
   ],
   imports: [
     BrowserModule,
