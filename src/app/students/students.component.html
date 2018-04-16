@@ -1,5 +1,5 @@
 <p>
-  Mostrando {{ students.length }} estudantes.
+  Mostrando {{ getStudents().length }} estudantes.
 </p>
 
 <table>
@@ -21,7 +21,7 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let s of students">
+    <tr *ngFor="let s of getStudents()">
       <td>{{ s.name }}</td>
       <td>{{ s.birth_date }}</td>
       <td>{{ s.age }}</td>

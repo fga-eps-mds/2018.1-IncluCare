@@ -30,4 +30,8 @@ export class StudentsComponent implements OnInit {
     }
   }
 
+  getStudents() {
+    return this.students;
+  }
+
 }
