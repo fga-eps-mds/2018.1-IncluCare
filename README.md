@@ -1,5 +1,10 @@
 # IncluCare
 
+<p align="center">
+<a href="https://codeclimate.com/github/fga-gpp-mds/IncluCare_front"><img src="https://codeclimate.com/github/fga-gpp-mds/IncluCare_front/badges/gpa.svg"></a>
+<a href="https://travis-ci.org/fga-gpp-mds/IncluCare_front/"><img src="https://api.travis-ci.org/fga-gpp-mds/IncluCare_front.svg?branch=master"></a>
+</p>  
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
 ## Development server

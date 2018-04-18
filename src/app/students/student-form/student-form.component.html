@@ -1,0 +1,56 @@
+<div class="container">
+    <h1>{{ name }}</h1>
+    <form (ngSubmit)="save()">
+      <div>
+        <label for="name">Nome</label>
+        <input type="text" id="name" required [(ngModel)]="student.name" name='name'>
+      </div>
+      <div>
+        <label for="birth_date">Data de Nascimento</label>
+        <input type="text" id="birth_date" required [(ngModel)]="student.birth_date" name='birth_date'>
+      </div>
+      <div>
+        <label for="age">Idade</label>
+        <input type="text" id="age" required [(ngModel)]="student.age" name='age'>
+      </div>
+      <div>
+        <label for="nationality">Nacionalidade</label>
+        <input type="text" id="nationality" required [(ngModel)]="student.nationality" name='nationality'>
+      </div>
+      <div>
+        <label for="year">Ano</label>
+        <input type="text" id="year" required [(ngModel)]="student.year" name='year'>
+      </div>
+      <div>
+        <label for="student_class">Turma</label>
+        <input type="text" id="student_class" required [(ngModel)]="student.student_class" name='student_class'>
+      </div>
+      <div>
+        <label for="shift">Turno</label>
+        <input type="text" id="shift" required [(ngModel)]="student.shift" name='shift'>
+      </div>
+      <div>
+        <label for="father_name">Nome do pai</label>
+        <input type="text" id="father_name" required [(ngModel)]="student.father_name" name='father_name'>
+      </div>
+      <div>
+        <label for="mother_name">Nome da mãe</label>
+        <input type="text" id="mother_name" required [(ngModel)]="student.mother_name" name='mother_name'>
+      </div>
+      <div>
+        <label for="address">Endereço</label>
+        <input type="text" id="address" required [(ngModel)]="student.address" name='address'>
+      </div>
+      <div>
+        <label for="parent_telephone">Telefone do responsável</label>
+        <input type="text" id="parent_telephone" required [(ngModel)]="student.parent_telephone" name='parent_telephone'>
+      </div>
+      <div>
+        <label for="parent_email">Email do responsável</label>
+        <input type="text" id="parent_email" required [(ngModel)]="student.parent_email" name='parent_email'>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+    <hr />
+    <a routerLink="/">Voltar</a>
+</div>
