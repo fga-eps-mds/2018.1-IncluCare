@@ -1,11 +1,7 @@
-<!--Navigation-->
 <div class="navbar-fixed">
-
   <nav  role="navigation">
-
     <div class="nav-wrapper blue ">
-      <a [routerLink]="['']" id="logo-container" class="brand-logo">Rails & Angular Auth</a>
-
+      <a [routerLink]="['']" id="logo-container" class="brand-logo">IncluCare</a>
       <ul class="right hide-on-med-and-down">
 
         <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog()" >LOGIN</a></li>
@@ -15,11 +11,8 @@
         <li *ngIf="(authService.userSignedIn$ | async)"><a (click)="logOut()">LOGOUT</a></li>
 
       </ul>
-
     </div>
-
   </nav>
-
 </div>
 
 <app-auth-dialog #authDialog ></app-auth-dialog>

@@ -9,8 +9,7 @@ export class RegisterService {
   registerTeamMember(teamMember: any){
     let team_member = {email: teamMember.email, password: teamMember.password}
     return this.http.post('http://localhost:3000/team_members', team_member).map(
-      (response: Response) => {return response.json()
-    });
+      (response: Response) => {return response.json()}
+    );
   }
-
 }

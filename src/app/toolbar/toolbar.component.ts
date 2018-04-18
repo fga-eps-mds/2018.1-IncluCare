@@ -13,8 +13,7 @@ export class ToolbarComponent implements OnInit {
 
   constructor(public authService:AuthService, private router:Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   logOut(){
     this.authService.logOutUser().subscribe(() => this.router.navigate(['/']));

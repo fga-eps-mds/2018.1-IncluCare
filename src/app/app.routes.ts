@@ -16,8 +16,7 @@ const APP_ROUTES: Routes = [
   { path: 'students', pathMatch: 'full', component: StudentsComponent },
   { path: 'students/new', component: StudentFormComponent},
   { path: 'students/:id', component: StudentFormComponent},
-  { path: 'students/:id/edit', component: StudentFormComponent},
-  { path: 'teamMember', component: TeamMemberComponent }
+  { path: 'students/:id/edit', component: StudentFormComponent}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
