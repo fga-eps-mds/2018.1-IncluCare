@@ -49,7 +49,7 @@ export class StudentFormComponent implements OnInit {
       result = this.studentService.addStudent(this.student);
     }
 
-    result.subscribe(data => this.router.navigate(['/']));
+    result.subscribe(data => this.router.navigate(['/students']));
   }
 
 }
