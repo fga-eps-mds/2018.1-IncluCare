@@ -4,8 +4,10 @@ import { Routes, RouterModule }   from '@angular/router';
 
 import { StudentsComponent } from './students/students.component';
 import { StudentFormComponent } from './students/student-form/student-form.component';
+import { LoginComponent } from "./login/login.component";
 
 const APP_ROUTES: Routes = [
+  { path: 'login', component: LoginComponent},
   { path: 'students', pathMatch: 'full', component: StudentsComponent },
   { path: 'students/new', component: StudentFormComponent},
   { path: 'students/:id', component: StudentFormComponent},
