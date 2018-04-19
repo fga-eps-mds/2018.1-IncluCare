@@ -14,7 +14,6 @@ import { RegisterService } from './service/register/register.service';
 import { StudentService } from './students/shared/student.service';
 import { AuthService } from "./services/auth.service";
 
-import { TeamMemberComponent } from './team-member/team-member.component';
 import { LoginComponent } from './login/login.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
@@ -29,7 +28,6 @@ import { AuthGuard } from "./guards/auth.guard";
     AppComponent,
     StudentsComponent,
     StudentFormComponent,
-    TeamMemberComponent,
     LoginComponent,
     ToolbarComponent,
     AuthDialogComponent,

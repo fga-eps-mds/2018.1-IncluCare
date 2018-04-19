@@ -4,9 +4,10 @@
       <a [routerLink]="['']" id="logo-container" class="brand-logo">IncluCare</a>
       <ul class="right hide-on-med-and-down">
 
-        <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog()" >LOGIN</a></li>
-        <li *ngIf="!(authService.userSignedIn$ | async)"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>
+        <li *ngIf="!(authService.userSignedIn$ | async)"><a (click)="presentAuthDialog()" >LOGIN</a></li>
+        <li *ngIf="!(authService.userSignedIn$ | async)"><a (click)="presentAuthDialog('register')">REGISTER</a></li>
 
+        <li *ngIf="(authService.userSignedIn$ | async)"><a [routerLink]="['/students']" > STUDENTS </a></li>
         <li *ngIf="(authService.userSignedIn$ | async)"><a [routerLink]="['/profile']">PROFILE</a></li>
         <li *ngIf="(authService.userSignedIn$ | async)"><a (click)="logOut()">LOGOUT</a></li>
 
