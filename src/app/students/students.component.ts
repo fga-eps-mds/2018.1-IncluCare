@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from "@angular/router";
 import { StudentService } from './shared/student.service';
 
 import {Student} from "./shared/student";
@@ -13,7 +13,8 @@ export class StudentsComponent implements OnInit {
 
   private students: Student[] = [];
 
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService,
+    private router: Router) { }
 
   ngOnInit() {
     this.studentService.getStudents()
@@ -24,9 +25,9 @@ export class StudentsComponent implements OnInit {
     if (confirm("Você tem certeza que quer deletar o estudante " + students.name + "?")) {
       var index = this.students.indexOf(students);
       this.students.splice(index, 1);
-
       this.studentService.deleteStudent(students.id)
         .subscribe(null);
+
     }
   }
 
