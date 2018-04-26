@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { StudentService } from './shared/student.service';
+import { Component, OnInit }  from '@angular/core';
 
-import {Student} from "./shared/student";
+import { StudentService }     from './shared/student.service';
+import { Student }            from "./shared/student";
 
 @Component({
   selector: 'app-students',
@@ -13,8 +12,7 @@ export class StudentsComponent implements OnInit {
 
   private students: Student[] = [];
 
-  constructor(private studentService: StudentService,
-    private router: Router) { }
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
     this.studentService.getStudents()
