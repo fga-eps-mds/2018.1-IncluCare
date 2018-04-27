@@ -16,7 +16,10 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit() {
     this.studentService.getStudents()
-      .subscribe(data => this.students = data);
+      .subscribe(
+         data => this.students = data,
+         response => {}
+        );
   }
 
   deleteStudent(students) {
