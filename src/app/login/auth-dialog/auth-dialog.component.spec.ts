@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
 import { AuthService }                      from "../../services/auth.service";
 import { AuthDialogComponent } from './auth-dialog.component';
-import { MaterializeAction } from "angular2-materialize";
 
 describe('AuthDialogComponent', () => {
   let component: AuthDialogComponent;
@@ -21,7 +20,6 @@ describe('AuthDialogComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         RouterTestingModule,
-        MaterializeAction
       ],
       providers:[
         AuthService,
