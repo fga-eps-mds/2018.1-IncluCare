@@ -1,8 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Angular2TokenService }             from 'angular2-token';
 import { HttpModule }                       from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
+import { MaterializeAction } from "angular2-materialize";
+
 import { AuthService }                      from "../../services/auth.service";
 import { AuthDialogComponent } from './auth-dialog.component';
 
@@ -15,6 +18,7 @@ describe('AuthDialogComponent', () => {
     tokenMock.validateToken.and.returnValue(tokenMock);
     TestBed.configureTestingModule({
       declarations: [ AuthDialogComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ],
       imports: [
         HttpModule,
         FormsModule,
