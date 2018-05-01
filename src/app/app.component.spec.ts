@@ -1,27 +1,53 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-describe('AppComponent', () => {
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule }    from '@angular/router/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Angular2TokenService }             from 'angular2-token';
+import { MaterializeModule }                from 'angular2-materialize';
+
+import { AppComponent }           from './app.component';
+
+import { AuthService }                      from "./services/auth.service";
+import { ToolbarComponent }       from './toolbar/toolbar.component';
+import { AuthDialogComponent }    from './login/auth-dialog/auth-dialog.component';
+import { LoginFormComponent }     from './login/login-form/login-form.component';
+import { RegisterFormComponent }  from './login/register-form/register-form.component';
+
+describe('AppComponent', ()=> {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
+    let tokenMock = jasmine.createSpyObj('tokenMock', ['init', 'validateToken', 'subscribe']);
+    tokenMock.validateToken.and.returnValue(tokenMock);
+
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        ToolbarComponent,
+        AuthDialogComponent,
+        LoginFormComponent,
+        RegisterFormComponent
       ],
+      imports:[
+        FormsModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+        MaterializeModule
+      ],
+      providers: [
+        AuthService,
+        {provide: Angular2TokenService, useValue: tokenMock}
+      ]
     }).compileComponents();
   }));
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
-  }));
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
