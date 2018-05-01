@@ -10,7 +10,7 @@ import { environment }          from "../environments/environment";
   styleUrls:    ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private authToken: Angular2TokenService){
-    this.authToken.init(environment.token_auth_config);
+  constructor(private _tokenService: Angular2TokenService) {
+    this._tokenService.init(environment.token_auth_config);
   }
 }
