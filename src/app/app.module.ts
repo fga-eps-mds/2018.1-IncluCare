@@ -12,7 +12,6 @@ import { AuthGuard }                        from "./guards/auth.guard";
 import { AuthService }                      from "./services/auth.service";
 import { AuthDialogComponent }              from './login/auth-dialog/auth-dialog.component';
 import { LoginComponent }                   from './login/login.component';
-import { LoginFormComponent }               from './login/login-form/login-form.component';
 import { RegisterService }                  from './login/shared/register.service';
 import { RegisterFormComponent }            from './login/register-form/register-form.component';
 import { ProfileComponent }                 from './profile/profile.component';
@@ -26,7 +25,6 @@ import { ToolbarComponent }                 from './toolbar/toolbar.component';
     AppComponent,
     AuthDialogComponent,
     LoginComponent,
-    LoginFormComponent,
     RegisterFormComponent,
     ProfileComponent,
     ToolbarComponent,
