@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule }                       from '@angular/http';
+import { RegisterFormComponent }            from './register-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
 import { Angular2TokenService }             from 'angular2-token';
-import { AuthService }                      from "../services/auth.service";
-import { LoginComponent } from './login.component';
+import { AuthService }                      from "../../services/auth.service";
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('RegisterFormComponent', () => {
+  let component: RegisterFormComponent;
+  let fixture: ComponentFixture<RegisterFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(async( () => {
     let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
     tokenMock.validateToken.and.returnValue(tokenMock);
 
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [ RegisterFormComponent ],
       imports: [
         HttpModule,
         FormsModule,
@@ -24,14 +24,13 @@ describe('LoginComponent', () => {
       ],
       providers: [
         AuthService,
-        { provide: Angular2TokenService, useValue: tokenMock }
+        { provide: Angular2TokenService, useValue: tokenMock}
       ]
     })
     .compileComponents();
   }));
-
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(RegisterFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

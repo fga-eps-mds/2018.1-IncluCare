@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }  from '@angular/core';
 
-import { StudentService } from './shared/student.service';
-
-import {Student} from "./shared/student";
+import { StudentService }     from './shared/student.service';
+import { Student }            from "./shared/student";
 
 @Component({
   selector: 'app-students',
@@ -17,16 +16,19 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit() {
     this.studentService.getStudents()
-      .subscribe(data => this.students = data);
+      .subscribe(
+         data => this.students = data,
+         response => {}
+        );
   }
 
   deleteStudent(students) {
     if (confirm("Você tem certeza que quer deletar o estudante " + students.name + "?")) {
       var index = this.students.indexOf(students);
       this.students.splice(index, 1);
-
       this.studentService.deleteStudent(students.id)
         .subscribe(null);
+
     }
   }
 
