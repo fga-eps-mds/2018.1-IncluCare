@@ -1,12 +1,12 @@
 <div class="navbar-fixed">
   <nav role="navigation">
-    <div class="nav-wrapper blue">
-      <a [routerLink]="['']" id="logo-container" class="brand-logo">IncluCare</a>
-      <ul class="right hide-on-med-and-down">
+    <div class="nav-wrapper blue inclu-2">
+      <a id="logo-container" class="brand-logo">IncluCare</a>
+      <ul class="right">
 
         <li *ngIf="(authService.userSignedIn$ | async)"><a (click)="presentAuthDialog()">REGISTER</a></li>
         <li *ngIf="(authService.userSignedIn$ | async)"><a [routerLink]="['/students']" > STUDENTS </a></li>
-        <li *ngIf="(authService.userSignedIn$ | async)"><a [routerLink]="['/profile']">PROFILE</a></li>
+        <!--li *ngIf="(authService.userSignedIn$ | async)"><a [routerLink]="['/profile']">PROFILE</a></li-->
         <li *ngIf="(authService.userSignedIn$ | async)"><a (click)="logOut()">LOGOUT</a></li>
 
       </ul>

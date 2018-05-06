@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/materialize-css/dist/css/materialize.css";
+
+html, body {
+  height: 100%;
+}
+
+/* PERSONALIZADOS  */
+.blue.inclu-1 {
+  background-color: #006699 !important;
+}
+
+.blue-text.text-inclu-1 {
+  color: #EEEBFF !important;
+}
+
+.blue.inclu-2 {
+  background-color: #005588 !important;
+}
+
+.blue-text.text-inclu-2 {
+  color: #EEEBFF !important;
+}
+
+.blue.inclu-3 {
+  background-color: #003B60 !important;
+}
+
+.blue-text.text-inclu-3 {
+  color: #EEEBFF !important;
+}
+
+.blue.inclu-4 {
+  background-color: #0999B0 !important;
+}
+
+.blue-text.text-inclu-4 {
+  color: #EEEBFF !important;
+}
+
+.blue.inclu-5 {
+  background-color: #099988 !important;
+}
+
+.blue-text.text-inclu-5 {
+  color: #EEEBFF !important;
+}

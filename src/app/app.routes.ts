@@ -11,7 +11,7 @@ import { StudentFormComponent }   from './students/student-form/student-form.com
 const APP_ROUTES: Routes = [
   { path: '',                   component: LoginComponent,        pathMatch: 'full'                           },
   { path: 'login',              component: LoginComponent                                                     },
-  { path: 'profile',            component: ProfileComponent,                          canActivate: [AuthGuard]},
+  //{ path: 'profile',            component: ProfileComponent,                          canActivate: [AuthGuard]},
   { path: 'students',           component: StudentsComponent,     pathMatch: 'full',  canActivate: [AuthGuard]},
   { path: 'students/new',       component: StudentFormComponent,                      canActivate: [AuthGuard]},
   { path: 'students/:id',       component: StudentFormComponent,                      canActivate: [AuthGuard]},
