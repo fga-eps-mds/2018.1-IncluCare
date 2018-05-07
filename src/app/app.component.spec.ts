@@ -9,7 +9,6 @@ import { AppComponent }           from './app.component';
 import { AuthService }                      from "./services/auth.service";
 import { ToolbarComponent }       from './toolbar/toolbar.component';
 import { AuthDialogComponent }    from './login/auth-dialog/auth-dialog.component';
-import { LoginFormComponent }     from './login/login-form/login-form.component';
 import { RegisterFormComponent }  from './login/register-form/register-form.component';
 
 describe('AppComponent', ()=> {
@@ -25,7 +24,6 @@ describe('AppComponent', ()=> {
         AppComponent,
         ToolbarComponent,
         AuthDialogComponent,
-        LoginFormComponent,
         RegisterFormComponent
       ],
       imports:[
