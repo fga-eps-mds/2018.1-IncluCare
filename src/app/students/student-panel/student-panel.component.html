@@ -1,3 +1,160 @@
+<div id="showprofile">
+  <div class="row">
+    <div class="col m12">
+      <div class="col m6">Painel do estudante</div>
+    </div>
+  </div>
+  <form id="student_data" role="form">
+    <div class="row">
+      <div class="input-field col s6">
+        <input
+               type="text"
+               id="name"
+               placeholder=""
+               [(ngModel)]="student.name"
+               name="name"
+               #name="ngModel"
+               readonly
+        >
+        <label for="name">Nome</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="birth_date"
+              placeholder=""
+              [(ngModel)]="student.birth_date"
+              name='birth_date'
+              #birth_date="ngModel"
+              readonly
+        >
+        <label for="birth_date">Data de Nascimento</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="age"
+              placeholder=""
+              [(ngModel)]="student.age"
+              name='age'
+              #age="ngModel"
+              readonly
+        >
+        <label for="age">Idade</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="nationality"
+              placeholder=""
+              [(ngModel)]="student.nationality"
+              name='nationality'
+              #nationality="ngModel"
+              readonly
+        >
+        <label for="nationality">Nacionalidade</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="year"
+              placeholder=""
+              [(ngModel)]="student.year"
+              name='year'
+              #year="ngModel"
+              readonly
+        >
+        <label for="year">Ano</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="student_class"
+              placeholder=""
+              [(ngModel)]="student.student_class"
+              name='student_class'
+              #student_class="ngModel"
+              readonly
+        >
+        <label for="student_class">Turma</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="shift"
+              placeholder=""
+              [(ngModel)]="student.shift"
+              name='shift'
+              #shift="ngModel"
+              readonly
+        >
+        <label for="shift">Turno</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="father_name"
+              placeholder=""
+              [(ngModel)]="student.father_name"
+              name='father_name'
+              #father_name="ngModel"
+              readonly
+        >
+        <label for="father_name">Nome do pai</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="mother_name"
+              placeholder=""
+              [(ngModel)]="student.mother_name"
+              name='mother_name'
+              #mother_name="ngModel"
+              readonly
+        >
+        <label for="mother_name">Nome da mãe</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="address"
+              placeholder=""
+              [(ngModel)]="student.address"
+              name='address'
+              #address="ngModel"
+              readonly
+        >
+        <label for="address">Endereço</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="text"
+              id="parent_telephone"
+              placeholder=""
+              [(ngModel)]="student.parent_telephone"
+              name='parent_telephone'
+              #parent_telephone="ngModel"
+              readonly
+        >
+        <label for="parent_telephone">Telefone do responsável</label>
+      </div>
+      <div class="input-field col s6">
+        <input
+              type="email"
+              id="parent_email"
+              placeholder=""
+              [(ngModel)]="student.parent_email"
+              name='parent_email'
+              #parent_email="ngModel"
+              readonly
+        >
+        <label for="parent_email">Email do responsável</label>
+      </div>
+    </div>
+  </form>
+</div>
+
+
 <table>
   <td>
     <tr>
