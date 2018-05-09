@@ -1,0 +1,19 @@
+:host{
+  background: linear-gradient(#0099BB, #006699);
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  z-index: 20;
+}
+
+#login-page {
+  height: 100%;
+  display: table;
+  margin: auto;
+}
+
+#login-panel {
+  display: table-cell;
+  vertical-align: middle;
+}
