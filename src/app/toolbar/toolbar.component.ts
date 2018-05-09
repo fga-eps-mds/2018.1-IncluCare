@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 
+import { MaterializeDirective } from "angular2-materialize";
+
 import { AuthService } from "../services/auth.service";
+import { Angular2TokenService } from "angular2-token";
 import { AuthDialogComponent } from "../login/auth-dialog/auth-dialog.component";
 
 @Component({
@@ -13,6 +16,7 @@ export class ToolbarComponent implements OnInit {
   @ViewChild('authDialog') authDialog: AuthDialogComponent;
 
   constructor(
+    public authTokenService:Angular2TokenService,
     public authService: AuthService,
     private router: Router
   ) { }

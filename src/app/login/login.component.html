@@ -1,25 +1,32 @@
-<div class="row">
-  <div class="container">
-  
-    <h5>LOGIN</h5>
-    <form (ngSubmit)="onSignInSubmit()" #f="ngForm" >
-      <div class="row">
+<div id="login-page">
+  <div id="login-panel" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+      <form class="login-form" (ngSubmit)="onSignInSubmit()" #f="ngForm" >
 
         <div class="input-field col s12">
-          <input id="email" type="email" required name='email' [(ngModel)]="signInUser.email" class="validate">
-          <label for="email">Email</label>
+          <h5>Entrar no site</h5>
         </div>
 
-        <div class="input-field col s12">
-          <input id="password" type="password" required name='password' [(ngModel)]="signInUser.password" class="validate">
-          <label for="password">Password</label>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <input id="email" type="email" required name='email' [(ngModel)]="signInUser.email" class="validate">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="password" type="password" required name='password' [(ngModel)]="signInUser.password" class="validate">
+            <label for="password">Senha</label>
+          </div>
         </div>
 
-        <div class="col s12 ">
-          <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn blue right"> Login </button>
+        <div class="row margin">
+          <div class="col s12">
+            <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="btn waves-effect waves-light col s12">Entrar</button>
+          </div>
         </div>
 
-      </div>
-    </form>
+        <!-- Forgot password -->
+
+      </form>
+    </div>
   </div>
 </div>

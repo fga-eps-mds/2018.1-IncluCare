@@ -1,3 +1,9 @@
 a.brand-logo {
-  padding-left: 38px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  padding-left: 30px;
+}
+
+.dropdown-content {
+  min-width: 300px;
 }

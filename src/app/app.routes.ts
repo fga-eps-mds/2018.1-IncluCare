@@ -11,7 +11,6 @@ import { StudentPanelComponent } from './students/student-panel/student-panel.co
 
 const APP_ROUTES: Routes = [
   { path: '',                   component: LoginComponent,        pathMatch: 'full'                           },
-  { path: 'login',              component: LoginComponent                                                     },
   { path: 'profile',            component: ProfileComponent,                          canActivate: [AuthGuard]},
   { path: 'students',           component: StudentsComponent,     pathMatch: 'full',  canActivate: [AuthGuard]},
   { path: 'students/new',       component: StudentFormComponent,                      canActivate: [AuthGuard]},

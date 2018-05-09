@@ -1,56 +1,59 @@
-<!-- <p>
-  Mostrando {{ getStudents().length }} estudantes.
-</p> -->
-
-<table class="striped">
-  <thead>
-  <tr>
-    <th data-field="name">Nome</th>
-    <th data-field="student_class">Turma</th>
-    <!-- <th data-field="birth_date">Data de nascimento</th>
-    <th data-field="age">Idade</th>
-    <th data-field="nationality">Nacionalidade</th>
-    <th data-field="year">Ano</th>
-    <th data-field="shift">Turno</th>
-    <th data-field="father_name">Nome da mãe</th>
-    <th data-field="mother_name">Nome do pai</th>
-    <th data-field="address">Endereço</th>
-    <th data-field="parent_telephone">Telefone do responsável</th>
-    <th data-field="parent_email">Email do responsável</th> -->
-  </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let s of getStudents()">
-      <td>{{ s.name }}</td>
-      <td>{{ s.student_class }}</td>
-      <!-- <td>{{ s.birth_date }}</td>
-      <td>{{ s.age }}</td>
-      <td>{{ s.nationality }}</td>
-      <td>{{ s.year }}</td>
-      <td>{{ s.shift }}</td>
-      <td>{{ s.father_name }}</td>
-      <td>{{ s.mother_name }}</td>
-      <td>{{ s.address }}</td>
-      <td>{{ s.parent_telephone }}</td>
-      <td>{{ s.parent_email }}</td> -->
-
-      <td>
-        <a [routerLink]="['/students', s.id]">
-          Editar
-        </a>
-      </td>
-      <td>
-        <a (click)="deleteStudent(s)" href="/students">
-          Deletar
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<div style="bottom: 45px; right: 24px;">
-  <a routerLink="/students/new">
-    Novo
+<div class="container">
+  <h4>Lista de Alunos</h4>
+  <a routerLink="/students/new" class="btn waves-effect waves-light middle-btn right">
+    Adicionar Aluno
+    <i class="material-icons left">person_add</i>
   </a>
+</div>
+
+<div class="container">
+
+  <!-- <p>Mostrando {{ getStudents().length }} estudantes.</p> -->
+
+  <table class="striped">
+    <thead>
+      <tr>
+        <th data-field="name">Nome</th>
+        <!-- <th data-field="birth_date">Data de nascimento</th> -->
+        <!-- <th data-field="age">Idade</th> -->
+        <!-- <th data-field="nationality">Nacionalidade</th> -->
+        <th data-field="year">Ano</th>
+        <th data-field="student_class">Turma</th>
+        <!-- <th data-field="shift">Turno</th> -->
+        <!-- <th data-field="mother_name">Nome do pai</th> -->
+        <!-- <th data-field="father_name">Nome da mãe</th> -->
+        <!-- <th data-field="address">Endereço</th> -->
+        <th data-field="parent_telephone">Telefone do responsável</th>
+        <th data-field="parent_email">Email do responsável</th>
+        <th></th> <!-- Espaço referente aos botôes de ação -->
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let s of getStudents()">
+        <td>{{ s.name }}</td>
+        <!-- <td>{{ s.birth_date }}</td> -->
+        <!-- <td>{{ s.age }}</td> -->
+        <!-- <td>{{ s.nationality }}</td> -->
+        <td>{{ s.year }}</td>
+        <td>{{ s.student_class }}</td>
+        <!-- <td>{{ s.shift }}</td> -->
+        <!-- <td>{{ s.father_name }}</td> -->
+        <!-- <td>{{ s.mother_name }}</td> -->
+        <!-- <td>{{ s.address }}</td> -->
+        <td>{{ s.parent_telephone }}</td>
+        <td>{{ s.parent_email }}</td>
+        <td>
+          <a [routerLink]="['/students', s.id]">
+            Editar
+          </a>
+        </td>
+        <td>
+          <a (click)="deleteStudent(s)" href="/students">
+            Deletar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
