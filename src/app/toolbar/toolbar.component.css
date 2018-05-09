@@ -3,3 +3,7 @@ a.brand-logo {
   font-weight: 700;
   padding-left: 30px;
 }
+
+.dropdown-content {
+  min-width: 300px;
+}
