@@ -5,7 +5,7 @@
       <div class="row">
         <div class="container">
           <div class="card-action" align="right">
-            <button class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
+            <button (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
               <i class="material-icons right">edit</i>
             </button>
             <a (click)="deleteStudent(student)" href="/students" class="btn waves-effect waves-light gradient-inclucare"
@@ -23,7 +23,7 @@
                    [(ngModel)]="student.name"
                    name="name"
                    #name="ngModel"
-                   readonly
+                   [readonly]="!editMode"
             >
             <label for="name">Nome</label>
           </div>
@@ -35,7 +35,7 @@
                   [(ngModel)]="student.birth_date"
                   name='birth_date'
                   #birth_date="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="birth_date">Data de Nascimento</label>
           </div>
@@ -47,7 +47,7 @@
                   [(ngModel)]="student.age"
                   name='age'
                   #age="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="age">Idade</label>
           </div>
@@ -59,7 +59,7 @@
                   [(ngModel)]="student.nationality"
                   name='nationality'
                   #nationality="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="nationality">Nacionalidade</label>
           </div>
@@ -71,7 +71,7 @@
                   [(ngModel)]="student.year"
                   name='year'
                   #year="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="year">Ano</label>
           </div>
@@ -83,7 +83,7 @@
                   [(ngModel)]="student.student_class"
                   name='student_class'
                   #student_class="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="student_class">Turma</label>
           </div>
@@ -95,7 +95,7 @@
                   [(ngModel)]="student.shift"
                   name='shift'
                   #shift="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="shift">Turno</label>
           </div>
@@ -107,7 +107,7 @@
                   [(ngModel)]="student.father_name"
                   name='father_name'
                   #father_name="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="father_name">Nome do pai</label>
           </div>
@@ -119,7 +119,7 @@
                   [(ngModel)]="student.mother_name"
                   name='mother_name'
                   #mother_name="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="mother_name">Nome da mãe</label>
           </div>
@@ -131,7 +131,7 @@
                   [(ngModel)]="student.address"
                   name='address'
                   #address="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="address">Endereço</label>
           </div>
@@ -143,7 +143,7 @@
                   [(ngModel)]="student.parent_telephone"
                   name='parent_telephone'
                   #parent_telephone="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="parent_telephone">Telefone do responsável</label>
           </div>
@@ -155,11 +155,26 @@
                   [(ngModel)]="student.parent_email"
                   name='parent_email'
                   #parent_email="ngModel"
-                  readonly
+                  [readonly]="!editMode"
             >
             <label for="parent_email">Email do responsável</label>
           </div>
       </div>
+      <div class="input-field col s6">
+
+          <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
+             type="button" name="action">Cancelar
+            <i class="material-icons right">close</i>
+          </button>
+      </div>
+      <div class="input-field col s6">
+          <a *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
+             type="button" name="action">Salvar alterações
+            <i class="material-icons right">send</i>
+          </a>
+      </div>
+
+
     </div>
     </form>
   </div>
