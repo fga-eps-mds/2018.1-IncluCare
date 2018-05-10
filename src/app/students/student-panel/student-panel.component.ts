@@ -38,17 +38,17 @@ export class StudentPanelComponent implements OnInit {
     });
   }
 
-  updateStudent() {
-    var result;
-    if (this.student.id){
-      result = this.studentService.updateStudent(this.student);
-    }
-  }
-
   deleteStudent(student) {
     if (confirm("Você tem certeza que quer deletar o estudante " + student.name + "?")) {
       this.studentService.deleteStudent(student.id).subscribe(null);
     }
+  }
+
+  updateStudent(student){
+    var result;
+    result = this.studentService.updateStudent(this.student);
+
+    result.subscribe(data => this.router.navigate(['/students']));
   }
 
 }

@@ -5,9 +5,9 @@
       <div class="row">
         <div class="container">
           <div class="card-action" align="right">
-            <button (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
+            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
               <i class="material-icons right">edit</i>
-            </button>
+            </a>
             <a (click)="deleteStudent(student)" href="/students" class="btn waves-effect waves-light gradient-inclucare"
               type="button" name="action">Deletar Estudante
               <i class="material-icons right">delete</i>
@@ -168,7 +168,7 @@
           </button>
       </div>
       <div class="input-field col s6">
-          <a *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
+          <a  (click)="updateStudent(student)" *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
              type="button" name="action">Salvar alterações
             <i class="material-icons right">send</i>
           </a>
