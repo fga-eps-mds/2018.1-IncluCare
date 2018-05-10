@@ -5,7 +5,7 @@ import { MaterializeDirective } from "angular2-materialize";
 
 import { AuthService } from "../services/auth.service";
 import { Angular2TokenService } from "angular2-token";
-import { AuthDialogComponent } from "../login/auth-dialog/auth-dialog.component";
+import { AuthDialogComponent } from "../register/auth-dialog/auth-dialog.component";
 
 @Component({
   selector:     'app-toolbar',
