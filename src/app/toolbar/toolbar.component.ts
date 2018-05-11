@@ -24,7 +24,10 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {}
 
   logOut(){
-    this.authService.logOutUser().subscribe(() => this.router.navigate(['/']));
+    this.authService.logOutUser()
+    .subscribe(
+      () => this.router.navigate(['/login'])
+    )
   }
 
   presentAuthDialog(){
