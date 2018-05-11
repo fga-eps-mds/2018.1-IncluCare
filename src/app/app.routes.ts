@@ -9,12 +9,13 @@ import { StudentsComponent }      from './students/students.component';
 import { StudentFormComponent }   from './students/student-form/student-form.component';
 
 const APP_ROUTES: Routes = [
-  { path: '',                   component: LoginComponent,        pathMatch: 'full'                           },
-  { path: 'profile',            component: ProfileComponent,                          canActivate: [AuthGuard]},
-  { path: 'students',           component: StudentsComponent,     pathMatch: 'full',  canActivate: [AuthGuard]},
-  { path: 'students/new',       component: StudentFormComponent,                      canActivate: [AuthGuard]},
-  { path: 'students/:id',       component: StudentFormComponent,                      canActivate: [AuthGuard]},
-  { path: 'students/:id/edit',  component: StudentFormComponent,                      canActivate: [AuthGuard]}
+  { path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                           },
+  { path: 'login'             , component: LoginComponent       ,                                             },
+  { path: 'profile'           , component: ProfileComponent     ,                     canActivate: [AuthGuard]},
+  { path: 'students'          , component: StudentsComponent    , pathMatch: 'full' , canActivate: [AuthGuard]},
+  { path: 'students/new'      , component: StudentFormComponent ,                     canActivate: [AuthGuard]},
+  { path: 'students/:id'      , component: StudentFormComponent ,                     canActivate: [AuthGuard]},
+  { path: 'students/:id/edit' , component: StudentFormComponent ,                     canActivate: [AuthGuard]}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

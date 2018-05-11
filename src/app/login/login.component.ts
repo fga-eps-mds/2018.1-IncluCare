@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from "@angular/router";
-import { AuthService } from "../services/auth.service";
+import { Component, OnInit, Output, EventEmitter }  from '@angular/core';
+import { Router }                                   from "@angular/router";
+import { AuthService }                              from "../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   @Output() onFormResult = new EventEmitter<any>();
 
   constructor(
-    public authService:AuthService,
+    public authService: AuthService,
     private router: Router ) { }
 
   ngOnInit() {}
