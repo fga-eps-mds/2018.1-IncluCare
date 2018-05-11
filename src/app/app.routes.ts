@@ -2,7 +2,7 @@ import { ModuleWithProviders }    from '@angular/core';
 import { Routes, RouterModule }   from '@angular/router';
 
 import { AuthGuard }              from "./guards/auth.guard";
-
+import { LoginGuard }              from "./guards/login.guard";
 import { LoginComponent }         from "./login/login.component";
 import { ProfileComponent }       from "./profile/profile.component";
 import { StudentsComponent }      from './students/students.component';
@@ -10,7 +10,7 @@ import { StudentFormComponent }   from './students/student-form/student-form.com
 
 const APP_ROUTES: Routes = [
   { path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                           },
-  { path: 'login'             , component: LoginComponent       ,                                             },
+  { path: 'login'             , component: LoginComponent       ,                     canActivate: [LoginGuard]},
   { path: 'profile'           , component: ProfileComponent     ,                     canActivate: [AuthGuard]},
   { path: 'students'          , component: StudentsComponent    , pathMatch: 'full' , canActivate: [AuthGuard]},
   { path: 'students/new'      , component: StudentFormComponent ,                     canActivate: [AuthGuard]},

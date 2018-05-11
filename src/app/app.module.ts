@@ -9,6 +9,7 @@ import { Angular2TokenService }             from 'angular2-token';
 import { AppComponent }                     from './app.component';
 import { routes }                           from './app.routes';
 import { AuthGuard }                        from "./guards/auth.guard";
+import { LoginGuard }                        from "./guards/login.guard";
 import { AuthService }                      from "./services/auth.service";
 import { AuthDialogComponent }              from './register/auth-dialog/auth-dialog.component';
 import { LoginComponent }                   from './login/login.component';
@@ -40,6 +41,7 @@ import { ToolbarComponent }                 from './toolbar/toolbar.component';
     routes
   ],
   providers: [
+    LoginGuard,
     AuthGuard,
     AuthService,
     RegisterService,
