@@ -9,15 +9,15 @@ export class AuthService {
 
   userSignedIn$:Subject<boolean> = new Subject();
 
-  constructor(public authService:Angular2TokenService) {
-    this.authService.validateToken().subscribe(
+  constructor(public _tokenService:Angular2TokenService) {
+    this._tokenService.validateToken().subscribe(
         res => res.status == 200 ? this.userSignedIn$.next(res.json().success) : this.userSignedIn$.next(false)
     )
   }
 
   logOutUser():Observable<Response>{
 
-    return this.authService.signOut().map(
+    return this._tokenService.signOut().map(
         res => {
           this.userSignedIn$.next(false);
           return res;
@@ -25,8 +25,8 @@ export class AuthService {
     );
   }
 
-  registerUser(signUpData:  {name:string ,email:string, password:string, passwordConfirmation:string}):Observable<Response>{
-    return this.authService.registerAccount(signUpData).map(
+  registerUser(signUpData: { name: string, email: string, password: string, passwordConfirmation: string }): Observable<Response>{
+    return this._tokenService.registerAccount(signUpData).map(
         res => {
           this.userSignedIn$.next(true);
           return res
@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   logInUser(signInData: {email:string, password:string}):Observable<Response>{
-    return this.authService.signIn(signInData).map(
+    return this._tokenService.signIn(signInData).map(
         res => {
           this.userSignedIn$.next(true);
           return res
