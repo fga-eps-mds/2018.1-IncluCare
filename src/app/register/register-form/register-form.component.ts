@@ -11,7 +11,8 @@ export class RegisterFormComponent implements OnInit {
   signUpUser = {
     email: '',
     password: '',
-    passwordConfirmation: ''
+    passwordConfirmation: '',
+    name: ''
   };
 
   @Output() onFormResult = new EventEmitter<any>();
