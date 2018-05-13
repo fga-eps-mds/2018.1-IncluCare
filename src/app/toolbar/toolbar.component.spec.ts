@@ -5,7 +5,7 @@ import { AuthService }                      from "../services/auth.service";
 import { HttpModule }                       from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
-import { AuthDialogComponent } from "../register/auth-dialog/auth-dialog.component";
+import { RegisterFormComponent } from "../register/register-form/register-form.component";
 import { ToolbarComponent } from './toolbar.component';
 
 describe('ToolbarComponent', () => {

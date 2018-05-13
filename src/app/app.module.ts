@@ -11,9 +11,7 @@ import { routes }                           from './app.routes';
 import { AuthGuard }                        from "./guards/auth.guard";
 import { LoginGuard }                        from "./guards/login.guard";
 import { AuthService }                      from "./services/auth.service";
-import { AuthDialogComponent }              from './register/auth-dialog/auth-dialog.component';
 import { LoginComponent }                   from './login/login.component';
-import { RegisterService }                  from './register/shared/register.service';
 import { RegisterFormComponent }            from './register/register-form/register-form.component';
 import { ProfileComponent }                 from './profile/profile.component';
 import { StudentService }                   from './students/shared/student.service';
@@ -24,7 +22,6 @@ import { ToolbarComponent }                 from './toolbar/toolbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthDialogComponent,
     LoginComponent,
     RegisterFormComponent,
     ProfileComponent,
@@ -44,7 +41,6 @@ import { ToolbarComponent }                 from './toolbar/toolbar.component';
     LoginGuard,
     AuthGuard,
     AuthService,
-    RegisterService,
     Angular2TokenService,
     StudentService
   ],

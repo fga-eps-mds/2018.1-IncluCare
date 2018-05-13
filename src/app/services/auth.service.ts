@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Angular2TokenService } from "angular2-token";
+import { Response }   from "@angular/http";
+
 import { Subject, Observable } from "rxjs";
-import { Response } from "@angular/http";
 import 'rxjs/add/operator/map';
+
+import { Angular2TokenService, RegisterData } from "angular2-token";
 
 @Injectable()
 export class AuthService {
@@ -25,15 +27,6 @@ export class AuthService {
     );
   }
 
-  registerUser(signUpData: { name: string, email: string, password: string, passwordConfirmation: string }): Observable<Response>{
-    return this._tokenService.registerAccount(signUpData).map(
-        res => {
-          this.userSignedIn$.next(true);
-          return res
-        }
-    );
-  }
-
   logInUser(signInData: {email:string, password:string}):Observable<Response>{
     return this._tokenService.signIn(signInData).map(
         res => {
@@ -43,5 +36,20 @@ export class AuthService {
     );
   }
 
+  //new
+
+  public registerAccount(registerData: RegisterData): Observable<Response>{
+    return this._tokenService.registerAccount(registerData)
+      .catch(this.handleErrors)
+  }
+
+  public userSignedIn(){
+
+  }
+
+  private handleErrors(error: Response){
+    console.log("SALVANDO O ERRO NUM ARQUIVO DE LOG - DETALHES DO ERRO => ", error);
+    return Observable.throw(error);
+  }
 
 }

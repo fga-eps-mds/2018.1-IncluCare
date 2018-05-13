@@ -5,7 +5,7 @@ import { MaterializeDirective } from "angular2-materialize";
 import { Angular2TokenService } from "angular2-token";
 
 import { AuthService } from "../services/auth.service";
-import { AuthDialogComponent } from "../register/auth-dialog/auth-dialog.component";
+import { RegisterFormComponent } from "../register/register-form/register-form.component";
 
 @Component({
   selector:     'app-toolbar',
@@ -13,7 +13,7 @@ import { AuthDialogComponent } from "../register/auth-dialog/auth-dialog.compone
   styleUrls:    ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  @ViewChild('authDialog') authDialog: AuthDialogComponent;
+  @ViewChild('registerForm') registerForm: RegisterFormComponent;
 
   constructor(
     public authTokenService: Angular2TokenService,
@@ -31,7 +31,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   presentAuthDialog(){
-    this.authDialog.openDialog();
+    this.registerForm.openDialog();
   }
 
 }
