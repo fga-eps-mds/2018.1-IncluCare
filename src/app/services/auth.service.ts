@@ -4,7 +4,7 @@ import { Response }   from "@angular/http";
 import { Subject, Observable } from "rxjs";
 import 'rxjs/add/operator/map';
 
-import { Angular2TokenService, RegisterData } from "angular2-token";
+import { Angular2TokenService, SignInData, RegisterData } from "angular2-token";
 
 @Injectable()
 export class AuthService {
@@ -36,7 +36,10 @@ export class AuthService {
     );
   }
 
-  //new
+  public signIn(signInData: SignInData): Observable<Response>{
+    return this._tokenService.signIn(signInData)
+      .catch(this.handleErrors)
+  }
 
   public registerAccount(registerData: RegisterData): Observable<Response>{
     return this._tokenService.registerAccount(registerData)
