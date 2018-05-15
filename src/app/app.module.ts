@@ -9,11 +9,10 @@ import { Angular2TokenService }             from 'angular2-token';
 import { AppComponent }                     from './app.component';
 import { routes }                           from './app.routes';
 import { AuthGuard }                        from "./guards/auth.guard";
+import { LoginGuard }                        from "./guards/login.guard";
 import { AuthService }                      from "./services/auth.service";
-import { AuthDialogComponent }              from './login/auth-dialog/auth-dialog.component';
 import { LoginComponent }                   from './login/login.component';
-import { RegisterService }                  from './login/shared/register.service';
-import { RegisterFormComponent }            from './login/register-form/register-form.component';
+import { RegisterFormComponent }            from './register/register-form/register-form.component';
 import { ProfileComponent }                 from './profile/profile.component';
 import { StudentService }                   from './students/shared/student.service';
 import { StudentsComponent }                from './students/students.component';
@@ -24,7 +23,6 @@ import { StudentPanelComponent } from './students/student-panel/student-panel.co
 @NgModule({
   declarations: [
     AppComponent,
-    AuthDialogComponent,
     LoginComponent,
     RegisterFormComponent,
     ProfileComponent,
@@ -42,9 +40,9 @@ import { StudentPanelComponent } from './students/student-panel/student-panel.co
     routes
   ],
   providers: [
+    LoginGuard,
     AuthGuard,
     AuthService,
-    RegisterService,
     Angular2TokenService,
     StudentService
   ],

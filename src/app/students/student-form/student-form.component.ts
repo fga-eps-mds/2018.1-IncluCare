@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { StudentService } from '../shared/student.service';
 
-import {Student} from "../shared/student";
+import { Student } from "../shared/student";
 
 import { Router, ActivatedRoute } from '@angular/router';
 

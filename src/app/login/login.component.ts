@@ -1,6 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from "@angular/router";
-import { AuthService } from "../services/auth.service";
+import { Component, OnInit }                        from '@angular/core';
+import { Router }                                   from "@angular/router";
+import { FormBuilder, FormControl, FormGroup, Validators }  from "@angular/forms";
+
+import { RegisterData }                             from "angular2-token";
+import { MaterializeAction }                        from "angular2-materialize";
+
+import { AuthService }                              from "../services/auth.service";
+import { FormUtils }                                from "../shared/form.utils";
 
 @Component({
   selector: 'app-login',
@@ -9,34 +15,43 @@ import { AuthService } from "../services/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  signInUser = {
-    email: '',
-    password: ''
-  };
-
-  @Output() onFormResult = new EventEmitter<any>();
+  form: FormGroup;
+  formUtils: FormUtils;
+  public submitted: boolean;
+  public formErrors: Array<string>;
 
   constructor(
-    public authService:AuthService,
-    private router: Router ) { }
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    this.setupForm();
+    this.formUtils = new FormUtils(this.form);
+    this.submitted = false;
+    this.formErrors = null;
+  }
 
   ngOnInit() {}
 
-  onSignInSubmit(){
+  signInUser(){
 
-    this.authService.logInUser(this.signInUser).subscribe(
+    this.authService.signIn(this.form.value as any).subscribe(
         res => {
           if(res.status == 200){
-            this.onFormResult.emit({signedIn: true, res});
             this.router.navigate(['/students']);
           }
         },
         err => {
           console.log('err:', err);
-          this.onFormResult.emit({signedIn: false, err});
         }
     );
 
   }
 
+  private setupForm(){
+    this.form = this.formBuilder.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(8)]]
+    });
+  }
 }

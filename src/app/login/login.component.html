@@ -1,32 +1,47 @@
-<div id="login-page">
-  <div id="login-panel" class="row">
-    <div class="col s12 z-depth-4 card-panel">
-      <form class="login-form" (ngSubmit)="onSignInSubmit()" #f="ngForm" >
+<div class="outer">
 
-        <div class="input-field col s12">
-          <h5>Entrar no site</h5>
-        </div>
+  <div class="middle">
+    <div class="inner z-depth-4 card-panel">
 
-        <div class="row margin">
-          <div class="input-field col s12">
-            <input id="email" type="email" required name='email' [(ngModel)]="signInUser.email" class="validate">
+      <!-- <img class="logo" src="https://i.imgur.com/Yp3w68r.png"></img> -->
+
+      <h5 class="text-title">Entrar</h5>
+
+      <!-- <div *ngIf="formErrors" class="no-margin">
+        <strong><span class="no-margin red-text">Ocorreu um erro ao tentar entrar no sistema.</span></strong>
+        <ul class="no-margin red-text">
+          <li *ngFor="let error of formErrors">{{ error }}</li>
+        </ul>
+      </div> -->
+
+      <form [formGroup]="form" (ngSubmit)="signInUser()">
+        <div class="row no-bottom">
+
+          <div class="input-field">
+            <input id="email" type="email" class="validate" formControlName="email">
             <label for="email">Email</label>
+            <!-- <span *ngIf="form.get('email').errors.required" class="helper-text" data-error="O email é obrigatório!"></span> -->
+            <!-- <span *ngIf="form.get('email').errors.email" class="helper-text" data-error="Email inválido!"></span> -->
           </div>
-          <div class="input-field col s12">
-            <input id="password" type="password" required name='password' [(ngModel)]="signInUser.password" class="validate">
+
+          <div class="input-field">
+            <input id="password" type="password" class="validate" formControlName="password">
             <label for="password">Senha</label>
+            <!-- <span *ngIf="form.get('password').errors.required" class="helper-text red-text">A senha é obrigatória!</span> -->
           </div>
-        </div>
 
-        <div class="row margin">
-          <div class="col s12">
-            <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="btn waves-effect waves-light col s12">Entrar</button>
+          <!-- <div class="input-field right-align">
+            <a href="esqueceu_senha.html">Esqueceu sua senha?</a>
+          </div> -->
+
+          <div class="top-margin">
+            <button [disabled]="form.invalid || submitted" type="submit" class="btn waves-effect waves-light col s5 offset-s7">Entrar</button>
           </div>
+
         </div>
-
-        <!-- Forgot password -->
-
       </form>
+
     </div>
   </div>
+
 </div>
