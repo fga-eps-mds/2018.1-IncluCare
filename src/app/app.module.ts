@@ -19,6 +19,7 @@ import { StudentsComponent }                from './students/students.component'
 import { StudentFormComponent }             from './students/student-form/student-form.component';
 import { ToolbarComponent }                 from './toolbar/toolbar.component';
 import { StudentPanelComponent } from './students/student-panel/student-panel.component';
+import { DailyLogComponent } from './students/daily-log/daily-log.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { StudentPanelComponent } from './students/student-panel/student-panel.co
     ToolbarComponent,
     StudentsComponent,
     StudentFormComponent,
-    StudentPanelComponent
+    StudentPanelComponent,
+    DailyLogComponent
   ],
   imports: [
     HttpModule,
