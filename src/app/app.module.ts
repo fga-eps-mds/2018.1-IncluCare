@@ -20,6 +20,7 @@ import { StudentFormComponent }             from './students/student-form/studen
 import { ToolbarComponent }                 from './toolbar/toolbar.component';
 import { StudentPanelComponent } from './students/student-panel/student-panel.component';
 import { DailyLogComponent } from './students/daily-log/daily-log.component';
+import { DailyLogService } from './students/shared/dailylog.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DailyLogComponent } from './students/daily-log/daily-log.component';
     AuthGuard,
     AuthService,
     Angular2TokenService,
-    StudentService
+    StudentService,
+    DailyLogService
   ],
   bootstrap: [ AppComponent ]
 })

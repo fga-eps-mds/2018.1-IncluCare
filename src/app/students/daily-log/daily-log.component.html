@@ -1,3 +1,31 @@
-<p>
-  daily-log works!
-</p>
+<div class="container">
+  <h4>Lista de Registros Diários</h4>
+</div>
+
+<div class="container">
+
+  <!-- <p>Mostrando {{ getStudents().length }} estudantes.</p> -->
+
+  <table class="striped">
+    <thead>
+      <tr>
+        <th data-field="date">Data</th>
+        <th data-field="activity">Atividade</th>
+        <th data-field="note">Observação</th>
+        <th data-field="name">Nome do Aluno</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let s of getDailyLogs()">
+        <td>{{ s.date }}</td>
+        <!-- <td>{{ s.birth_date }}</td> -->
+        <!-- <td>{{ s.age }}</td> -->
+        <!-- <td>{{ s.nationality }}</td> -->
+        <td>{{ s.note }}</td>
+        <td>{{ s.activity }}</td>
+        <td>{{ s.student.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

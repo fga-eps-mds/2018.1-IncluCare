@@ -1,6 +1,6 @@
 import { Component, OnInit }      from '@angular/core';
-import { StudentService }         from '../shared/student.service';
-import { Student }                from "../shared/student";
+import { DailyLogService }         from '../shared/dailylog.service';
+import {DailyLog} from "../shared/dailylog";
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,15 +9,25 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./daily-log.component.css']
 })
 export class DailyLogComponent implements OnInit {
-  student: Student = new Student();
+
+   private dailylogs: DailyLog[] = [];
 
   constructor(
-    private studentService: StudentService,
+    private dailylogService: DailyLogService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.dailylogService.getDailyLogs()
+      .subscribe(
+         data => this.dailylogs = data,
+         response => {}
+        );
+  }
+
+  getDailyLogs() {
+    return this.dailylogs;
   }
 
   createActivity(){
