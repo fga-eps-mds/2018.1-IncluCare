@@ -21,3 +21,67 @@
     </div>
   </div>
 </div>
+
+
+<div id="showprofile">
+  <div class="card">
+    <h4 align="center"> Perfil </h4>
+    <form id="student_data" role="form">
+      <div class="row">
+        <div class="container">
+          <div class="card-action" align="right">
+            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar Dados
+              <i class="material-icons right">edit</i>
+            </a>
+            <a (click)="deleteStudent(student)" href="/students" class="btn waves-effect waves-light gradient-inclucare"
+              type="button" name="action">Deletar Perfil
+              <i class="material-icons right">delete</i>
+            </a>
+          </div>
+        </div>
+          <div class="container">
+          <div class="input-field col s6">
+            <input
+                   type="text"
+                   id="name"
+                   placeholder=""
+                   [(ngModel)]="student.name"
+                   name="name"
+                   #name="ngModel"
+                   [readonly]="!editMode"
+            >
+            <label class="active" for="name">Nome</label>
+          </div>
+          
+          <div class="input-field col s6">
+            <input
+                  type="email"
+                  id="parent_email"
+                  placeholder=""
+                  [(ngModel)]="student.parent_email"
+                  name='parent_email'
+                  #parent_email="ngModel"
+                  [readonly]="!editMode"
+            >
+            <label class="active" for="parent_email">Email do responsável</label>
+          </div>
+      </div>
+      <div class="input-field col s6">
+
+          <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
+             type="button" name="action">Cancelar
+            <i class="material-icons right">close</i>
+          </button>
+      </div>
+      <div class="input-field col s6">
+          <a  (click)="updateStudent(student)" *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
+             type="button" name="action">Salvar alterações
+            <i class="material-icons right">send</i>
+          </a>
+      </div>
+
+
+    </div>
+    </form>
+  </div>
+</div>
