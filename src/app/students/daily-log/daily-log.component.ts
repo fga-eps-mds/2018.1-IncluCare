@@ -1,6 +1,6 @@
 import { Component, OnInit }      from '@angular/core';
-import { DailyLogService }         from '../shared/dailylog.service';
-import {DailyLog} from "../shared/dailylog";
+import { DailyLogService }        from '../shared/dailylog.service';
+import { DailyLog }                 from "../shared/dailylog";
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -33,7 +33,14 @@ export class DailyLogComponent implements OnInit {
   createActivity(){
   }
 
-  deleteActivity(){}
+  deleteActivity(daily_logs){
+    if (confirm("Você tem certeza que quer deletar o Registro " + daily_logs.id + "?")) {
+      var index = this.daily_logs.indexOf(daily_logs);
+      this.daily_logs.splice(index, 1);
+      this.dailylogService.deleteDailyLog(daily_logs.id)
+        .subscribe(null);
+    }
+  }
 
   updateActivity(){}
 
