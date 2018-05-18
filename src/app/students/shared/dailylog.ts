@@ -3,5 +3,5 @@ export class DailyLog {
   date: any;
   activity: any;
   note: string;
-  student: any;
+  student_id: any;
 }

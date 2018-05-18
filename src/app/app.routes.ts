@@ -20,9 +20,8 @@ const APP_ROUTES: Routes = [
   { path: 'students/:id'      , component: StudentFormComponent ,                     canActivate: [AuthGuard]},
   { path: 'students/:id/edit' , component: StudentFormComponent ,                     canActivate: [AuthGuard]},
   { path: 'panel/:id',     component: StudentPanelComponent,                     },
-  { path: 'dailylogs', component: DailyLogComponent,                 },
-  { path: 'dailylogs/new', component: DailyLogFormComponent,         },
-  { path: 'dailylogs/:id', component: DailyLogFormComponent,         }
+  { path: 'dailylog/:id', component: DailyLogFormComponent,                 },
+  { path: 'dailylogs', component: DailyLogComponent,                 }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

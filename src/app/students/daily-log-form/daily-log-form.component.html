@@ -1,5 +1,5 @@
 <div class="container">
-    <h3>Criar Registro Diário</h3>
+    <h3>Criar Registro Diário {{idC}}</h3>
     <form (ngSubmit)="save()" #f="ngForm">
       <div>
         <label for="date">Data</label>
@@ -16,7 +16,6 @@
         <input type="text" id="note" required [(ngModel)]="daily_log.note" name='note' class="validate" #note="ngModel">
         <span class="helper-text"  *ngIf="!note.valid && note.touched" data-error="wrong" data-success="right">Observação é necessária!</span>
       </div>
-      
       <div class="col s12">
         <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn blue right">Enviar</button>
       </div>

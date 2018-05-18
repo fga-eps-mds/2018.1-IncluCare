@@ -15,7 +15,7 @@ export class DailyLogFormComponent implements OnInit {
 
   name: string;
   daily_log: DailyLog = new DailyLog();
-
+  idC: number;
   constructor(
 
     private daily_logService: DailyLogService,
@@ -31,12 +31,14 @@ export class DailyLogFormComponent implements OnInit {
 
       if (!id)
         return;
+
+      this.idC = id
     });
   }
 
   save() {
     var result;
-
+    this.daily_log.student_id = this.idC
     if (this.daily_log.id){
       result = this.daily_logService.updateDailyLog(this.daily_log);
     } else {
