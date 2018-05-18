@@ -21,6 +21,7 @@ import { ToolbarComponent }                 from './toolbar/toolbar.component';
 import { StudentPanelComponent } from './students/student-panel/student-panel.component';
 import { DailyLogComponent } from './students/daily-log/daily-log.component';
 import { DailyLogService } from './students/shared/dailylog.service';
+import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DailyLogService } from './students/shared/dailylog.service';
     StudentsComponent,
     StudentFormComponent,
     StudentPanelComponent,
-    DailyLogComponent
+    DailyLogComponent,
+    DailyLogFormComponent
   ],
   imports: [
     HttpModule,

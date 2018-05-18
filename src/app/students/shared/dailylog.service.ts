@@ -18,22 +18,22 @@ export class DailyLogService {
       .map(res => res.json());
   }
 
-  getDaiyLog(id){
+  getDailyLog(id){
     return this.http.get(this.url + '/' + id)
       .map(res => res.json());
   }
 
-  addDaiyLog(dailylog){
-    return this.http.post(this.url, {'dailylog': dailylog})
+  addDailyLog(daily_log){
+    return this.http.post(this.url, {'daily_log': daily_log})
       .map(res => res.json());
   }
 
-  updateDaiyLog(dailylog){
-    return this.http.put(this.url + '/' + dailylog.id, {'dailylog': dailylog})
+  updateDailyLog(daily_log){
+    return this.http.put(this.url + '/' + daily_log.id, {'daily_log': daily_log})
       .map(res => res.json());
   }
 
-  deleteDaiyLog(id){
+  deleteDailyLog(id){
     return this.http.delete(this.url + '/' + id)
       .map(res => res.json());
   }

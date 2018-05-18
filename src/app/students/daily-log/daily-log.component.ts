@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DailyLogComponent implements OnInit {
 
-   private dailylogs: DailyLog[] = [];
+   private daily_logs: DailyLog[] = [];
 
   constructor(
     private dailylogService: DailyLogService,
@@ -21,13 +21,13 @@ export class DailyLogComponent implements OnInit {
   ngOnInit() {
     this.dailylogService.getDailyLogs()
       .subscribe(
-         data => this.dailylogs = data,
+         data => this.daily_logs = data,
          response => {}
         );
   }
 
   getDailyLogs() {
-    return this.dailylogs;
+    return this.daily_logs;
   }
 
   createActivity(){
