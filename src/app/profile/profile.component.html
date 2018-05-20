@@ -7,19 +7,75 @@
 
   <div class="card">
     <h4 align="center"> Perfil </h4>
-    <form id="student_data" role="form">
+    <form id="data" role="form">
       <div class="row">
         <div class="container">
           <div class="card-action" align="right">
             <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar Dados
               <i class="material-icons right">edit</i>
             </a>
-            <a (click)="deleteStudent(student)" href="/students" class="btn waves-effect waves-light gradient-inclucare"
+            <a href="/students" class="btn waves-effect waves-light gradient-inclucare"
               type="button" name="action">Deletar Perfil
               <i class="material-icons right">delete</i>
             </a>
           </div>
         </div>
+
+<a class="waves-effect waves-light btn modal-trigger" (click)="openNewPassawordModal()">Modal</a>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal" materialize="modal" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <div class="col-md-6">
+	<div class="card card-block">
+		<h4 class="card-title">Update Password</h4>
+
+		<form #changePasswordForm="ngForm" (ngSubmit)="updatePassword()">
+
+			<div class="form-group">
+				<label for="formGroupExampleInput">Current Password</label>
+				<input type="text"
+					class="form-control"
+					placeholder="Current Password"
+					required
+					[(ngModel)]="updatePasswordData.passwordCurrent"
+					name="current-password">
+			</div>
+
+			<div class="form-group">
+				<label for="formGroupExampleInput">New Password</label>
+				<input type="password"
+					class="form-control"
+					placeholder="New Password"
+					required
+					[(ngModel)]="updatePasswordData.password"
+					name="password">
+			</div>
+
+			<div class="form-group">
+				<label for="formGroupExampleInput">New Password Confirmation</label>
+				<input type="password"
+					class="form-control"
+					placeholder="New Password Confirmation"
+					required
+					[(ngModel)]="updatePasswordData.passwordConfirmation"
+					name="password-confirmation">
+			</div>
+
+			<button
+				type="submit"
+				class="btn btn-primary"
+				[disabled]="!changePasswordForm.form.valid">
+				Update Password
+			</button>
+
+		</form>
+
+	</div>
+</div>
+  </div>
+</div>
+
 
           <div class="input-field col s6">
             <input
@@ -37,14 +93,14 @@
           <div class="input-field col s6">
             <input
                   type="email"
-                  id="parent_email"
+                  id="email"
                   placeholder=""
                   [(ngModel)]="authTokenService.currentUserData.email"
-                  name='parent_email'
+                  name='email'
                   #parent_email="ngModel"
                   [readonly]="!editMode"
             >
-            <label class="active" for="parent_email">Email</label>
+            <label class="active" for="email">Email</label>
           </div>
 
           <div class="container">
@@ -54,10 +110,11 @@
             <i class="material-icons right">close</i>
           </button>
 
-          <a  (click)="updateStudent(student)" *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
+          <a *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
              type="button" name="action">Salvar alterações
             <i class="material-icons right">send</i>
           </a>
+
     </div>
   </div>
 </div>
