@@ -10,8 +10,6 @@ import { Angular2TokenService, SignInData,
 @Injectable()
 export class AuthService {
 
-  updatePasswordData: UpdatePasswordData = <UpdatePasswordData>{};
-
   userSignedIn$:Subject<boolean> = new Subject();
 
   constructor(public _tokenService:Angular2TokenService) {

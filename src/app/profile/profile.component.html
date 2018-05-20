@@ -18,64 +18,12 @@
               type="button" name="action">Deletar Perfil
               <i class="material-icons right">delete</i>
             </a>
+
+            <a class="btn waves-effect waves-light gradient-inclucare" type="button" (click)="openNewPassawordModal()">Trocar Senha
+            <i class="material-icons right">lock</i>
+          </a>
           </div>
         </div>
-
-<a class="waves-effect waves-light btn modal-trigger" (click)="openNewPassawordModal()">Modal</a>
-
-<!-- Modal Structure -->
-<div id="modal" class="modal" materialize="modal" [materializeActions]="modalActions">
-  <div class="modal-content">
-    <div class="col-md-6">
-	<div class="card card-block">
-		<h4 class="card-title">Update Password</h4>
-
-		<form #changePasswordForm="ngForm" (ngSubmit)="updatePassword()">
-
-			<div class="form-group">
-				<label for="formGroupExampleInput">Current Password</label>
-				<input type="text"
-					class="form-control"
-					placeholder="Current Password"
-					required
-					[(ngModel)]="updatePasswordData.passwordCurrent"
-					name="current-password">
-			</div>
-
-			<div class="form-group">
-				<label for="formGroupExampleInput">New Password</label>
-				<input type="password"
-					class="form-control"
-					placeholder="New Password"
-					required
-					[(ngModel)]="updatePasswordData.password"
-					name="password">
-			</div>
-
-			<div class="form-group">
-				<label for="formGroupExampleInput">New Password Confirmation</label>
-				<input type="password"
-					class="form-control"
-					placeholder="New Password Confirmation"
-					required
-					[(ngModel)]="updatePasswordData.passwordConfirmation"
-					name="password-confirmation">
-			</div>
-
-			<button
-				type="submit"
-				class="btn btn-primary"
-				[disabled]="!changePasswordForm.form.valid">
-				Update Password
-			</button>
-
-		</form>
-
-	</div>
-</div>
-  </div>
-</div>
-
 
           <div class="input-field col s6">
             <input
@@ -121,4 +69,57 @@
 
     </form>
   </div>
+
+<div id="modal" class="modal" materialize="modal" [materializeActions]="modalActions">
+    <div class="modal-content">
+      <div class="col-md-6">
+  	     <div class="card card-block">
+  		       <h4 class="card-title">Trocar Senha</h4>
+
+  		<form #changePasswordForm="ngForm" (ngSubmit)="updatePassword()">
+
+  			<div class="form-group">
+  				<label for="formGroupExampleInput">Senha Atual</label>
+  				<input type="password"
+  					class="form-control"
+  					placeholder="Senha Atual"
+  					required
+  					[(ngModel)]="updatePasswordData.passwordCurrent"
+  					name="current-password">
+  			</div>
+
+  			<div class="form-group">
+  				<label for="formGroupExampleInput">Nova Senha</label>
+  				<input type="password"
+  					class="form-control"
+  					placeholder="Nova Senha"
+  					required
+  					[(ngModel)]="updatePasswordData.password"
+  					name="password">
+  			</div>
+
+  			<div class="form-group">
+  				<label for="formGroupExampleInput">Confirmação Nova Senha</label>
+  				<input type="password"
+  					class="form-control"
+  					placeholder="Confirmação Nova Senha"
+  					required
+  					[(ngModel)]="updatePasswordData.passwordConfirmation"
+  					name="password-confirmation">
+  			</div>
+
+  			<button
+  				type="submit"
+  				class="btn btn-primary right"
+  				[disabled]="!changePasswordForm.form.valid">
+  				Enviar
+  			</button>
+
+</form>
+
+  	   </div>
+    </div>
+  </div>
+</div>
+
 </div>
