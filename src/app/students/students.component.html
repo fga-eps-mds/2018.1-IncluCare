@@ -4,6 +4,7 @@
     Adicionar Aluno
     <i class="material-icons left">person_add</i>
   </a>
+  <!-- <input type="text" id="pesquisa" ng-model="pesquisaAluno" placeholder="Digite a pesquisa"> -->
 </div>
 
 <div class="container">
@@ -13,7 +14,9 @@
   <table class="striped">
     <thead>
       <tr>
+      <!-- <tr ng-repeat="StudentsTable in students | filter:pesquisaAluno"> -->
         <th data-field="name">Nome</th>
+
         <!-- <th data-field="birth_date">Data de nascimento</th> -->
         <!-- <th data-field="age">Idade</th> -->
         <!-- <th data-field="nationality">Nacionalidade</th> -->
@@ -26,6 +29,14 @@
         <th data-field="parent_telephone">Telefone do responsável</th>
         <th data-field="parent_email">Email do responsável</th>
         <th></th> <!-- Espaço referente aos botôes de ação -->
+      </tr>
+
+      <tr>
+        <th><input type="text" id="src1" placeholder="Nome"></th>
+        <th><input type="text" id="src2" placeholder="Ano"></th>
+        <th><input type="text" id="src3" placeholder="Turma"></th>
+        <th><input type="text" id="src4" placeholder="Telefone"></th>
+        <th><input type="text" id="src5" placeholder="Email"></th>
       </tr>
     </thead>
 
