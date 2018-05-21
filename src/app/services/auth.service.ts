@@ -4,7 +4,8 @@ import { Response }   from "@angular/http";
 import { Subject, Observable } from "rxjs";
 import 'rxjs/add/operator/map';
 
-import { Angular2TokenService, SignInData, RegisterData } from "angular2-token";
+import { Angular2TokenService, SignInData,
+  RegisterData, UpdatePasswordData} from "angular2-token";
 
 @Injectable()
 export class AuthService {
@@ -49,6 +50,12 @@ export class AuthService {
   public userSignedIn(){
 
   }
+
+  public updatePassword(updatePasswordData: UpdatePasswordData): Observable<Response>{
+
+    return this._tokenService.updatePassword(updatePasswordData)
+    .catch(this.handleErrors)
+    }
 
   private handleErrors(error: Response){
     console.log("SALVANDO O ERRO NUM ARQUIVO DE LOG - DETALHES DO ERRO => ", error);
