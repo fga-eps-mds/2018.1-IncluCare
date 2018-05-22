@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule }                       from '@angular/http';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
 
@@ -18,6 +19,7 @@ describe('ProfileComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [ ProfileComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ],
       imports: [
         HttpModule,
         FormsModule,
