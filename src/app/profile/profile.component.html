@@ -1,23 +1,125 @@
-<div class="row">
-  <div class="col l8 s12 offset-l2">
-    <div class="card blue-grey lighten-5 z-depth-4" style="margin-top: 5em">
-      <div class="card-content">
-        <div style="margin-bottom: 0" class="row ">
-          <div class="col l4 s12 center" style="margin-bottom: 1em">
-            <i class="fa fa-user-circle-o blue-grey-text darken-2" style="font-size: 8em" aria-hidden="true"></i>
-          </div>
-          <div *ngIf="authTokenService.currentUserData" class="col l8 s12" >
-            <ul class="collection grey-text text-darken-2">
-              <li class="collection-item">Email:  <b>{{authTokenService.currentUserData.email}}</b></li>
-              <li class="collection-item">Name:  <b>{{authTokenService.currentUserData.name}}</b></li>
-              <li class="collection-item">Username: <b>@{{authTokenService.currentUserData.nickname}}</b></li>
-            </ul>
+<div id="showprofile" *ngIf="authTokenService.currentUserData">
+
+  <div class="col l4 s12 center">
+    <br/>
+    <i class="fa fa-user-circle-o blue-grey-text darken-2" style="font-size: 8em"></i>
+  </div>
+
+  <div class="card">
+    <h4 align="center"> Perfil </h4>
+    <form id="data" role="form">
+      <div class="row">
+        <div class="container">
+          <div class="card-action" align="right">
+            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar Dados
+              <i class="material-icons right">edit</i>
+            </a>
+            <a href="/students" class="btn waves-effect waves-light gradient-inclucare"
+              type="button" name="action">Deletar Perfil
+              <i class="material-icons right">delete</i>
+            </a>
+
+            <a class="btn waves-effect waves-light gradient-inclucare" type="button" (click)="openNewPassawordModal()">Trocar Senha
+            <i class="material-icons right">lock</i>
+          </a>
           </div>
         </div>
-        <div class="card-action clearfix">
-          <button (click)="logOut()" class="btn btn-block deep-orange darken-1 white-text waves-effect waves-light right"> LOGOUT </button>
-        </div>
-      </div>
+
+          <div class="input-field col s6">
+            <input
+                   type="text"
+                   id="name"
+                   placeholder=""
+                   [(ngModel)]="authTokenService.currentUserData.name"
+                   name="name"
+                   #name="ngModel"
+                   [readonly]="!editMode"
+            >
+            <label class="active" for="name">Nome</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input
+                  type="email"
+                  id="email"
+                  placeholder=""
+                  [(ngModel)]="authTokenService.currentUserData.email"
+                  name='email'
+                  #parent_email="ngModel"
+                  [readonly]="!editMode"
+            >
+            <label class="active" for="email">Email</label>
+          </div>
+
+          <div class="container">
+            <div class="card-action" align="center">
+          <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
+             type="button" name="action">Cancelar
+            <i class="material-icons right">close</i>
+          </button>
+
+          <a *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
+             type="button" name="action">Salvar alterações
+            <i class="material-icons right">send</i>
+          </a>
+
     </div>
   </div>
+</div>
+
+    </form>
+  </div>
+
+<div id="modal" class="modal" materialize="modal" [materializeActions]="modalActions">
+    <div class="modal-content">
+      <div class="col-md-6">
+  	     <div class="card card-block">
+  		       <h4 class="card-title">Trocar Senha</h4>
+
+  		<form #changePasswordForm="ngForm" (ngSubmit)="updatePassword()">
+
+  			<div class="form-group">
+  				<label for="formGroupExampleInput">Senha Atual</label>
+  				<input type="password"
+  					class="form-control"
+  					placeholder="Senha Atual"
+  					required
+  					[(ngModel)]="updatePasswordData.passwordCurrent"
+  					name="current-password">
+  			</div>
+
+  			<div class="form-group">
+  				<label for="formGroupExampleInput">Nova Senha</label>
+  				<input type="password"
+  					class="form-control"
+  					placeholder="Nova Senha"
+  					required
+  					[(ngModel)]="updatePasswordData.password"
+  					name="password">
+  			</div>
+
+  			<div class="form-group">
+  				<label for="formGroupExampleInput">Confirmação Nova Senha</label>
+  				<input type="password"
+  					class="form-control"
+  					placeholder="Confirmação Nova Senha"
+  					required
+  					[(ngModel)]="updatePasswordData.passwordConfirmation"
+  					name="password-confirmation">
+  			</div>
+
+  			<button
+  				type="submit"
+  				class="btn btn-primary right"
+  				[disabled]="!changePasswordForm.form.valid">
+  				Enviar
+  			</button>
+
+</form>
+
+  	   </div>
+    </div>
+  </div>
+</div>
+
 </div>
