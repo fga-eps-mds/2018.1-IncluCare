@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Router } from "@angular/router";
+
+import { Angular2TokenService, UpdatePasswordData } from "angular2-token";
+import { MaterializeAction } from "angular2-materialize"
+
 import { AuthService } from "../services/auth.service";
-import { Angular2TokenService } from "angular2-token";
 
 @Component({
   selector: 'app-profile',
@@ -11,16 +13,32 @@ import { Angular2TokenService } from "angular2-token";
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public authTokenService:Angular2TokenService,
-    public authService:AuthService,
-    private router:Router
+updatePasswordData: UpdatePasswordData = <UpdatePasswordData>{};
+modalActions = new EventEmitter<string|MaterializeAction>();
+
+  constructor(
+    public authTokenService: Angular2TokenService,
+    public authService: AuthService,
+    private router: Router
   ) {}
 
-  logOut(){
-    this.authService.logOutUser().subscribe(() => this.router.navigate(['/']));
+  ngOnInit() {}
+
+  openNewPassawordModal(){
+    this.modalActions.emit({action:"modal", params:['open']});
   }
 
-  ngOnInit() {
+  closeNewPasswordModal(){
+    this.modalActions.emit({action:"modal", params:['close']});
   }
+
+  updatePassword(){
+    this.authService.updatePassword(this.updatePasswordData).subscribe(
+           res => {
+               this.updatePasswordData    = <UpdatePasswordData>{};
+           }
+       );
+  }
+
 
 }

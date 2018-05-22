@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 
+import { MaterializeDirective } from "angular2-materialize";
+import { Angular2TokenService } from "angular2-token";
+
 import { AuthService } from "../services/auth.service";
-import { AuthDialogComponent } from "../login/auth-dialog/auth-dialog.component";
+import { RegisterFormComponent } from "../register/register-form/register-form.component";
 
 @Component({
   selector:     'app-toolbar',
@@ -10,21 +13,25 @@ import { AuthDialogComponent } from "../login/auth-dialog/auth-dialog.component"
   styleUrls:    ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  @ViewChild('authDialog') authDialog: AuthDialogComponent;
+  @ViewChild('registerForm') registerForm: RegisterFormComponent;
 
   constructor(
+    public authTokenService: Angular2TokenService,
     public authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {}
 
   logOut(){
-    this.authService.logOutUser().subscribe(() => this.router.navigate(['/']));
+    this.authService.logOutUser()
+    .subscribe(
+      () => this.router.navigate(['/login'])
+    )
   }
 
-  presentAuthDialog(mode?: 'login'| 'register'){
-    this.authDialog.openDialog(mode);
+  presentAuthDialog(){
+    this.registerForm.openDialog();
   }
 
 }

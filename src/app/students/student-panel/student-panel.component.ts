@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 
 import { StudentService } from '../shared/student.service';
 
-import { Student } from "../shared/student";
+import {Student} from "../shared/student";
 
 import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'app-student-form',
-  templateUrl: './student-form.component.html',
-  styleUrls: ['./student-form.component.css']
+  selector: 'app-student-panel',
+  templateUrl: './student-panel.component.html',
+  styleUrls: ['./student-panel.component.css']
 })
-export class StudentFormComponent implements OnInit {
-
+export class StudentPanelComponent implements OnInit {
   name: string;
   student: Student = new Student();
+
 
   constructor(
 
@@ -28,8 +28,6 @@ export class StudentFormComponent implements OnInit {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
 
-      this.name = id ? 'Editar Estudante' : 'Criar Estudante';
-
       if (!id)
         return;
 
@@ -40,14 +38,15 @@ export class StudentFormComponent implements OnInit {
     });
   }
 
-  save() {
-    var result;
-
-    if (this.student.id){
-      result = this.studentService.updateStudent(this.student);
-    } else {
-      result = this.studentService.addStudent(this.student);
+  deleteStudent(student) {
+    if (confirm("Você tem certeza que quer deletar o estudante " + student.name + "?")) {
+      this.studentService.deleteStudent(student.id).subscribe(null);
     }
+  }
+
+  updateStudent(student){
+    var result;
+    result = this.studentService.updateStudent(this.student);
 
     result.subscribe(data => this.router.navigate(['/students']));
   }
