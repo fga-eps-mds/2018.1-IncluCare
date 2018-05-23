@@ -22,6 +22,9 @@ import { StudentPanelComponent } from './students/student-panel/student-panel.co
 import { DailyLogComponent } from './students/daily-log/daily-log.component';
 import { DailyLogService } from './students/shared/dailylog.service';
 import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.component';
+import { ReportService } from './students/shared/report.service';
+import { ReportComponent } from './students/report/report.component';
+import { ReportFormComponent } from './students/report-form/report-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.
     StudentFormComponent,
     StudentPanelComponent,
     DailyLogComponent,
-    DailyLogFormComponent
+    DailyLogFormComponent,
+    ReportComponent,
+    ReportFormComponent
   ],
   imports: [
     HttpModule,
@@ -50,7 +55,8 @@ import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.
     AuthService,
     Angular2TokenService,
     StudentService,
-    DailyLogService
+    DailyLogService,
+    ReportService
   ],
   bootstrap: [ AppComponent ]
 })

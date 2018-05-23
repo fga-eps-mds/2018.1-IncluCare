@@ -19,7 +19,7 @@ describe('DailyLogComponent', () => {
         RouterTestingModule
       ],
       declarations: [ DailyLogComponent ],
-      providers: [DailyLogService,]
+      providers: [DailyLogService]
     })
     .compileComponents();
   }));
