@@ -31,17 +31,23 @@
         <th></th> <!-- Espaço referente aos botôes de ação -->
       </tr>
 
-      <tr>
+    <!--  <tr>
         <th><input type="text" id="src1" placeholder="Nome"></th>
         <th><input type="text" id="src2" placeholder="Ano"></th>
         <th><input type="text" id="src3" placeholder="Turma"></th>
         <th><input type="text" id="src4" placeholder="Telefone"></th>
         <th><input type="text" id="src5" placeholder="Email"></th>
-      </tr>
+      </tr> -->
     </thead>
 
+<div>
+  <div class="filter-wrap">
+    <input [(ngModel)]="searchText" placeholder="Filter Student" class="filter-input">
+  </div>
+
+</div>
     <tbody>
-      <tr *ngFor="let s of getStudents()">
+      <tr *ngFor="let s of getStudents() | filter : searchText">
         <td>{{ s.name }}</td>
         <!-- <td>{{ s.birth_date }}</td> -->
         <!-- <td>{{ s.age }}</td> -->
