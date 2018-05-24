@@ -1,10 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA }                 from '@angular/core';
 import { HttpModule }                       from '@angular/http';
-import { RegisterFormComponent }            from './register-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
+
 import { Angular2TokenService }             from 'angular2-token';
+import { MaterializeAction }                from 'angular2-materialize';
+
 import { AuthService }                      from "../../services/auth.service";
+import { RegisterFormComponent }            from './register-form.component';
 
 describe('RegisterFormComponent', () => {
   let component: RegisterFormComponent;
@@ -16,6 +20,7 @@ describe('RegisterFormComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [ RegisterFormComponent ],
+      schemas: [NO_ERRORS_SCHEMA],
       imports: [
         HttpModule,
         FormsModule,
@@ -29,6 +34,7 @@ describe('RegisterFormComponent', () => {
     })
     .compileComponents();
   }));
+
   beforeEach(() => {
     fixture = TestBed.createComponent(RegisterFormComponent);
     component = fixture.componentInstance;

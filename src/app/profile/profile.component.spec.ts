@@ -1,9 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Angular2TokenService }             from 'angular2-token';
-import { ProfileComponent } from './profile.component';
 import { HttpModule }                       from '@angular/http';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
+
+import { Angular2TokenService }             from 'angular2-token';
+
+import { ProfileComponent }                 from './profile.component';
 import { AuthService }                      from "../services/auth.service";
 
 describe('ProfileComponent', () => {
@@ -16,6 +19,7 @@ describe('ProfileComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [ ProfileComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ],
       imports: [
         HttpModule,
         FormsModule,

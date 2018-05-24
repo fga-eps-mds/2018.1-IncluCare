@@ -55,13 +55,8 @@
         <td>{{ s.parent_telephone }}</td>
         <td>{{ s.parent_email }}</td>
         <td>
-          <a [routerLink]="['/students', s.id]">
-            Editar
-          </a>
-        </td>
-        <td>
-          <a (click)="deleteStudent(s)" href="/students">
-            Deletar
+          <a [routerLink]="['/panel', s.id]">
+            Visualizar perfil
           </a>
         </td>
       </tr>
