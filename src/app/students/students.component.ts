@@ -1,10 +1,10 @@
 import { Component, OnInit }  from '@angular/core';
 import { StudentService }     from './shared/student.service';
 import { Student }            from "./shared/student";
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule }      from '@angular/platform-browser';
+import { FormsModule }        from '@angular/forms';
 import { Pipe, PipeTransform } from '@angular/core';
-import { FilterPipe } from './filter.pipe';
+import { FilterStudentClass } from './filterStudentClass.pipe';
 
 
 @Component({
@@ -14,8 +14,6 @@ import { FilterPipe } from './filter.pipe';
 })
 export class StudentsComponent implements OnInit {
 
-  name: string;
-  searchText: string = "";
 
   private students: Student[] = [];
 

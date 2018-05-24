@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
 import { AuthService }                      from "../services/auth.service";
-import { FilterPipe }                       from "./filter.pipe";
+import { FilterStudentClass }                       from "./filterStudentClass.pipe";
 
 describe('StudentsComponent', () => {
   let component: StudentsComponent;
@@ -17,7 +17,7 @@ describe('StudentsComponent', () => {
     tokenMock.validateToken.and.returnValue(tokenMock);
     TestBed.configureTestingModule({
       declarations: [ StudentsComponent,
-      FilterPipe ],
+      FilterStudentClass ],
       imports: [
         HttpModule,
         FormsModule,

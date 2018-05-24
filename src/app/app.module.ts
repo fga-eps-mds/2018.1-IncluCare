@@ -22,7 +22,7 @@ import { StudentPanelComponent }            from './students/student-panel/stude
 import { DailyLogComponent }                from './students/daily-log/daily-log.component';
 import { DailyLogService }                  from './students/shared/dailylog.service';
 import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';
-import { FilterPipe }                       from './students/filter.pipe';
+import { FilterStudentClass }               from './students/filterStudentClass.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { FilterPipe }                       from './students/filter.pipe';
     StudentPanelComponent,
     DailyLogComponent,
     DailyLogFormComponent,
-    FilterPipe
+    FilterStudentClass
   ],
   imports: [
     HttpModule,
