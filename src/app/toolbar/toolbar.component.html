@@ -8,10 +8,18 @@
           <i class="material-icons left">account_circle</i>
           <i class="material-icons right">arrow_drop_down</i>
         </a></li>
-      </ul>
-      <ul *ngIf="(authService.userSignedIn$ | async)" class="right">
         <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar_alunos" data-beloworigin="true">
-          {{"alunos"}}
+          {{"ALUNOS"}}
+          <i class="material-icons left">account_circle</i>
+          <i class="material-icons right">arrow_drop_down</i>
+        </a></li>
+        <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar_membros" data-beloworigin="true">
+          {{"MEMBRO DA EQUIPE"}}
+          <i class="material-icons left">account_circle</i>
+          <i class="material-icons right">arrow_drop_down</i>
+        </a></li>
+        <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar_acoes" data-beloworigin="true">
+          {{"AÇÕES"}}
           <i class="material-icons left">account_circle</i>
           <i class="material-icons right">arrow_drop_down</i>
         </a></li>
@@ -24,7 +32,7 @@
   <li><a (click)="presentAuthDialog()">
     REGISTER
     <i class="material-icons left">person_add</i>
-  </a></li>profile
+  </a></li>
   <li><a [routerLink]="['/profile']">
     PROFILE
     <i class="material-icons left">person</i>
@@ -45,6 +53,24 @@
     <i class="material-icons left">person_add</i>
   </a></li>
 
+</ul>
+
+<ul id="dropdown_bar_membros" class="dropdown-content">
+  <li><a [routerLink]="['/']"> <!-- vai ser commit futuro -->
+    Ver Membros
+    <i class="material-icons left">person</i>
+  </a></li>
+  <li><a [routerLink]="['/profile']">
+    Painel do Administrador
+    <i class="material-icons left">person</i>
+  </a></li>
+</ul>
+
+<ul id="dropdown_bar_acoes" class="dropdown-content">
+  <li><a [routerLink]="['/']"> <!-- vai ser commit futuro -->
+    Sem ações
+    <i class="material-icons left">person</i>
+  </a></li>
 </ul>
 
 <app-register-form #registerForm ></app-register-form>
