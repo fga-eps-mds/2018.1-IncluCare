@@ -9,6 +9,13 @@
           <i class="material-icons right">arrow_drop_down</i>
         </a></li>
       </ul>
+      <ul *ngIf="(authService.userSignedIn$ | async)" class="right">
+        <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar_alunos" data-beloworigin="true">
+          {{"alunos"}}
+          <i class="material-icons left">account_circle</i>
+          <i class="material-icons right">arrow_drop_down</i>
+        </a></li>
+      </ul>
     </div>
   </nav>
 </div>
@@ -17,7 +24,7 @@
   <li><a (click)="presentAuthDialog()">
     REGISTER
     <i class="material-icons left">person_add</i>
-  </a></li>
+  </a></li>profile
   <li><a [routerLink]="['/profile']">
     PROFILE
     <i class="material-icons left">person</i>
@@ -26,6 +33,18 @@
     LOGOUT
     <i class="material-icons left">keyboard_tab</i>
   </a></li>
+</ul>
+
+<ul id="dropdown_bar_alunos" class="dropdown-content">
+  <li><a [routerLink]="['/students']">
+    Ver Alunos
+    <i class="material-icons left">person</i>
+  </a></li>
+  <li><a [routerLink]="['/students/new']">
+    Cadastrar Aluno
+    <i class="material-icons left">person_add</i>
+  </a></li>
+
 </ul>
 
 <app-register-form #registerForm ></app-register-form>
