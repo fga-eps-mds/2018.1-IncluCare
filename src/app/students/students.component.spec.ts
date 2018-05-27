@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule }              from '@angular/router/testing';
 import { AuthService }                      from "../services/auth.service";
+import { FilterStudentClass }                       from "./filterStudentClass.pipe";
 
 describe('StudentsComponent', () => {
   let component: StudentsComponent;
@@ -15,7 +16,8 @@ describe('StudentsComponent', () => {
     let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
     tokenMock.validateToken.and.returnValue(tokenMock);
     TestBed.configureTestingModule({
-      declarations: [ StudentsComponent ],
+      declarations: [ StudentsComponent,
+      FilterStudentClass ],
       imports: [
         HttpModule,
         FormsModule,

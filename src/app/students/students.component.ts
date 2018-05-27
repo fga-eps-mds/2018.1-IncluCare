@@ -1,7 +1,11 @@
 import { Component, OnInit }  from '@angular/core';
-
 import { StudentService }     from './shared/student.service';
 import { Student }            from "./shared/student";
+import { BrowserModule }      from '@angular/platform-browser';
+import { FormsModule }        from '@angular/forms';
+import { Pipe, PipeTransform } from '@angular/core';
+import { FilterStudentClass } from './filterStudentClass.pipe';
+
 
 @Component({
   selector: 'app-students',
@@ -10,9 +14,11 @@ import { Student }            from "./shared/student";
 })
 export class StudentsComponent implements OnInit {
 
+
   private students: Student[] = [];
 
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService) {
+     }
 
   ngOnInit() {
     this.studentService.getStudents()

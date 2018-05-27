@@ -12,8 +12,8 @@ import { DailyLogComponent } from './students/daily-log/daily-log.component';
 import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.component';
 
 const APP_ROUTES: Routes = [
-  { path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                           },
-  { path: 'login'             , component: LoginComponent       ,                     canActivate: [LoginGuard]},
+  //{ path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                           },
+  { path: 'login'             , component: LoginComponent       ,                     /*canActivate: [LoginGuard]*/},
   { path: 'profile'           , component: ProfileComponent     ,                     canActivate: [AuthGuard]},
   { path: 'students'          , component: StudentsComponent    , pathMatch: 'full' , canActivate: [AuthGuard]},
   { path: 'students/new'      , component: StudentFormComponent ,                     canActivate: [AuthGuard]},

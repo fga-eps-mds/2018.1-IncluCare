@@ -9,7 +9,7 @@ import { Angular2TokenService }             from 'angular2-token';
 import { AppComponent }                     from './app.component';
 import { routes }                           from './app.routes';
 import { AuthGuard }                        from "./guards/auth.guard";
-import { LoginGuard }                        from "./guards/login.guard";
+import { LoginGuard }                       from "./guards/login.guard";
 import { AuthService }                      from "./services/auth.service";
 import { LoginComponent }                   from './login/login.component';
 import { RegisterFormComponent }            from './register/register-form/register-form.component';
@@ -18,10 +18,11 @@ import { StudentService }                   from './students/shared/student.serv
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
 import { ToolbarComponent }                 from './toolbar/toolbar.component';
-import { StudentPanelComponent } from './students/student-panel/student-panel.component';
-import { DailyLogComponent } from './students/daily-log/daily-log.component';
-import { DailyLogService } from './students/shared/dailylog.service';
-import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.component';
+import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
+import { DailyLogComponent }                from './students/daily-log/daily-log.component';
+import { DailyLogService }                  from './students/shared/dailylog.service';
+import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';
+import { FilterStudentClass }               from './students/filterStudentClass.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.
     StudentFormComponent,
     StudentPanelComponent,
     DailyLogComponent,
-    DailyLogFormComponent
+    DailyLogFormComponent,
+    FilterStudentClass
   ],
   imports: [
     HttpModule,
