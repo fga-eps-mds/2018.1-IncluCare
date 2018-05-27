@@ -14,8 +14,8 @@ import { ReportComponent } from './students/report/report.component';
 import { ReportFormComponent } from './students/report-form/report-form.component';
 
 const APP_ROUTES: Routes = [
-  { path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                           },
-  { path: 'login'             , component: LoginComponent       ,                     canActivate: [LoginGuard]},
+  //{ path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                           },
+  { path: 'login'             , component: LoginComponent       ,                     /*canActivate: [LoginGuard]*/},
   { path: 'profile'           , component: ProfileComponent     ,                     canActivate: [AuthGuard]},
   { path: 'students'          , component: StudentsComponent    , pathMatch: 'full' , canActivate: [AuthGuard]},
   { path: 'students/new'      , component: StudentFormComponent ,                     canActivate: [AuthGuard]},
