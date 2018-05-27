@@ -40,7 +40,7 @@ import { ReportFormComponent }              from './students/report-form/report-
     DailyLogComponent,
     DailyLogFormComponent,
     ReportComponent,
-    ReportFormComponent
+    ReportFormComponent,
     FilterStudentClass
   ],
   imports: [
