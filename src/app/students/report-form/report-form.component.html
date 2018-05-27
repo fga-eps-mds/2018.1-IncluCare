@@ -6,93 +6,33 @@
         <div class="container">
           <div class="input-field">
             <label for="reason">Motivo do Encaminhamento</label>
-            <input
-                  type="text"
-                  id="reason"
-                  required [(ngModel)]="report.reason"
-                  name="reason"
-                  class="validate"
-                  #reason="ngModel">
-            <span
-                  class="helper-text"
-                  *ngIf="!reason.valid && reason.touched"
-                  data-error="wrong"
-                  data-success="right">Motivo é necessário!</span>
+            <textarea id="reason" class="validate materialize-textarea" required [(ngModel)]="report.reason" name="reason" #reason="ngModel"></textarea>
+            <span class="helper-text" *ngIf="!reason.valid && reason.touched" data-error="wrong" data-success="right">Motivo é necessário!</span>
           </div>
           <div class="input-field">
             <label for="general_information">Informações Gerais</label>
-            <input
-                  type="text"
-                  id="general_information"
-                  required [(ngModel)]="report.general_information"
-                  name="general_information"
-                  class="validate"
-                  #general_information="ngModel">
-            <span
-                  class="helper-text"
-                  *ngIf="!general_information.valid && general_information.touched"
-                  data-error="wrong"
-                  data-success="right">Informações Gerais são necessárias!</span>
+            <textarea id="general_information" class="validate materialize-textarea" required [(ngModel)]="report.general_information" name="general_information" #general_information="ngModel"></textarea>
+            <span class="helper-text" *ngIf="!general_information.valid && general_information.touched" data-error="wrong" data-success="right">Informações Gerais são necessárias!</span>
           </div>
           <div class="input-field">
             <label for="synthesis">Síntese da Investigação Pedagógica e Psicológica</label>
-            <input
-                  type="text"
-                  id="synthesis"
-                  required [(ngModel)]="report.synthesis"
-                  name="synthesis"
-                  class="validate"
-                  #synthesis="ngModel">
-            <span
-                  class="helper-text"
-                  *ngIf="!synthesis.valid && synthesis.touched"
-                  data-error="wrong"
-                  data-success="right">Síntese é necessária!</span>
+            <textarea id="synthesis" class="validate materialize-textarea" required [(ngModel)]="report.synthesis" name="synthesis" #synthesis="ngModel"></textarea>
+            <span class="helper-text" *ngIf="!synthesis.valid && synthesis.touched" data-error="wrong" data-success="right">Síntese é necessária!</span>
           </div>
           <div class="input-field">
             <label for="conclusion">Conclusão / Encaminhamentos</label>
-            <input
-                  type="text"
-                  id="conclusion"
-                  required [(ngModel)]="report.conclusion"
-                  name="conclusion"
-                  class="validate"
-                  #conclusion="ngModel">
-            <span
-                  class="helper-text"
-                  *ngIf="!conclusion.valid && conclusion.touched"
-                  data-error="wrong"
-                  data-success="right">Conclusão é necessária!</span>
+            <textarea id="conclusion" class="validate materialize-textarea" required [(ngModel)]="report.conclusion" name="conclusion" #conclusion="ngModel"></textarea>
+            <span class="helper-text" *ngIf="!conclusion.valid && conclusion.touched" data-error="wrong" data-success="right">Conclusão é necessária!</span>
           </div>
           <div class="input-field">
             <label for="family_orientation">Orientação à Família</label>
-            <input
-                  type="text"
-                  id="family_orientation"
-                  required [(ngModel)]="report.family_orientation"
-                  name="family_orientation"
-                  class="validate"
-                  #family_orientation="ngModel">
-            <span
-                  class="helper-text"
-                  *ngIf="!family_orientation.valid && family_orientation.touched"
-                  data-error="wrong"
-                  data-success="right">Orientação à Família é necessária!</span>
+            <textarea id="family_orientation" class="validate materialize-textarea" required [(ngModel)]="report.family_orientation" name="family_orientation" #family_orientation="ngModel"></textarea>
+            <span class="helper-text" *ngIf="!family_orientation.valid && family_orientation.touched" data-error="wrong" data-success="right">Orientação à Família é necessária!</span>
           </div>
           <div class="input-field">
             <label for="school_orientation">Orientação à Escola</label>
-            <input
-                  type="text"
-                  id="school_orientation"
-                  required [(ngModel)]="report.school_orientation"
-                  name="school_orientation"
-                  class="validate"
-                  #school_orientation="ngModel">
-            <span
-                  class="helper-text"
-                  *ngIf="!school_orientation.valid && school_orientation.touched"
-                  data-error="wrong"
-                  data-success="right">Orientação à Escola é necessária!</span>
+            <textarea id="school_orientation" class="validate materialize-textarea" required [(ngModel)]="report.school_orientation" name="school_orientation" #school_orientation="ngModel"></textarea>
+            <span class="helper-text" *ngIf="!school_orientation.valid && school_orientation.touched" data-error="wrong" data-success="right">Orientação à Escola é necessária!</span>
           </div>
           <div class="container">
             <div class="col s12">
