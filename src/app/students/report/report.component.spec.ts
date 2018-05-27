@@ -3,13 +3,13 @@ import { HttpModule }                       from '@angular/http';
 import { StudentService }                   from '../shared/student.service';
 import { RouterTestingModule }              from '@angular/router/testing';
 import { FormsModule }                      from '@angular/forms';
-import { DailyLogService }                  from '../shared/dailylog.service';
+import { ReportService }                  from '../shared/report.service';
 
-import { DailyLogComponent } from './daily-log.component';
+import { ReportComponent } from './report.component';
 
-describe('DailyLogComponent', () => {
-  let component: DailyLogComponent;
-  let fixture: ComponentFixture<DailyLogComponent>;
+describe('ReportComponent', () => {
+  let component: ReportComponent;
+  let fixture: ComponentFixture<ReportComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,14 +18,14 @@ describe('DailyLogComponent', () => {
         HttpModule,
         RouterTestingModule
       ],
-      declarations: [ DailyLogComponent ],
-      providers: [DailyLogService]
+      declarations: [ ReportComponent ],
+      providers: [ReportService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DailyLogComponent);
+    fixture = TestBed.createComponent(ReportComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

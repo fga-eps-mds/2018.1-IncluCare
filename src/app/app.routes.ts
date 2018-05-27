@@ -10,6 +10,8 @@ import { StudentFormComponent }   from './students/student-form/student-form.com
 import { StudentPanelComponent } from './students/student-panel/student-panel.component';
 import { DailyLogComponent } from './students/daily-log/daily-log.component';
 import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.component';
+import { ReportComponent } from './students/report/report.component';
+import { ReportFormComponent } from './students/report-form/report-form.component';
 
 const APP_ROUTES: Routes = [
   //{ path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                           },
@@ -21,7 +23,9 @@ const APP_ROUTES: Routes = [
   { path: 'students/:id/edit' , component: StudentFormComponent ,                     canActivate: [AuthGuard]},
   { path: 'panel/:id'         ,component: StudentPanelComponent ,                     canActivate: [AuthGuard]},
   { path: 'dailylog/:id', component: DailyLogFormComponent,                                                   },
-  { path: 'dailylogs', component: DailyLogComponent,                                                          }
+  { path: 'dailylogs', component: DailyLogComponent,                                                          },
+  { path: 'report/:id', component: ReportFormComponent,                                                       },
+  { path: 'reports', component: ReportComponent,                                                              }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

@@ -17,12 +17,15 @@ import { ProfileComponent }                 from './profile/profile.component';
 import { StudentService }                   from './students/shared/student.service';
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
+import { FilterStudentClass }               from './students/filterStudentClass.pipe';
 import { ToolbarComponent }                 from './toolbar/toolbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
 import { DailyLogComponent }                from './students/daily-log/daily-log.component';
 import { DailyLogService }                  from './students/shared/dailylog.service';
 import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';
-import { FilterStudentClass }               from './students/filterStudentClass.pipe';
+import { ReportService }                    from './students/shared/report.service';
+import { ReportComponent }                  from './students/report/report.component';
+import { ReportFormComponent }              from './students/report-form/report-form.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { FilterStudentClass }               from './students/filterStudentClass.
     StudentPanelComponent,
     DailyLogComponent,
     DailyLogFormComponent,
+    ReportComponent,
+    ReportFormComponent,
     FilterStudentClass
   ],
   imports: [
@@ -52,7 +57,8 @@ import { FilterStudentClass }               from './students/filterStudentClass.
     AuthService,
     Angular2TokenService,
     StudentService,
-    DailyLogService
+    DailyLogService,
+    ReportService
   ],
   bootstrap: [ AppComponent ]
 })
