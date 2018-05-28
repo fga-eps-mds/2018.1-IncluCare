@@ -2,6 +2,8 @@ a.brand-logo {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
   padding-left: 30px;
+
+  line-height: 64px;
 }
 
 .dropdown-content {
