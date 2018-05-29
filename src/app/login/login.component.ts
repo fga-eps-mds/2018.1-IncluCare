@@ -34,8 +34,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   signInUser(){
+    this.submitted = true;
 
-    this.authService.signIn(this.form.value as any).subscribe(
+    this.authService.signIn(this.form.value as any)
+    .subscribe(
         res => {
           if(res.status == 200){
             this.router.navigate(['/students']);

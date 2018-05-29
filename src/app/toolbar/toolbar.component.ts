@@ -16,18 +16,22 @@ export class ToolbarComponent implements OnInit {
   @ViewChild('registerForm') registerForm: RegisterFormComponent;
 
   constructor(
-    public authTokenService: Angular2TokenService,
     public authService: AuthService,
+    public authTokenService: Angular2TokenService,
     private router: Router
   ) {}
 
   ngOnInit() {}
 
-  logOut(){
-    this.authService.logOutUser()
+  signOut(){
+    this.authService.signOut()
     .subscribe(
       () => this.router.navigate(['/login'])
     )
+  }
+
+  userSignedIn(){
+    return this.authService.userSignedIn();
   }
 
   presentAuthDialog(){
