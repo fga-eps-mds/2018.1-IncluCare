@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Router } from "@angular/router";
 
-import { Angular2TokenService, UpdatePasswordData } from "angular2-token";
+import { Angular2TokenService, UpdatePasswordData, RegisterData } from "angular2-token";
 import { MaterializeAction } from "angular2-materialize"
 
 import { AuthService } from "../services/auth.service";
@@ -14,6 +14,7 @@ import { AuthService } from "../services/auth.service";
 export class ProfileComponent implements OnInit {
 
 updatePasswordData: UpdatePasswordData = <UpdatePasswordData>{};
+updateTeamMember: RegisterData = <RegisterData>{};
 modalActions = new EventEmitter<string|MaterializeAction>();
 
   constructor(
@@ -40,5 +41,13 @@ modalActions = new EventEmitter<string|MaterializeAction>();
        );
   }
 
+  updateTeamMemberData(){
+    this.authService.registerAccount(this.updateTeamMember).subscribe(
+           () => {
+             this.updateTeamMember   = <RegisterData>{};
+             alert('Dados Atualizados!');
+           }
+       );
+  }
 
 }
