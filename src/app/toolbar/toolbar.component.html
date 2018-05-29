@@ -1,19 +1,14 @@
 
-
-
 <div class="side-nav fixed">
   <nav role="navigation">
     <div class="nav-wrapper inclucolor-2">
-
-
-    <div class="section">
-      <a [routerLink]="['/students']" class="brand-logo">IncluCare</a>
+      <div class="section">
+        <a [routerLink]="['/students']" class="brand-logo">IncluCare</a>
+      </div>
     </div>
 
-
-
     <div class="section">
-      <h6>.</h6>
+      
       <ul *ngIf="(authService.userSignedIn$ | async)" class="right">
 
         <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar" data-beloworigin="true">
@@ -38,17 +33,7 @@
         </a></li>
       </ul>
     </div>
-    </div>
   </nav>
-  <!--ul id="slide-out" class="side-nav fixed">
-    <div class="nav-wrapper inclucolor-2">
-    <a [routerLink]="['/students']" class="brand-logo">IncluCare</a>
-    </div>
-    <li><a href="#!">First Sidebar Link</a></li>
-    <li><a href="#!">Second Sidebar Link</a></li>
-  </ul-->
-
-
 </div>
 
 <ul id="dropdown_bar" class="dropdown-content">
