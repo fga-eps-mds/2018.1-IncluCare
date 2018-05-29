@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Response }   from "@angular/http";
+import { Http } from '@angular/http';
 
 import { Subject, Observable } from "rxjs";
 import 'rxjs/add/operator/map';
@@ -10,12 +11,18 @@ import { Angular2TokenService, SignInData,
 @Injectable()
 export class AuthService {
 
+  private url: string = "http://localhost:3000/auth";
   userSignedIn$:Subject<boolean> = new Subject();
 
-  constructor(public _tokenService:Angular2TokenService) {
+  constructor(public _tokenService:Angular2TokenService, private http: Http) {
     this._tokenService.validateToken().subscribe(
         res => res.status == 200 ? this.userSignedIn$.next(res.json().success) : this.userSignedIn$.next(false)
     )
+  }
+
+  updateTeamMember(teamMemberName){
+    return this.http.put(this.url, {'name': teamMemberName})
+      .map(res => res.json());
   }
 
   logOutUser():Observable<Response>{
