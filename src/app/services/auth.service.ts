@@ -47,10 +47,6 @@ export class AuthService {
       .catch(this.handleErrors)
   }
 
-  public userSignedIn(){
-
-  }
-
   public updatePassword(updatePasswordData: UpdatePasswordData): Observable<Response>{
 
     return this._tokenService.updatePassword(updatePasswordData)
