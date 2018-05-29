@@ -8,8 +8,8 @@
     </div>
 
     <div class="section">
-      
-      <ul *ngIf="(authService.userSignedIn$ | async)" class="right">
+
+      <ul *ngIf="userSignedIn()" class="right">
 
         <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar" data-beloworigin="true">
           {{authTokenService.currentUserData.name}}
@@ -45,7 +45,7 @@
     PROFILE
     <i class="material-icons left">person</i>
   </a></li>
-  <li><a (click)="logOut()">
+  <li><a (click)="signOut()">
     LOGOUT
     <i class="material-icons left">keyboard_tab</i>
   </a></li>
