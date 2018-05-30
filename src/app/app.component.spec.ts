@@ -6,7 +6,7 @@ import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 import { RegisterFormComponent } from './register/register-form/register-form.component';
 
 import { AuthService } from './services/auth.service';
@@ -19,7 +19,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        ToolbarComponent,
+        SidenavComponent,
         RegisterFormComponent
       ],
       imports: [

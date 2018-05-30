@@ -8,11 +8,11 @@ import { AuthService } from "../services/auth.service";
 import { RegisterFormComponent } from "../register/register-form/register-form.component";
 
 @Component({
-  selector:     'app-toolbar',
-  templateUrl:  './toolbar.component.html',
-  styleUrls:    ['./toolbar.component.css']
+  selector:     'app-sidenav',
+  templateUrl:  './sidenav.component.html',
+  styleUrls:    ['./sidenav.component.css']
 })
-export class ToolbarComponent implements OnInit {
+export class SidenavComponent implements OnInit {
   @ViewChild('registerForm') registerForm: RegisterFormComponent;
 
   constructor(

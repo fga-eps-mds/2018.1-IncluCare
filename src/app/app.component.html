@@ -1,16 +1,10 @@
+<header *ngIf="authService.userSignedIn()">
+  <app-sidenav></app-sidenav>
+</header>
 
-<div class="row">
+<main>
+  <router-outlet></router-outlet>
+</main>
 
-  <div class="col s3">
-    <header>
-      <app-toolbar></app-toolbar>
-    </header>
-  </div>
-
-  <div class="col s9">
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-
-</div>
+<footer>
+</footer>
