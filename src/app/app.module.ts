@@ -26,7 +26,9 @@ import { DailyLogFormComponent }            from './students/daily-log-form/dail
 import { ReportService }                    from './students/shared/report.service';
 import { ReportComponent }                  from './students/report/report.component';
 import { ReportFormComponent }              from './students/report-form/report-form.component';
-import { ReferralService }                from './students/shared/referral.service';
+import { ReferralService }                  from './students/shared/referral.service';
+import { ReferralComponent }                from './students/referral/referral.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { ReferralService }                from './students/shared/referral.servi
     DailyLogFormComponent,
     ReportComponent,
     ReportFormComponent,
-    FilterStudentClass
+    FilterStudentClass,
+    ReferralComponent
   ],
   imports: [
     HttpModule,

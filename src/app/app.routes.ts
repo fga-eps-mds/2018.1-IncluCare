@@ -12,6 +12,7 @@ import { DailyLogComponent } from './students/daily-log/daily-log.component';
 import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.component';
 import { ReportComponent } from './students/report/report.component';
 import { ReportFormComponent } from './students/report-form/report-form.component';
+import { ReferralComponent } from './students/referral/referral.component';
 
 const APP_ROUTES: Routes = [
   { path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                            },
@@ -25,7 +26,8 @@ const APP_ROUTES: Routes = [
   { path: 'dailylog/:id'      , component: DailyLogFormComponent,                     canActivate: [AuthGuard] },
   { path: 'dailylogs'         , component: DailyLogComponent    ,                     canActivate: [AuthGuard] },
   { path: 'report/:id'        , component: ReportFormComponent  ,                     canActivate: [AuthGuard] },
-  { path: 'reports'           , component: ReportComponent      ,                     canActivate: [AuthGuard] }
+  { path: 'reports'           , component: ReportComponent      ,                     canActivate: [AuthGuard] },
+  { path: 'referrals'         , component: ReferralComponent    ,                     canActivate: [AuthGuard] }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
