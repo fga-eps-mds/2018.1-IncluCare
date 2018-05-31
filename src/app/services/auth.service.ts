@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Response } from "@angular/http";
+import { Http } from '@angular/http';
 
 //import { Subject, Observable } from "rxjs";
 import { Subject } from "rxjs";
@@ -8,8 +9,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
 //import { TokenService } from "token.service";
 
-import { Angular2TokenService, SignInData, RegisterData, UpdatePasswordData} from "angular2-token";
-
+import { Angular2TokenService, SignInData, RegisterData, UpdatePasswordData, DeleteAcocount} from "angular2-token";
 @Injectable()
 export class AuthService {
 
@@ -17,10 +17,10 @@ export class AuthService {
 
   constructor(public _tokenService: Angular2TokenService) {}
 
-  public updateTeamMember(teamMemberName){
+  /*public updateTeamMember(teamMemberName){
     return this.http.put(this.url, {'name': teamMemberName})
     .map(res => res.json());
-  }
+  } */
 
   public signIn(signInData: SignInData): Observable<Response>{
     return this._tokenService.signIn(signInData)
@@ -44,6 +44,13 @@ export class AuthService {
 
   public userSignedIn(): boolean{
     return this._tokenService.userSignedIn();
+  }
+
+  public deleteAcocount(): Observable<Response> {
+    this.tokenService.deleteAccount().subscribe(
+    res =>      console.log(res),
+    error =>    console.log(error)
+    );
   }
 
   private handleErrors(error: Response){
