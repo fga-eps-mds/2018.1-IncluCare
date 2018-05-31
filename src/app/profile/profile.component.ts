@@ -24,12 +24,12 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {}
 
-  updateTeamMember(teamMemberName: string){
+/*  updateTeamMember(teamMemberName: string){
     var result;
     result = this.authService.updateTeamMember(teamMemberName);
 
     result.subscribe(data => this.router.navigate(['/students']));
-  }
+  }*/
 
   openNewPassawordModal(){
     this.modalActions.emit({action:"modal", params:['open']});
@@ -46,5 +46,12 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-  
+
+  deleteAccount() {
+    this.authService.deleteAccount().subscribe(
+      res =>      console.log(res),
+      error =>    console.log(error)
+    );
+  }
+
 }

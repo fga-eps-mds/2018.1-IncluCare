@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
 //import { TokenService } from "token.service";
 
-import { Angular2TokenService, SignInData, RegisterData, UpdatePasswordData, DeleteAcocount} from "angular2-token";
+import { Angular2TokenService, SignInData, RegisterData, UpdatePasswordData} from "angular2-token";
 @Injectable()
 export class AuthService {
 
@@ -46,11 +46,8 @@ export class AuthService {
     return this._tokenService.userSignedIn();
   }
 
-  public deleteAcocount(): Observable<Response> {
-    this.tokenService.deleteAccount().subscribe(
-    res =>      console.log(res),
-    error =>    console.log(error)
-    );
+  public deleteAccount(): Observable<Response>{
+    return this._tokenService.deleteAccount();
   }
 
   private handleErrors(error: Response){
