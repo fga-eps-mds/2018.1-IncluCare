@@ -13,6 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ReferralPanelComponent implements OnInit {
   name: string;
+  editMode: boolean;
   referral: Referral = new Referral();
 
 
@@ -38,7 +39,7 @@ export class ReferralPanelComponent implements OnInit {
   }
 
   deleteReferral(referral) {
-    if (confirm("Você tem certeza que quer deletar o encaminhamento" + referral.name + "?")) {
+    if (confirm("Você tem certeza que quer deletar o encaminhamento " + referral.id + "?")) {
       this.referralService.deleteReferral(referral.id).subscribe(null);
     }
   }
