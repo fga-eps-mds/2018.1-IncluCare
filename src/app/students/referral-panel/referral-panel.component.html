@@ -1,0 +1,75 @@
+<div id="showprofile">
+  <div class="card">
+    <h4 align="center"> Painel do Encaminhamento </h4>
+    <form id="referral_data" role="form">
+      <div class="row">
+        <div class="container">
+          <div class="card-action" align="right">
+            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
+              <i class="material-icons right">edit</i>
+            </a>
+            <a (click)="deleteStudent(referral)" href="/referrals" class="btn waves-effect waves-light gradient-inclucare"
+              type="button" name="action">Deletar Encaminhamento
+              <i class="material-icons right">delete</i>
+            </a>
+          </div>
+        </div>
+          <div class="container">
+          <div class="input-field">
+            <label class="active" for="title">Título</label>
+            <input
+                   type="text"
+                   id="title"
+                   placeholder=""
+                   [(ngModel)]="referral.title"
+                   name="title"
+                   #title="ngModel"
+                   [readonly]="!editMode"
+            >
+          </div>
+          <div class="active input-field">
+            <label class="active" for="body">Texto</label>
+            <textarea
+                  id="body"
+                  placeholder=""
+                  [(ngModel)]="referral.body"
+                  name='body'
+                  #body="ngModel"
+                  class="materialize-textarea"
+                  [readonly]="!editMode"
+            ></textarea>
+          </div>
+      </div>
+      <div class="input-field col s6">
+
+          <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
+             type="button" name="action">Cancelar
+            <i class="material-icons right">close</i>
+          </button>
+      </div>
+      <div class="input-field col s6">
+          <a  (click)="updateReferral(referral)" *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
+             type="button" name="action">Salvar alterações
+            <i class="material-icons right">send</i>
+          </a>
+      </div>
+
+
+    </div>
+    </form>
+  </div>
+</div>
+
+<table>
+  <td>
+  <tr>
+    <div class="">
+      <div class="card-action">
+        <a href="" class="btn waves-effect waves-light gradient-inclucare">Gerar PDF
+          <i class="material-icons right">description</i>
+        </a>
+      </div>
+    </div>
+  </tr>
+  </td>
+</table>

@@ -21,7 +21,7 @@
         <td style="word-wrap: break-word; max-width: 300px; white-space: pre-line;">{{ r.body }}</td>
         <td>{{ r.student.id }}</td>
         <td>
-          <a [routerLink]="['/referral']">
+          <a [routerLink]="['/referralpanel', r.id]">
             Visualizar encaminhamento
           </a>
         </td>

@@ -14,6 +14,7 @@ import { ReportComponent } from './students/report/report.component';
 import { ReportFormComponent } from './students/report-form/report-form.component';
 import { ReferralComponent } from './students/referral/referral.component';
 import { ReferralFormComponent } from './students/referral-form/referral-form.component';
+import { ReferralPanelComponent } from './students/referral-panel/referral-panel.component';
 
 const APP_ROUTES: Routes = [
   { path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                            },
@@ -23,13 +24,14 @@ const APP_ROUTES: Routes = [
   { path: 'students/new'      , component: StudentFormComponent ,                     canActivate: [AuthGuard] },
   { path: 'students/:id'      , component: StudentFormComponent ,                     canActivate: [AuthGuard] },
   { path: 'students/:id/edit' , component: StudentFormComponent ,                     canActivate: [AuthGuard] },
-  { path: 'panel/:id'         , component: StudentPanelComponent,                     canActivate: [AuthGuard] },
+  { path: 'studentpanel/:id'  , component: StudentPanelComponent,                     canActivate: [AuthGuard] },
   { path: 'dailylog/:id'      , component: DailyLogFormComponent,                     canActivate: [AuthGuard] },
   { path: 'dailylogs'         , component: DailyLogComponent    ,                     canActivate: [AuthGuard] },
   { path: 'report/:id'        , component: ReportFormComponent  ,                     canActivate: [AuthGuard] },
   { path: 'reports'           , component: ReportComponent      ,                     canActivate: [AuthGuard] },
   { path: 'referrals'         , component: ReferralComponent    ,                     canActivate: [AuthGuard] },
-  { path: 'referral/:id'      , component: ReferralFormComponent,                     canActivate: [AuthGuard] }
+  { path: 'referral/:id'      , component: ReferralFormComponent,                     canActivate: [AuthGuard] },
+  { path: 'referralpanel/:id' , component: ReferralPanelComponent,                    canActivate: [AuthGuard] },
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
