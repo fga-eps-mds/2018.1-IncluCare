@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { ReferralService } from '../shared/referral.service';
 
@@ -6,16 +6,19 @@ import {Referral} from "../shared/referral";
 
 import { Router, ActivatedRoute } from '@angular/router';
 
+import * as jsPDF from 'jspdf';
+
 @Component({
   selector: 'app-referral-panel',
   templateUrl: './referral-panel.component.html',
   styleUrls: ['./referral-panel.component.css']
 })
 export class ReferralPanelComponent implements OnInit {
+
+  @ViewChild( 'content' ) content: ElementRef;
   name: string;
   editMode: boolean;
   referral: Referral = new Referral();
-
 
   constructor(
 
@@ -49,6 +52,25 @@ export class ReferralPanelComponent implements OnInit {
     result = this.referralService.updateReferral(this.referral);
 
     result.subscribe(data => this.router.navigate(['/referrals']));
+  }
+
+  public generatePDFReferral(){
+    let doc = new jsPDF();
+
+    let specialElementHandlers = {
+      '#editor': function(element, renderer){
+        return true;
+      }
+    };
+
+    let content = this.content.nativeElement;
+
+    doc.fromHTML(content.innerHTML, 15, 15, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    doc.save('teste.pdf');
   }
 
 }

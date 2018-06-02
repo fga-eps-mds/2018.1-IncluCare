@@ -4,6 +4,7 @@ import { HttpModule }                       from '@angular/http';
 import { RouterTestingModule }              from '@angular/router/testing';
 import { ReferralPanelComponent } from './referral-panel.component';
 import { FormsModule }                      from '@angular/forms';
+import * as jsPDF from 'jspdf';
 
 describe('ReferralPanelComponent', () => {
   let component: ReferralPanelComponent;

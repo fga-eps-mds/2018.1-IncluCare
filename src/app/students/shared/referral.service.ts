@@ -7,11 +7,12 @@ import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
-export class ReferralService {
+export class ReferralService{
 
   private url: string = "http://localhost:3000/referrals";
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {}
+
 
   getReferrals(){
     return this.http.get(this.url)
