@@ -17,11 +17,6 @@ export class AuthService {
 
   constructor(public _tokenService: Angular2TokenService) {}
 
-  /*public updateTeamMember(teamMemberName){
-    return this.http.put(this.url, {'name': teamMemberName})
-    .map(res => res.json());
-  } */
-
   public signIn(signInData: SignInData): Observable<Response>{
     return this._tokenService.signIn(signInData)
     .catch(this.handleErrors)
@@ -35,6 +30,16 @@ export class AuthService {
   public registerAccount(registerData: RegisterData): Observable<Response>{
     return this._tokenService.registerAccount(registerData)
     .catch(this.handleErrors)
+  }
+
+  public updateTeamMember(teamMemberName, teamMemberEmail): Observable<Response>{
+    let args = {
+        name: teamMemberName,
+        email: teamMemberEmail
+      };
+
+    let body = JSON.stringify(args);
+    return this._tokenService.put('auth', body);
   }
 
   public updatePassword(updatePasswordData: UpdatePasswordData): Observable<Response>{
