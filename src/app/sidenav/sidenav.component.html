@@ -1,82 +1,63 @@
-<div class="side-nav fixed">
-  <nav role="navigation">
-    <div class="nav-wrapper inclucolor-2">
-      <div class="section">
-        <a [routerLink]="['/students']" class="brand-logo">IncluCare</a>
-      </div>
-    </div>
+<ul id="slide-out" class="side-nav fixed">
+  <li class="li-hover mt-6">
+    <p class="ultra-small margin more-text">Alunos</p>
+  </li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li class="bold">
+        <a class="collapsible-header waves-effect waves-cyan">
+          <i class="material-icons">class</i>
+          <span class="nav-text">Alunos</span>
+        </a>
+        <div class="collapsible-body">
+          <ul>
+            <li>
+              <a [routerLink]="['/students']">
+                <i class="material-icons">person</i>
+                <span>Relação de Alunos</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/students/new']">
+                <i class="material-icons">person_add</i>
+                <span>Adicionar Aluno</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
 
-    <div class="section">
-
-      <ul class="right">
-
-        <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar" data-beloworigin="true">
-          {{authTokenService.currentUserData.name}}
-          <i class="material-icons left">account_circle</i>
-          <i class="material-icons right">arrow_drop_down</i>
-        </a></li>
-        <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar_alunos" data-beloworigin="true">
-          {{"ALUNOS"}}
-          <i class="material-icons left">account_circle</i>
-          <i class="material-icons right">arrow_drop_down</i>
-        </a></li>
-        <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar_membros" data-beloworigin="true">
-          {{"MEMBRO DA EQUIPE"}}
-          <i class="material-icons left">account_circle</i>
-          <i class="material-icons right">arrow_drop_down</i>
-        </a></li>
-        <li><a *ngIf="authTokenService.currentUserData" materialize="dropdown" class="dropdown-button" href="#" data-activates="dropdown_bar_acoes" data-beloworigin="true">
-          {{"AÇÕES"}}
-          <i class="material-icons left">account_circle</i>
-          <i class="material-icons right">arrow_drop_down</i>
-        </a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-
-<ul id="dropdown_bar" class="dropdown-content">
-  <li><a (click)="presentAuthDialog()">
-    REGISTER
-    <i class="material-icons left">person_add</i>
-  </a></li>
-  <li><a [routerLink]="['/profile']">
-    PROFILE
-    <i class="material-icons left">person</i>
-  </a></li>
-  <li><a (click)="signOut()">
-    LOGOUT
-    <i class="material-icons left">keyboard_tab</i>
-  </a></li>
-</ul>
-
-<ul id="dropdown_bar_alunos" class="dropdown-content">
-  <li><a [routerLink]="['/students']">
-    Ver Alunos
-    <i class="material-icons left">person</i>
-  </a></li>
-  <li><a [routerLink]="['/students/new']">
-    Cadastrar Aluno
-    <i class="material-icons left">person_add</i>
-  </a></li>
-</ul>
-
-<ul id="dropdown_bar_membros" class="dropdown-content">
-  <li><a [routerLink]="['/']"> <!-- vai ser commit futuro -->
-    Ver Membros
-    <i class="material-icons left">person</i>
-  </a></li>
-  <li><a [routerLink]="['/profile']">
-    Painel do Administrador
-    <i class="material-icons left">person</i>
-  </a></li>
-</ul>
-
-<ul id="dropdown_bar_acoes" class="dropdown-content">
-  <li><a [routerLink]="['/']"> <!-- vai ser commit futuro -->
-    Sem ações
-    <i class="material-icons left">person</i>
-  </a></li>
+  <li class="li-hover">
+    <p class="ultra-small margin more-text">Membro da Equipe</p>
+  </li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li class="bold">
+        <a class="collapsible-header waves-effect waves-cyan">
+          <i class="material-icons">account_circle</i>
+          <span class="nav-text" *ngIf='authTokenService.currentUserData'>{{authTokenService.currentUserData.name}}</span>
+        </a>
+        <div class="collapsible-body">
+          <ul>
+            <li>
+              <a [routerLink]="['/profile']">
+                <i class="material-icons">person</i>
+                <span>Visitar Perfil</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" (click)="presentAuthDialog()">
+                <i class="material-icons">person_add</i>
+                <span>Cadastrar Novo Membro</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <app-register-form #registerForm ></app-register-form>

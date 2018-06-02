@@ -1,0 +1,22 @@
+.navbar-fixed {
+  height: 54px;
+}
+
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse, nav a.brand-logo i {
+  height: 54px;
+  line-height: 54px;
+  background-color: #003355;
+}
+
+nav ul a {
+  font-weight: 500;
+}
+
+a.brand-logo {
+  font-size: 26px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  line-height: 54px;
+  padding-left: 18px;
+  transition: opacity 0.2s linear;
+}
