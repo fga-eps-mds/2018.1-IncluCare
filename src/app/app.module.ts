@@ -18,7 +18,8 @@ import { StudentService }                   from './students/shared/student.serv
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
 import { FilterStudentClass }               from './students/filterStudentClass.pipe';
-import { ToolbarComponent }                 from './toolbar/toolbar.component';
+import { SidenavComponent }                 from './sidenav/sidenav.component';
+import { NavbarComponent }                 from './navbar/navbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
 import { DailyLogComponent }                from './students/daily-log/daily-log.component';
 import { DailyLogService }                  from './students/shared/dailylog.service';
@@ -33,7 +34,8 @@ import { ReportFormComponent }              from './students/report-form/report-
     LoginComponent,
     RegisterFormComponent,
     ProfileComponent,
-    ToolbarComponent,
+    SidenavComponent,
+    NavbarComponent,
     StudentsComponent,
     StudentFormComponent,
     StudentPanelComponent,

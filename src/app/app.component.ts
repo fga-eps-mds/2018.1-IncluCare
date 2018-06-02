@@ -1,8 +1,9 @@
-import { Component }            from '@angular/core';
+import { Component } from '@angular/core';
 
-import { Angular2TokenService } from "angular2-token";
+import { Angular2TokenService } from 'angular2-token';
 
-import { environment }          from "../environments/environment";
+import { environment } from '../environments/environment';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector:     'app-root',
@@ -10,7 +11,10 @@ import { environment }          from "../environments/environment";
   styleUrls:    ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private _tokenService: Angular2TokenService) {
+  constructor(
+    public authService: AuthService,
+    private _tokenService: Angular2TokenService
+  ){
     this._tokenService.init(environment.token_auth_config);
   }
 }
