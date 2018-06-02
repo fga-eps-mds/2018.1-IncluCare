@@ -8,7 +8,7 @@ import { Angular2TokenService } from 'angular2-token';
 import { StudentsComponent } from './students.component';
 import { AuthService } from "../services/auth.service";
 import { StudentsService } from '../services/students.service';
-import { FilterClass } from "./shared/filter-class.pipe";
+import { FilterClassPipe } from "./shared/filter-class.pipe";
 
 describe('StudentsComponent', () => {
   let component: StudentsComponent;
@@ -19,7 +19,7 @@ describe('StudentsComponent', () => {
     tokenMock.validateToken.and.returnValue(tokenMock);
     TestBed.configureTestingModule({
       declarations: [ StudentsComponent,
-      FilterClass ],
+      FilterClassPipe ],
       imports: [
         HttpModule,
         FormsModule,

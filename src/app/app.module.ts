@@ -17,7 +17,7 @@ import { ProfileComponent }                 from './profile/profile.component';
 import { StudentsService }                   from './services/students.service';
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
-import { FilterClass }               from './students/shared/filter-class.pipe';
+import { FilterClassPipe }               from './students/shared/filter-class.pipe';
 import { SidenavComponent }                 from './sidenav/sidenav.component';
 import { NavbarComponent }                 from './navbar/navbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
@@ -41,7 +41,7 @@ import { ReportFormComponent }              from './students/report-form/report-
     DailyLogFormComponent,
     ReportComponent,
     ReportFormComponent,
-    FilterClass
+    FilterClassPipe
   ],
   imports: [
     HttpModule,

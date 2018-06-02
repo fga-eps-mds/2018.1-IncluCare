@@ -1,8 +1,9 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Injectable, Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'filter',
 })
-export class FilterClass implements PipeTransform {
+@Injectable()
+export class FilterClassPipe implements PipeTransform {
   transform(items: any[], searchClass: string): any[] {
     if(!items) return [];
     if(!searchClass) return items;

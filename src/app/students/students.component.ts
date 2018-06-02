@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { Student } from "../services/models";
 import { StudentsService } from '../services/students.service';
-import { FilterClass } from './shared/filter-class.pipe';
+import { FilterClassPipe } from './shared/filter-class.pipe';
 
 @Component({
   selector: 'app-students',
