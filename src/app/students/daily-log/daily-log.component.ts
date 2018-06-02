@@ -1,7 +1,8 @@
-import { Component, OnInit }      from '@angular/core';
-import { DailyLogService }        from '../shared/dailylog.service';
-import { DailyLog }                 from "../shared/dailylog";
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { DailyLog } from "../../services/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-daily-log',
@@ -13,7 +14,7 @@ export class DailyLogComponent implements OnInit {
    private daily_logs: DailyLog[] = [];
 
   constructor(
-    private dailylogService: DailyLogService,
+    private dailylogService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

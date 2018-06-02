@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ReportService } from '../shared/report.service';
-
-import { Report } from "../shared/report";
-
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Report } from "../../services/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-report-form',
@@ -18,7 +16,7 @@ export class ReportFormComponent implements OnInit {
   idC: number;
   constructor(
 
-    private reportService: ReportService,
+    private reportService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -27,7 +25,7 @@ export class ReportFormComponent implements OnInit {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
 
-      this.name = id ? 'Editar Relatório' : 'Criar Relatório';
+      this.name = id ? 'Editar Relatório do Aluno' : 'Novo Relatório do Aluno';
 
       if (!id)
         return;

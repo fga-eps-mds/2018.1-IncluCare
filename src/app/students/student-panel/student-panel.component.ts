@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { StudentService } from '../shared/student.service';
-
-import {Student} from "../shared/student";
-
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Student } from "../../services/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-student-panel',
@@ -16,10 +13,10 @@ export class StudentPanelComponent implements OnInit {
   name: string;
   student: Student = new Student();
 
+  editMode: boolean;
 
   constructor(
-
-    private studentService: StudentService,
+    private studentService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

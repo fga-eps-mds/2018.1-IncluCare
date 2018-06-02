@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ReportService }        from '../shared/report.service';
-import { Report }                 from "../shared/report";
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Report } from "../../services/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-report',
@@ -13,7 +14,7 @@ export class ReportComponent implements OnInit {
    private reports: Report[] = [];
 
   constructor(
-    private reportService: ReportService,
+    private reportService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

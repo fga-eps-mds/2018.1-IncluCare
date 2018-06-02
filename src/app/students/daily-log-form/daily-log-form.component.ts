@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { DailyLogService } from '../shared/dailylog.service';
-
-import { DailyLog } from "../shared/dailylog";
-
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { DailyLog } from "../../services/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-daily-log-form',
@@ -18,7 +16,7 @@ export class DailyLogFormComponent implements OnInit {
   idC: number;
   constructor(
 
-    private daily_logService: DailyLogService,
+    private daily_logService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
