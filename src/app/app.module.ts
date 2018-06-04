@@ -27,6 +27,7 @@ import { DailyLogFormComponent }            from './students/daily-log-form/dail
 import { ReportService }                    from './students/shared/report.service';
 import { ReportComponent }                  from './students/report/report.component';
 import { ReportFormComponent }              from './students/report-form/report-form.component';
+import { RecommendationsComponent } from './students/recommendations/recommendations.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ReportFormComponent }              from './students/report-form/report-
     DailyLogFormComponent,
     ReportComponent,
     ReportFormComponent,
-    FilterStudentClass
+    FilterStudentClass,
+    RecommendationsComponent
   ],
   imports: [
     HttpModule,
