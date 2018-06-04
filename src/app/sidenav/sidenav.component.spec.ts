@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
 
-import { ToolbarComponent } from './toolbar.component';
+import { SidenavComponent } from './sidenav.component';
 import { RegisterFormComponent } from '../register/register-form/register-form.component';
 
 import { AuthService } from '../services/auth.service';
@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ToolbarComponent,
+        SidenavComponent,
         RegisterFormComponent
       ],
       imports: [
@@ -34,7 +34,7 @@ describe('AppComponent', () => {
   }));
 
   it('should create', async(() => {
-    const fixture = TestBed.createComponent(ToolbarComponent);
+    const fixture = TestBed.createComponent(SidenavComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
