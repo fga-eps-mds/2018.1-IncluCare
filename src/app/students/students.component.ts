@@ -2,7 +2,7 @@ import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { Student } from "../services/models";
+import { Student } from "../shared/models";
 import { StudentsService } from '../services/students.service';
 import { FilterClassPipe } from './shared/filter-class.pipe';
 

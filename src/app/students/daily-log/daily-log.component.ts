@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { DailyLog } from "../../services/models";
+import { DailyLog } from "../../shared/models";
 import { StudentsService } from '../../services/students.service';
 
 @Component({
