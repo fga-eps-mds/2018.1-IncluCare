@@ -59,3 +59,10 @@ export class Report {
   possibly_adequation: string;
   student_id: any;
 }
+
+/*
+possibly_saa: string;
+possibly_eeaa: string;
+possibly_resources: string;
+possibly_adequation: string;
+*/
