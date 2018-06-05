@@ -1,0 +1,19 @@
+<div class="container">
+    <h3>Criar Encaminhamento</h3>
+    <form (ngSubmit)="save()" #f="ngForm">
+      <div>
+        <label for="title">Título do Encaminhamento</label>
+        <input type="text" id="title" required [(ngModel)]="referral.title" name="title" class="validate" #title="ngModel">
+        <span class="helper-text"  *ngIf="!title.valid && title.touched" data-error="wrong" data-success="right">Título é necessário!</span>
+      </div>
+      <div>
+        <label for="body">Texto</label>
+        <textarea id="body" required [(ngModel)]="referral.body" name='body' class="validate materialize-textarea" #body="ngModel"></textarea>
+        <span class="helper-text"  *ngIf="!body.valid && body.touched" data-error="wrong" data-success="right">Texto é necessário</span>
+      </div>
+      <div class="col s12">
+        <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn blue right">Enviar</button>
+      </div>
+    </form>
+    <a routerLink="/referrals">Voltar</a>
+</div>
