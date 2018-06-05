@@ -3,9 +3,8 @@ import { HttpModule }                       from '@angular/http';
 import { StudentService }                   from '../shared/student.service';
 import { RouterTestingModule }              from '@angular/router/testing';
 import { FormsModule }                      from '@angular/forms';
-import { ReportService }                  from '../shared/report.service';
-
-import { ReportComponent } from './report.component';
+import { ReportService }                    from '../shared/report.service';
+import { ReportComponent }                  from './report.component';
 
 describe('ReportComponent', () => {
   let component: ReportComponent;
