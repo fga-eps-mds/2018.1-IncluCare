@@ -27,7 +27,7 @@ const APP_ROUTES: Routes = [
   { path: 'dailylogs'         , component: DailyLogComponent    ,                     canActivate: [AuthGuard] },
   { path: 'report/:id'        , component: ReportFormComponent  ,                     canActivate: [AuthGuard] },
   { path: 'reports'           , component: ReportComponent      ,                     canActivate: [AuthGuard] },
-  { path: 'recommendation'    , component: RecommendationsComponent,                  canActivate: [AuthGuard  }
+  { path: 'recommendation'    , component: RecommendationsComponent,                  canActivate: [AuthGuard]  }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
