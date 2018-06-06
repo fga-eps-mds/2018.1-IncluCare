@@ -1,0 +1,95 @@
+<div id="showprofile">
+  <div class="card">
+    <h4 align="center"> Painel do Encaminhamento </h4>
+    <form id="referral_data" role="form">
+      <div class="row">
+        <div class="row">
+          <div class="card-action" align="right">
+            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
+              <i class="material-icons right">edit</i>
+            </a>
+            <a (click)="deleteReferral(referral)" href="/referrals" class="btn waves-effect waves-light gradient-inclucare"
+              type="button" name="action">Deletar Encaminhamento
+              <i class="material-icons right">delete</i>
+            </a>
+          </div>
+        </div>
+          <div *ngIf = "referral?.student" class="container">
+            <div *ngIf="!editMode" id="content" #content>
+               <h4 align="center">Dados do Estudante</h4>
+               <p>Estabelecimento de Ensino: Escola Classe 401</p>
+               <p>Nome: {{referral.student.name}}</p>
+               <p>Data de Nascimento: {{referral.student.birth_date}}</p>
+               <p>Ano: {{referral.student.year}}</p>
+               <p>Turno: {{referral.student.shift}}</p>
+               <p>Turma: {{referral.student.student_class}}</p>
+               <p>Naturalidade: {{referral.student.nationality}}</p>
+               <p>Sexo:</p>
+               <p>Filiação:</p>
+               <p>Endereço: {{referral.student.address}}</p>
+               <p>Telefone: {{referral.student.parent_telephone}}</p>
+
+               <h4 align="center">{{referral.title}}</h4>
+               <div style="word-wrap: break-word; max-width: 1000px; white-space: pre-line;">
+               {{referral.body}}
+             </div>
+            </div>
+          <div *ngIf="editMode" id="edit" #edit>
+          <div class="input-field">
+            <label class="active" for="title">Título</label>
+            <input
+                   type="text"
+                   id="title"
+                   placeholder=""
+                   [(ngModel)]="referral.title"
+                   name="title"
+                   #title="ngModel"
+                   [readonly]="!editMode"
+            >
+          </div>
+          <div class="active input-field">
+            <label class="active" for="body">Texto</label>
+            <textarea
+                  id="body"
+                  placeholder=""
+                  [(ngModel)]="referral.body"
+                  name='body'
+                  #body="ngModel"
+                  class="materialize-textarea"
+                  [readonly]="!editMode"
+            ></textarea>
+          </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+            <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
+               type="button" name="action">Cancelar
+              <i class="material-icons right">close</i>
+            </button>
+        </div>
+        <div class="input-field col s6">
+            <a  (click)="updateReferral(referral)" *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
+               type="button" name="action">Salvar alterações
+              <i class="material-icons right">send</i>
+            </a>
+        </div>
+    </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+<table>
+  <td>
+  <tr>
+    <div id = "content" #content>
+      <div class="card-action">
+        <a class="btn waves-effect waves-light gradient-inclucare" (click) = "generatePDFReferral()" >Gerar PDF
+          <i class="material-icons right">description</i>
+        </a>
+      </div>
+    </div>
+  </tr>
+  </td>
+</table>

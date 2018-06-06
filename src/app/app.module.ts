@@ -27,7 +27,14 @@ import { DailyLogFormComponent }            from './students/daily-log-form/dail
 import { ReportService }                    from './students/shared/report.service';
 import { ReportComponent }                  from './students/report/report.component';
 import { ReportFormComponent }              from './students/report-form/report-form.component';
+<<<<<<< HEAD
 import { RecommendationsComponent } from './students/recommendations/recommendations.component';
+=======
+import { ReferralService }                  from './students/shared/referral.service';
+import { ReferralComponent }                from './students/referral/referral.component';
+import { ReferralFormComponent }            from './students/referral-form/referral-form.component';
+import { ReferralPanelComponent } from './students/referral-panel/referral-panel.component';
+>>>>>>> development
 
 @NgModule({
   declarations: [
@@ -45,7 +52,13 @@ import { RecommendationsComponent } from './students/recommendations/recommendat
     ReportComponent,
     ReportFormComponent,
     FilterStudentClass,
+<<<<<<< HEAD
     RecommendationsComponent
+=======
+    ReferralComponent,
+    ReferralFormComponent,
+    ReferralPanelComponent
+>>>>>>> development
   ],
   imports: [
     HttpModule,
@@ -62,7 +75,8 @@ import { RecommendationsComponent } from './students/recommendations/recommendat
     Angular2TokenService,
     StudentService,
     DailyLogService,
-    ReportService
+    ReportService,
+    ReferralService
   ],
   bootstrap: [ AppComponent ]
 })
