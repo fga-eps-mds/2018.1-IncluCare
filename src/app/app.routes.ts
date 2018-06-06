@@ -12,15 +12,10 @@ import { DailyLogComponent }      from './students/daily-log/daily-log.component
 import { DailyLogFormComponent }  from './students/daily-log-form/daily-log-form.component';
 import { ReportComponent }        from './students/report/report.component';
 import { ReportFormComponent }    from './students/report-form/report-form.component';
-import { StudentPanelComponent } from './students/student-panel/student-panel.component';
-import { DailyLogComponent } from './students/daily-log/daily-log.component';
-import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.component';
-import { ReportComponent } from './students/report/report.component';
-import { ReportFormComponent } from './students/report-form/report-form.component';
-import { ReferralComponent } from './students/referral/referral.component';
-import { ReferralFormComponent } from './students/referral-form/referral-form.component';
+import { ReferralComponent }      from './students/referral/referral.component';
+import { ReferralFormComponent }  from './students/referral-form/referral-form.component';
 import { ReferralPanelComponent } from './students/referral-panel/referral-panel.component';
-import {RecommendationsComponent} from './students/recommendations/recommendations.component';
+import { RecommendationFormComponent } from './students/recommendation-form/recommendation-form.component';
 
 
 const APP_ROUTES: Routes = [
@@ -39,7 +34,7 @@ const APP_ROUTES: Routes = [
   { path: 'referrals'         , component: ReferralComponent    ,                     canActivate: [AuthGuard] },
   { path: 'referral/:id'      , component: ReferralFormComponent,                     canActivate: [AuthGuard] },
   { path: 'referralpanel/:id' , component: ReferralPanelComponent,                    canActivate: [AuthGuard] },
-  { path: 'recommendation'    , component: RecommendationsComponent,                  canActivate: [AuthGuard] }
+  { path: 'recommendation'    , component: RecommendationFormComponent,               canActivate: [AuthGuard] }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

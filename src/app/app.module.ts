@@ -27,14 +27,11 @@ import { DailyLogFormComponent }            from './students/daily-log-form/dail
 import { ReportService }                    from './students/shared/report.service';
 import { ReportComponent }                  from './students/report/report.component';
 import { ReportFormComponent }              from './students/report-form/report-form.component';
-<<<<<<< HEAD
-import { RecommendationsComponent } from './students/recommendations/recommendations.component';
-=======
 import { ReferralService }                  from './students/shared/referral.service';
 import { ReferralComponent }                from './students/referral/referral.component';
 import { ReferralFormComponent }            from './students/referral-form/referral-form.component';
 import { ReferralPanelComponent } from './students/referral-panel/referral-panel.component';
->>>>>>> development
+import { RecommendationFormComponent } from './students/recommendation-form/recommendation-form.component';
 
 @NgModule({
   declarations: [
@@ -52,13 +49,10 @@ import { ReferralPanelComponent } from './students/referral-panel/referral-panel
     ReportComponent,
     ReportFormComponent,
     FilterStudentClass,
-<<<<<<< HEAD
-    RecommendationsComponent
-=======
     ReferralComponent,
     ReferralFormComponent,
-    ReferralPanelComponent
->>>>>>> development
+    ReferralPanelComponent,
+    RecommendationFormComponent
   ],
   imports: [
     HttpModule,
