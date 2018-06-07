@@ -1,49 +1,45 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule }    from '@angular/router/testing';
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Angular2TokenService }             from 'angular2-token';
-import { MaterializeModule }                from 'angular2-materialize';
 
-import { AppComponent }           from './app.component';
+import { MaterializeModule } from 'angular2-materialize';
+import { Angular2TokenService } from 'angular2-token';
 
-import { AuthService }                      from "./services/auth.service";
-import { ToolbarComponent }       from './toolbar/toolbar.component';
-import { RegisterFormComponent }  from './register/register-form/register-form.component';
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { RegisterFormComponent } from './register/register-form/register-form.component';
 
-describe('AppComponent', ()=> {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+import { AuthService } from './services/auth.service';
+
+describe('AppComponent', () => {
+  let tokenMock = jasmine.createSpyObj('tokenMock', ['init', 'validateToken', 'subscribe']);
+  tokenMock.validateToken.and.returnValue(tokenMock);
 
   beforeEach(async(() => {
-    let tokenMock = jasmine.createSpyObj('tokenMock', ['init', 'validateToken', 'subscribe']);
-    tokenMock.validateToken.and.returnValue(tokenMock);
-
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        ToolbarComponent,
+        NavbarComponent,
+        SidenavComponent,
         RegisterFormComponent
       ],
-      imports:[
-        FormsModule,
-        ReactiveFormsModule,
+      imports: [
         RouterTestingModule,
-        MaterializeModule
+        MaterializeModule,
+        FormsModule,
+        ReactiveFormsModule
       ],
       providers: [
         AuthService,
-        {provide: Angular2TokenService, useValue: tokenMock}
+        { provide: Angular2TokenService, useValue: tokenMock }
       ]
     }).compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create the app', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }));
 });

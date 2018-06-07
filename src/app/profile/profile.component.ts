@@ -13,8 +13,8 @@ import { AuthService } from "../services/auth.service";
 })
 export class ProfileComponent implements OnInit {
 
-updatePasswordData: UpdatePasswordData = <UpdatePasswordData>{};
-modalActions = new EventEmitter<string|MaterializeAction>();
+  updatePasswordData: UpdatePasswordData = <UpdatePasswordData>{};
+  modalActions = new EventEmitter<string|MaterializeAction>();
 
   constructor(
     public authTokenService: Angular2TokenService,
@@ -34,11 +34,21 @@ modalActions = new EventEmitter<string|MaterializeAction>();
 
   updatePassword(){
     this.authService.updatePassword(this.updatePasswordData).subscribe(
-           res => {
-               this.updatePasswordData    = <UpdatePasswordData>{};
-           }
-       );
+      res => {
+        this.updatePasswordData    = <UpdatePasswordData>{};
+    });
   }
 
+  deleteAccount() {
+    this.authService.deleteAccount().subscribe(
+      res =>      console.log(res),
+      error =>    console.log(error)
+    );
+  }
+
+  updateTeamMember(teamMemberName, teamMemberEmail) {
+    return this.authService.updateTeamMember(teamMemberName, teamMemberEmail)
+    .subscribe();
+  }
 
 }
