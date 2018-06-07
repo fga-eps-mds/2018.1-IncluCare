@@ -3,10 +3,10 @@ import { RecomendationData } from "../shared/recommendationData";
 
 @Component({
   selector: 'app-recommendation-form',
-  templateUrl: './recommendation-form.component.html',
-  styleUrls: ['./recommendation-form.component.css']
+  templateUrl: './recommendation-panel.component.html',
+  styleUrls: ['./recommendation-panel.component.css']
 })
-export class RecommendationFormComponent implements OnInit {
+export class RecommendationPanelComponent implements OnInit {
 
   constructor() { }
 

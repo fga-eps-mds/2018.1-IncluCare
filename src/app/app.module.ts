@@ -31,7 +31,7 @@ import { ReferralService }                  from './students/shared/referral.ser
 import { ReferralComponent }                from './students/referral/referral.component';
 import { ReferralFormComponent }            from './students/referral-form/referral-form.component';
 import { ReferralPanelComponent } from './students/referral-panel/referral-panel.component';
-import { RecommendationFormComponent } from './students/recommendation-form/recommendation-form.component';
+import { RecommendationPanelComponent } from './students/recommendation-panel/recommendation-panel.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import { RecommendationFormComponent } from './students/recommendation-form/reco
     ReferralComponent,
     ReferralFormComponent,
     ReferralPanelComponent,
-    RecommendationFormComponent
+    RecommendationPanelComponent
   ],
   imports: [
     HttpModule,

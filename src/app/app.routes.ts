@@ -15,7 +15,7 @@ import { ReportFormComponent }    from './students/report-form/report-form.compo
 import { ReferralComponent }      from './students/referral/referral.component';
 import { ReferralFormComponent }  from './students/referral-form/referral-form.component';
 import { ReferralPanelComponent } from './students/referral-panel/referral-panel.component';
-import { RecommendationFormComponent } from './students/recommendation-form/recommendation-form.component';
+import { RecommendationPanelComponent } from './students/recommendation-panel/recommendation-panel.component';
 
 
 const APP_ROUTES: Routes = [
@@ -34,7 +34,7 @@ const APP_ROUTES: Routes = [
   { path: 'referrals'         , component: ReferralComponent    ,                     canActivate: [AuthGuard] },
   { path: 'referral/:id'      , component: ReferralFormComponent,                     canActivate: [AuthGuard] },
   { path: 'referralpanel/:id' , component: ReferralPanelComponent,                    canActivate: [AuthGuard] },
-  { path: 'recommendation'    , component: RecommendationFormComponent,               canActivate: [AuthGuard] }
+  { path: 'recommendation'    , component: RecommendationPanelComponent,               canActivate: [AuthGuard] }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
