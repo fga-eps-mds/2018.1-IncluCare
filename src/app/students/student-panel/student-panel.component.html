@@ -88,7 +88,7 @@
             name='nationality'
             #nationality="ngModel"
             [readonly]="!editMode">
-            <label class="active" for="nationality">Nacionalidade</label>
+            <label class="active" for="nationality">Naturalidade</label>
           </div>
           <div class="input-field col s6">
             <input
@@ -114,14 +114,14 @@
           </div>
           <div class="input-field col s4">
             <input
-            type="email"
-            id="parent_email"
+            type="text"
+            id="responsible"
             placeholder=""
-            [(ngModel)]="student.parent_email"
-            name='parent_email'
-            #parent_email="ngModel"
+            [(ngModel)]="student.responsible"
+            name='responsible'
+            #responsible="ngModel"
             [readonly]="!editMode">
-            <label class="active" for="parent_email">Email do responsável</label>
+            <label class="active" for="responsible">Nome do responsável</label>
           </div>
           <div class="input-field col s2">
             <input

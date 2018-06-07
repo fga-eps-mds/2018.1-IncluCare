@@ -44,9 +44,9 @@
             <span class="helper-text"  *ngIf="!shift.valid && shift.touched" data-error="wrong" data-success="right">Turno do estudante é necessário!</span>
           </div>
           <div class="input-field col s5">
-            <label for="nationality">Nacionalidade</label>
+            <label for="nationality">Naturalidade</label>
             <input type="text" id="nationality" required [(ngModel)]="student.nationality" name='nationality' class="validate" #nationality="ngModel">
-            <span class="helper-text"  *ngIf="!nationality.valid && nationality.touched" data-error="wrong" data-success="right">Nacionalidade é necessária!</span>
+            <span class="helper-text"  *ngIf="!nationality.valid && nationality.touched" data-error="wrong" data-success="right">Naturalidade é necessária!</span>
           </div>
           <div class="input-field col s6">
             <label for="father_name">Nome do pai</label>
@@ -59,9 +59,9 @@
             <span class="helper-text"  *ngIf="!mother_name.valid && mother_name.touched" data-error="wrong" data-success="right">Nome é necessário!</span>
           </div>
           <div class="input-field col s4">
-            <label for="parent_email">Email do responsável</label>
-            <input type="email" id="parent_email" required [(ngModel)]="student.parent_email" name='parent_email' class="validate" #parent_email="ngModel">
-            <span class="helper-text"  *ngIf="!parent_email.valid && parent_email.touched" data-error="wrong" data-success="right">name@exemple.com</span>
+            <label for="responsible">Nome do responsável</label>
+            <input type="text" id="responsible" required [(ngModel)]="student.responsible" name='responsible' class="validate" #responsible="ngModel">
+            <span class="helper-text"  *ngIf="!responsible.valid && responsible.touched" data-error="wrong" data-success="right">Nome é necessário!</span>
           </div>
           <div class="input-field col s2">
             <label for="parent_telephone">Telefone do responsável</label>

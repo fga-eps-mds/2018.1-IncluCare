@@ -9,9 +9,10 @@ export class Student {
   nationality: string;
   father_name: string;
   mother_name: string;
+  responsible: string;
   address: string;
   parent_telephone: number;
-  parent_email: string;
+  //parent_email: string;
 }
 
 export class DailyLog {
