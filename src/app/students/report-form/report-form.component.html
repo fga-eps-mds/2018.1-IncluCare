@@ -1,0 +1,202 @@
+<section id="content">
+
+  <div class="container">
+    <div class="row mb-0">
+      <div class="col s10 m6 l6">
+        <h5 class="mt-2 mb-0">{{name}}</h5>
+        <p class="m-0 mb-2">Nome do aluno aqui</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card container">
+    <div class="container">
+      <form id="reportdata" role="form" (ngSubmit)="save()" #f="ngForm">
+        <div class="row">
+          <div class="container">
+            <div class="input-field col s12">
+              <label for="member_name">Seu nome</label>
+              <textarea id="member_name" class="validate materialize-textarea" required [(ngModel)]="report.member_name" name="member_name" #member_name="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!member_name.valid && member_name.touched" data-error="wrong" data-success="right">Seu nome é necessário!</span>
+            </div>
+            <div class="input-field col s8">
+              <label for="school_name">Escola</label>
+              <textarea id="school_name" class="validate materialize-textarea" required [(ngModel)]="report.school_name" name="school_name" #school_name="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!school_name.valid && school_name.touched" data-error="wrong" data-success="right">Escola é necessário!</span>
+            </div>
+            <div class="input-field col s4">
+              <label for="school_phone">Tel. da Escola</label>
+              <textarea id="school_phone" class="validate materialize-textarea" required [(ngModel)]="report.school_phone" name="school_phone" #school_phone="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!school_phone.valid && school_phone.touched" data-error="wrong" data-success="right">Tel. da Escola é necessário!</span>
+            </div>
+
+            <div class="input-field col s6">
+              <label for="init_date">Inicio do processo de acompanhamento</label>
+              <textarea id="init_date" class="validate materialize-textarea" required [(ngModel)]="report.init_date" name="init_date" #init_date="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!init_date.valid && init_date.touched" data-error="wrong" data-success="right">Data é necessário!</span>
+            </div>
+            <div class="input-field col s6">
+              <label for="end_date">Final do processo de acompanhamento</label>
+              <textarea id="end_date" class="validate materialize-textarea" required [(ngModel)]="report.end_date" name="end_date" #end_date="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!end_date.valid && end_date.touched" data-error="wrong" data-success="right">Data é necessário!</span>
+            </div>
+
+            <div class="input-field col s12">
+              <label for="reason">Motivo do Encaminhamento</label>
+              <textarea id="reason" class="validate materialize-textarea" required [(ngModel)]="report.reason" name="reason" #reason="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!reason.valid && reason.touched" data-error="wrong" data-success="right">Motivo é necessário!</span>
+            </div>
+            <div class="input-field col s12">
+              <label for="general_information">Informações Gerais</label>
+              <textarea id="general_information" class="validate materialize-textarea" required [(ngModel)]="report.general_information" name="general_information" #general_information="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!general_information.valid && general_information.touched" data-error="wrong" data-success="right">Informações Gerais são necessárias!</span>
+            </div>
+            <div class="input-field col s12">
+              <label for="synthesis">Síntese da Investigação Pedagógica e Psicológica</label>
+              <textarea id="synthesis" class="validate materialize-textarea" required [(ngModel)]="report.synthesis" name="synthesis" #synthesis="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!synthesis.valid && synthesis.touched" data-error="wrong" data-success="right">Síntese é necessária!</span>
+            </div>
+            <div class="input-field col s12">
+              <label for="conclusion">Conclusão / Encaminhamentos</label>
+              <textarea id="conclusion" class="validate materialize-textarea" required [(ngModel)]="report.conclusion" name="conclusion" #conclusion="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!conclusion.valid && conclusion.touched" data-error="wrong" data-success="right">Conclusão é necessária!</span>
+            </div>
+            <div class="input-field col s12">
+              <label for="family_orientation">Orientação à Família</label>
+              <textarea id="family_orientation" class="validate materialize-textarea" required [(ngModel)]="report.family_orientation" name="family_orientation" #family_orientation="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!family_orientation.valid && family_orientation.touched" data-error="wrong" data-success="right">Orientação à Família é necessária!</span>
+            </div>
+            <div class="input-field col s12">
+              <label for="school_orientation">Orientação à Escola</label>
+              <textarea id="school_orientation" class="validate materialize-textarea" required [(ngModel)]="report.school_orientation" name="school_orientation" #school_orientation="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!school_orientation.valid && school_orientation.touched" data-error="wrong" data-success="right">Orientação à Escola é necessária!</span>
+            </div>
+
+            <div class="input-field col s4">
+              <label for="pedagogue_name">Nome da Pedagoga</label>
+              <textarea id="pedagogue_name" class="validate materialize-textarea" required [(ngModel)]="report.pedagogue_name" name="pedagogue_name" #pedagogue_name="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!pedagogue_name.valid && pedagogue_name.touched" data-error="wrong" data-success="right">Nome da Pedagoga é necessária!</span>
+            </div>
+            <div class="input-field col s4">
+              <label for="pedagogue_function">Função da Pedagoga</label>
+              <textarea id="pedagogue_function" class="validate materialize-textarea" required [(ngModel)]="report.pedagogue_function" name="pedagogue_function" #pedagogue_function="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!pedagogue_function.valid && pedagogue_function.touched" data-error="wrong" data-success="right">Função da Pedagoga é necessária!</span>
+            </div>
+            <div class="input-field col s4">
+              <label for="pedagogue_registry">Matrícula da Pedagoga</label>
+              <textarea id="pedagogue_registry" class="validate materialize-textarea" required [(ngModel)]="report.pedagogue_registry" name="pedagogue_registry" #pedagogue_registry="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!pedagogue_registry.valid && pedagogue_registry.touched" data-error="wrong" data-success="right">Matrícula da Pedagoga é necessária!</span>
+            </div>
+
+            <div class="input-field col s4">
+              <label for="psycholog_name">Nome da Psicóloga</label>
+              <textarea id="psycholog_name" class="validate materialize-textarea" required [(ngModel)]="report.psycholog_name" name="psycholog_name" #psycholog_name="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!psycholog_name.valid && psycholog_name.touched" data-error="wrong" data-success="right">Nome da Psicóloga é necessária!</span>
+            </div>
+            <div class="input-field col s4">
+              <label for="psycholog_function">Função da Psicóloga</label>
+              <textarea id="psycholog_function" class="validate materialize-textarea" required [(ngModel)]="report.psycholog_function" name="psycholog_function" #psycholog_function="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!psycholog_function.valid && psycholog_function.touched" data-error="wrong" data-success="right">Função da Psicóloga é necessária!</span>
+            </div>
+            <div class="input-field col s4">
+              <label for="psycholog_registry">Matrícula da Psicóloga</label>
+              <textarea id="psycholog_registry" class="validate materialize-textarea" required [(ngModel)]="report.psycholog_registry" name="psycholog_registry" #psycholog_registry="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!psycholog_registry.valid && psycholog_registry.touched" data-error="wrong" data-success="right">Matrícula da Psicóloga é necessária!</span>
+            </div>
+
+            <div class="input-field col s1">
+              <label for="reason_adequation">Adequação Escolar</label>
+              <textarea id="reason_adequation" class="validate materialize-textarea" required [(ngModel)]="report.reason_adequation" name="reason_adequation" #reason_adequation="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!reason_adequation.valid && reason_adequation.touched" data-error="wrong" data-success="right">Adequação Escolar é necessária!</span>
+            </div>
+            <div class="input-field col s1">
+              <label for="reason_emotional">Dificuldades Emocionais</label>
+              <textarea id="reason_emotional" class="validate materialize-textarea" required [(ngModel)]="report.reason_emotional" name="reason_emotional" #reason_emotional="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!reason_emotional.valid && reason_emotional.touched" data-error="wrong" data-success="right">Dificuldades Emocionais é necessária!</span>
+            </div>
+            <div class="input-field col s1">
+              <label for="reason_performance">Baixo Rendimento Escolar</label>
+              <textarea id="reason_performance" class="validate materialize-textarea" required [(ngModel)]="report.reason_performance" name="reason_performance" #reason_performance="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!reason_performance.valid && reason_performance.touched" data-error="wrong" data-success="right">Baixo Rendimento Escolar é necessária!</span>
+            </div>
+            <div class="input-field col s1">
+              <label for="reason_behavior">Dificuldades de Comportamento</label>
+              <textarea id="reason_behavior" class="validate materialize-textarea" required [(ngModel)]="report.reason_behavior" name="reason_behavior" #reason_behavior="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!reason_behavior.valid && reason_behavior.touched" data-error="wrong" data-success="right">Dificuldades de Comportamento é necessária!</span>
+            </div>
+            <div class="input-field col s1">
+              <label for="reason_language">Dificuldades de Linguagem</label>
+              <textarea id="reason_language" class="validate materialize-textarea" required [(ngModel)]="report.reason_language" name="reason_language" #reason_language="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!reason_language.valid && reason_language.touched" data-error="wrong" data-success="right">Dificuldades de Linguagem é necessária!</span>
+            </div>
+
+            <div class="input-field col s2">
+              <label for="level_school">Nível 1: Escola</label>
+              <textarea id="level_school" class="validate materialize-textarea" required [(ngModel)]="report.level_school" name="level_school" #level_school="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!level_school.valid && level_school.touched" data-error="wrong" data-success="right">Nível é necessária!</span>
+            </div>
+            <div class="input-field col s2">
+              <label for="level_family">Nível 2: Família</label>
+              <textarea id="level_family" class="validate materialize-textarea" required [(ngModel)]="report.level_family" name="level_family" #level_family="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!level_family.valid && level_family.touched" data-error="wrong" data-success="right">Nível é necessária!</span>
+            </div>
+            <div class="input-field col s3">
+              <label for="level_student">Nível 3: Aluno</label>
+              <textarea id="level_student" class="validate materialize-textarea" required [(ngModel)]="report.level_student" name="level_student" #level_student="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!level_student.valid && level_student.touched" data-error="wrong" data-success="right">Nível é necessária!</span>
+            </div>
+
+            <div class="input-field col s12">
+              <label for="envolved_school">Envolvidos: Escola</label>
+              <textarea id="envolved_school" class="validate materialize-textarea" required [(ngModel)]="report.envolved_school" name="envolved_school" #envolved_school="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!envolved_school.valid && envolved_school.touched" data-error="wrong" data-success="right">Envolvidos é necessária!</span>
+            </div>
+            <div class="input-field col s12">
+              <label for="envolved_family">Envolvidos: Familia</label>
+              <textarea id="envolved_family" class="validate materialize-textarea" required [(ngModel)]="report.envolved_family" name="envolved_family" #envolved_family="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!envolved_family.valid && envolved_family.touched" data-error="wrong" data-success="right">Envolvidos é necessária!</span>
+            </div>
+            <div class="input-field col s12">
+              <label for="envolved_student">Envolvidos: Aluno</label>
+              <textarea id="envolved_student" class="validate materialize-textarea" required [(ngModel)]="report.envolved_student" name="envolved_student" #envolved_student="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!envolved_student.valid && envolved_student.touched" data-error="wrong" data-success="right">Envolvidos é necessária!</span>
+            </div>
+
+            <div class="input-field col s12">
+              <label for="realized_actions">Ações realizadas</label>
+              <textarea id="realized_actions" class="validate materialize-textarea" required [(ngModel)]="report.realized_actions" name="realized_actions" #realized_actions="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!realized_actions.valid && realized_actions.touched" data-error="wrong" data-success="right">Envolvidos é necessária!</span>
+            </div>
+
+            <div class="input-field col s3">
+              <label for="possibly_saa">SAA</label>
+              <textarea id="possibly_saa" class="validate materialize-textarea" required [(ngModel)]="report.possibly_saa" name="possibly_saa" #possibly_saa="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!possibly_saa.valid && possibly_saa.touched" data-error="wrong" data-success="right">SAA é necessária!</span>
+            </div>
+            <div class="input-field col s3">
+              <label for="possibly_eeaa">EEAA</label>
+              <textarea id="possibly_eeaa" class="validate materialize-textarea" required [(ngModel)]="report.possibly_eeaa" name="possibly_eeaa" #possibly_eeaa="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!possibly_eeaa.valid && possibly_eeaa.touched" data-error="wrong" data-success="right">EEAA é necessária!</span>
+            </div>
+            <div class="input-field col s3">
+              <label for="possibly_resources">Sala de Recursos</label>
+              <textarea id="possibly_resources" class="validate materialize-textarea" required [(ngModel)]="report.possibly_resources" name="possibly_resources" #possibly_resources="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!possibly_resources.valid && possibly_resources.touched" data-error="wrong" data-success="right">Envolvidos é necessária!</span>
+            </div>
+            <div class="input-field col s3">
+              <label for="possibly_adequation">Adequação Curricular</label>
+              <textarea id="possibly_adequation" class="validate materialize-textarea" required [(ngModel)]="report.possibly_adequation" name="possibly_adequation" #possibly_adequation="ngModel"></textarea>
+              <span class="helper-text" *ngIf="!possibly_adequation.valid && possibly_adequation.touched" data-error="wrong" data-success="right">Envolvidos é necessária!</span>
+            </div>
+
+            <div class="card-action">
+              <button routerLink="/reports" class="waves-effect waves-light btn blue left">Voltar</button>
+              <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn green right">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</section>

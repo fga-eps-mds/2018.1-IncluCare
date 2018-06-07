@@ -9,19 +9,22 @@ import { Angular2TokenService }             from 'angular2-token';
 import { AppComponent }                     from './app.component';
 import { routes }                           from './app.routes';
 import { AuthGuard }                        from "./guards/auth.guard";
-import { LoginGuard }                        from "./guards/login.guard";
+import { LoginGuard }                       from "./guards/login.guard";
 import { AuthService }                      from "./services/auth.service";
 import { LoginComponent }                   from './login/login.component';
 import { RegisterFormComponent }            from './register/register-form/register-form.component';
 import { ProfileComponent }                 from './profile/profile.component';
-import { StudentService }                   from './students/shared/student.service';
+import { StudentsService }                   from './services/students.service';
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
-import { ToolbarComponent }                 from './toolbar/toolbar.component';
-import { StudentPanelComponent } from './students/student-panel/student-panel.component';
-import { DailyLogComponent } from './students/daily-log/daily-log.component';
-import { DailyLogService } from './students/shared/dailylog.service';
-import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.component';
+import { FilterClassPipe }               from './students/shared/filter-class.pipe';
+import { SidenavComponent }                 from './sidenav/sidenav.component';
+import { NavbarComponent }                 from './navbar/navbar.component';
+import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
+import { DailyLogComponent }                from './students/daily-log/daily-log.component';
+import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';
+import { ReportComponent }                  from './students/report/report.component';
+import { ReportFormComponent }              from './students/report-form/report-form.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,16 @@ import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.
     LoginComponent,
     RegisterFormComponent,
     ProfileComponent,
-    ToolbarComponent,
+    SidenavComponent,
+    NavbarComponent,
     StudentsComponent,
     StudentFormComponent,
     StudentPanelComponent,
     DailyLogComponent,
-    DailyLogFormComponent
+    DailyLogFormComponent,
+    ReportComponent,
+    ReportFormComponent,
+    FilterClassPipe
   ],
   imports: [
     HttpModule,
@@ -49,8 +56,7 @@ import { DailyLogFormComponent } from './students/daily-log-form/daily-log-form.
     AuthGuard,
     AuthService,
     Angular2TokenService,
-    StudentService,
-    DailyLogService
+    StudentsService
   ],
   bootstrap: [ AppComponent ]
 })

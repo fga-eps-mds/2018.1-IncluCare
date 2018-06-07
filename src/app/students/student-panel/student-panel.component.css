@@ -1,3 +1,9 @@
-.gradient-inclucare {
-  background: linear-gradient(#000046, #1cb5e0);
+.min-height-64 {
+	min-height: 64px !important;
+}
+
+.middle-align {
+	display: block;
+	text-align: center;
+	color: #fff;
 }

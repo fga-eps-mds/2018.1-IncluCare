@@ -1,7 +1,11 @@
-<header>
-  <app-toolbar></app-toolbar>
+<header *ngIf="authService.userSignedIn()">
+  <app-navbar></app-navbar>
+  <app-sidenav></app-sidenav>
 </header>
 
 <main>
   <router-outlet></router-outlet>
 </main>
+
+<footer>
+</footer>

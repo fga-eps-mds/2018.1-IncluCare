@@ -1,11 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Angular2TokenService }             from 'angular2-token';
-import { StudentsComponent } from './students.component';
-import { StudentService } from './shared/student.service';
-import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule }              from '@angular/router/testing';
-import { AuthService }                      from "../services/auth.service";
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpModule } from '@angular/http';
+
+import { Angular2TokenService } from 'angular2-token';
+
+import { StudentsComponent } from './students.component';
+import { AuthService } from "../services/auth.service";
+import { StudentsService } from '../services/students.service';
+import { FilterClassPipe } from "./shared/filter-class.pipe";
 
 describe('StudentsComponent', () => {
   let component: StudentsComponent;
@@ -15,7 +18,8 @@ describe('StudentsComponent', () => {
     let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
     tokenMock.validateToken.and.returnValue(tokenMock);
     TestBed.configureTestingModule({
-      declarations: [ StudentsComponent ],
+      declarations: [ StudentsComponent,
+      FilterClassPipe ],
       imports: [
         HttpModule,
         FormsModule,
@@ -23,7 +27,7 @@ describe('StudentsComponent', () => {
         RouterTestingModule
       ],
       providers: [
-        StudentService,
+        StudentsService,
         AuthService,
         {provide: Angular2TokenService, useValue: tokenMock}]
     })

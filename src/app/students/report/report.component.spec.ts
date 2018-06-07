@@ -3,28 +3,28 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { StudentPanelComponent } from './student-panel.component';
+import { ReportComponent } from './report.component';
 import { StudentsService } from '../../services/students.service';
 
-describe('StudentPanelComponent', () => {
-  let component: StudentPanelComponent;
-  let fixture: ComponentFixture<StudentPanelComponent>;
+describe('ReportComponent', () => {
+  let component: ReportComponent;
+  let fixture: ComponentFixture<ReportComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
+      imports:  [
         FormsModule,
         HttpModule,
         RouterTestingModule
       ],
-      declarations: [ StudentPanelComponent ],
+      declarations: [ ReportComponent ],
       providers: [ StudentsService ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StudentPanelComponent);
+    fixture = TestBed.createComponent(ReportComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

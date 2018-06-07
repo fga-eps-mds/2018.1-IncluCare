@@ -5,21 +5,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { RegisterFormComponent } from './register/register-form/register-form.component';
-import { AuthService } from './services/auth.service';
+import { SidenavComponent } from './sidenav.component';
+import { RegisterFormComponent } from '../register/register-form/register-form.component';
 
-describe('AppComponent', () => {
-  let tokenMock = jasmine.createSpyObj('tokenMock', ['init', 'validateToken', 'subscribe']);
+import { AuthService } from '../services/auth.service';
+
+describe('SidenavComponent', () => {
+  let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
   tokenMock.validateToken.and.returnValue(tokenMock);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        NavbarComponent,
         SidenavComponent,
         RegisterFormComponent
       ],
@@ -36,8 +33,8 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should create', async(() => {
+    const fixture = TestBed.createComponent(SidenavComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));

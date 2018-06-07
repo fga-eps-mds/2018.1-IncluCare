@@ -3,6 +3,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
+  left: 0px;
 }
 
 .middle {
@@ -36,6 +37,10 @@
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 12px;
+}
+
+.top-margin {
+	margin-top: 40px;
 }
 
 img {
