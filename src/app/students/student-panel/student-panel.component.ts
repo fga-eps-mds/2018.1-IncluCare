@@ -14,6 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class StudentPanelComponent implements OnInit {
   name: string;
+  editMode: boolean;
   student: Student = new Student();
 
 
