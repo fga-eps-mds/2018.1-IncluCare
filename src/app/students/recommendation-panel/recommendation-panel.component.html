@@ -11,7 +11,7 @@
 
           </div>
         </div>
-          <div *ngIf = "referral?.student" class="container">
+          <div *ngIf = "recommendationData?.student" class="container">
             <div *ngIf="!editMode" id="content" #content>
                <h4 align="center">Dados do Estudante</h4>
                <p>Estabelecimento de Ensino: Escola Classe 401</p>
@@ -43,7 +43,7 @@
             >
           </div>
           <div class="active input-field">
-            <label class="active" for="body">Texto</label>
+            <label class="active" for="body">Editar Recomendação</label>
             <textarea
                   id="body"
                   placeholder=""
@@ -80,7 +80,7 @@
   <tr>
     <div id = "content" #content>
       <div class="card-action">
-        <a class="btn waves-effect waves-light gradient-inclucare" (click) = "generatePDFReferral()" >Gerar PDF
+        <a class="btn waves-effect waves-light gradient-inclucare" >Gerar PDF
           <i class="material-icons right">description</i>
         </a>
       </div>
