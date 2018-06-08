@@ -8,19 +8,25 @@
   <table class="striped">
     <thead>
       <tr>
+        <th data-field="name">Nome do Aluno</th>
         <th data-field="date">Data</th>
         <th data-field="activity">Atividade</th>
-        <th data-field="note">Observação</th>
-        <th data-field="name">Nome do Aluno</th>
+        <th style="word-wrap: break-word; max-width: 300px;" data-field="note">Observação</th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
-      <tr *ngFor="let s of getDailyLogs()">
-        <td>{{ s.date }}</td>
-        <td>{{ s.note }}</td>
-        <td>{{ s.activity }}</td>
-        <td>{{ s.student.id }}</td>
+      <tr *ngFor="let d of getDailyLogs()">
+        <td>{{ d.student.name }}</td>
+        <td>{{ d.date }}</td>
+        <td>{{ d.activity }}</td>
+        <td style="word-wrap: break-word; max-width: 300px; white-space: pre-line;">{{ d.note }}</td>
+        <td>
+          <a [routerLink]="['/dailylogpanel', d.id]">
+            Visualizar registro
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>
