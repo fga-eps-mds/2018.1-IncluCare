@@ -25,13 +25,14 @@ export class StudentPanelComponent implements OnInit {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
 
-      if (!id)
-        return;
+      if(!id)
+      return;
 
       this.studentService.getStudent(id)
-        .subscribe(
-          student => this.student = student,
-          response => {});
+      .subscribe(
+        student => this.student = student,
+        response => {}
+      );
     });
   }
 
