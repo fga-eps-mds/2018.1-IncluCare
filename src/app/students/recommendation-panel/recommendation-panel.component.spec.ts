@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule }                      from '@angular/forms';
-
+import { RecommendationService } from '../shared/recommendationService.service'
 import { RecommendationPanelComponent } from './recommendation-panel.component';
+import { HttpModule }                       from '@angular/http';
+import { RouterTestingModule }              from '@angular/router/testing';
 
 describe('RecommendationComponent', () => {
   let component: RecommendationPanelComponent;
@@ -10,8 +12,11 @@ describe('RecommendationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule
+        FormsModule,
+        HttpModule,
+        RouterTestingModule
       ],
+      providers: [ RecommendationService ],
       declarations: [ RecommendationPanelComponent ]
     })
     .compileComponents();

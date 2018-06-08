@@ -34,7 +34,7 @@ const APP_ROUTES: Routes = [
   { path: 'referrals'         , component: ReferralComponent    ,                     canActivate: [AuthGuard] },
   { path: 'referral/:id'      , component: ReferralFormComponent,                     canActivate: [AuthGuard] },
   { path: 'referralpanel/:id' , component: ReferralPanelComponent,                    canActivate: [AuthGuard] },
-  { path: 'recommendation'    , component: RecommendationPanelComponent,               canActivate: [AuthGuard] }
+  { path: 'recommendation/:id'    , component: RecommendationPanelComponent,               canActivate: [AuthGuard] }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
