@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { RecommendationService } from '../shared/recommendationService.service';
 
 @Component({
-  selector: 'app-recommendation-form',
+  selector: 'app-recommendation-panel',
   templateUrl: './recommendation-panel.component.html',
   styleUrls: ['./recommendation-panel.component.css']
 })

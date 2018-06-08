@@ -11,22 +11,22 @@
 
           </div>
         </div>
-          <div *ngIf = "recommendationData?.student" class="container">
+          <div *ngIf = "recommendation?.student" class="container">
             <div *ngIf="!editMode" id="content" #content>
                <h4 align="center">Dados do Estudante</h4>
                <p>Estabelecimento de Ensino: Escola Classe 401</p>
-               <p>Nome: {{recommendationData.student.name}}</p>
-               <p>Data de Nascimento: {{recommendationData.student.birth_date}}</p>
-               <p>Ano: {{recommendationData.student.year}}</p>
-               <p>Turno: {{recommendationData.student.shift}}</p>
-               <p>Turma: {{recommendationData.student.student_class}}</p>
-               <p>Naturalidade: {{recommendationData.student.nationality}}</p>
-               <p>Endereço: {{recommendationData.student.address}}</p>
-               <p>Telefone: {{recommendationData.student.parent_telephone}}</p>
+               <p>Nome: {{recommendation.student.name}}</p>
+               <p>Data de Nascimento: {{recommendation.student.birth_date}}</p>
+               <p>Ano: {{recommendation.student.year}}</p>
+               <p>Turno: {{recommendation.student.shift}}</p>
+               <p>Turma: {{recommendation.student.student_class}}</p>
+               <p>Naturalidade: {{recommendation.student.nationality}}</p>
+               <p>Endereço: {{recommendation.student.address}}</p>
+               <p>Telefone: {{recommendation.student.parent_telephone}}</p>
 
-               <h4 align="center">{{recommendationData.title}}</h4>
+               <h4 align="center">{{recommendation.title}}</h4>
                <div style="word-wrap: break-word; max-width: 1000px; white-space: pre-line;">
-               {{recommendationData.body}}
+               {{recommendation.body}}
              </div>
             </div>
           <div *ngIf="editMode" id="edit" #edit>
@@ -36,7 +36,7 @@
                    type="text"
                    id="title"
                    placeholder=""
-                   [(ngModel)]="recommendationData.title"
+                   [(ngModel)]="recommendation.title"
                    name="title"
                    #title="ngModel"
                    [readonly]="!editMode"
@@ -47,7 +47,7 @@
             <textarea
                   id="body"
                   placeholder=""
-                  [(ngModel)]="recommendationData.body"
+                  [(ngModel)]="recommendation.body"
                   name='body'
                   #body="ngModel"
                   class="materialize-textarea"
