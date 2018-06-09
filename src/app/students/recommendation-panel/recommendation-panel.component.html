@@ -65,7 +65,7 @@
         </div>
         <div class="input-field col s6">
             <a *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
-               type="button" name="action">Salvar alterações
+               type="button" name="action" (click) = "updateRecommendation(recommendation)">Salvar alterações
               <i class="material-icons right">send</i>
             </a>
         </div>

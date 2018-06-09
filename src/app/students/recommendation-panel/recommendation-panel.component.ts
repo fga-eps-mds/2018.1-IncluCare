@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RecommendationData } from "../shared/recommendationData";
 import { Router, ActivatedRoute } from '@angular/router';
-import { RecommendationService } from '../shared/recommendationService.service';
+import { RecommendationService } from '../shared/recommendation.service';
 import * as jsPDF from 'jspdf';
 
 @Component({
@@ -31,6 +31,15 @@ export class RecommendationPanelComponent implements OnInit {
           recommendation => this.recommendation = recommendation,
           response => {});
     });
+  }
+
+  updateRecommendation(recommendation){
+    var result;
+    result = this.recommendationService.updateRecommendation(this.recommendation);
+
+    result.subscribe(data => this.router.navigate(['/recommendation']));
+
+    window.location.reload(true); //refrash the page
   }
 
   public generatePDFRecommendation(){

@@ -24,6 +24,9 @@ export class RecommendationService{
       .map(res => res.json());
   }
 
-
+  updateRecommendation(recommendation){
+    return this.http.put(this.url + '/' + recommendation.id, {'recommendation': recommendation})
+      .map(res => res.json());
+  }
 
 }
