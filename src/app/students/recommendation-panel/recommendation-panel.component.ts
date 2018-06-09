@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { RecommendationData } from "../shared/recommendationData";
 import { Router, ActivatedRoute } from '@angular/router';
 import { RecommendationService } from '../shared/recommendationService.service';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-recommendation-panel',
@@ -10,6 +11,7 @@ import { RecommendationService } from '../shared/recommendationService.service';
 })
 export class RecommendationPanelComponent implements OnInit {
 
+  @ViewChild( 'content' ) content: ElementRef;
   recommendation: RecommendationData = new RecommendationData();
   constructor(
     private recommendationService: RecommendationService,
@@ -31,5 +33,22 @@ export class RecommendationPanelComponent implements OnInit {
     });
   }
 
+  public generatePDFRecommendation(){
+    let doc = new jsPDF();
 
+    let specialElementHandlers = {
+      '#editor': function(element, renderer){
+        return true;
+      }
+    };
+
+    let content = this.content.nativeElement;
+
+    doc.fromHTML(content.innerHTML, 15, 15, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    doc.save('recomendação.pdf');
+  }
 }
