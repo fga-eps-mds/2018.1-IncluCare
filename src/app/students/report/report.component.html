@@ -2,7 +2,7 @@
   <h4>Lista de Relatórios </h4>
 </div>
 
-<div class="container">
+<div id="content" #content class="container">
 
 
   <table class="striped">
@@ -11,6 +11,7 @@
         <th data-field="id">ID do Relatório</th>
         <th data-field="general_information">Informação Geral</th>
         <th data-field="student_id">ID do Aluno</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -19,6 +20,7 @@
         <td>{{ r.id }}</td>
         <td>{{ r.general_information }}</td>
         <td>{{ r.student.id }}</td>
+        <td><a class="btn waves-effect waves-light" (click)="generatePDFReport(r)">Gerar PDF</a></td>
       </tr>
     </tbody>
   </table>

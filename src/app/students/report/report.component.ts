@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import * as jsPDF from 'jspdf';
+
 import { Report } from "../../shared/models";
 import { StudentsService } from '../../services/students.service';
 
@@ -11,7 +13,7 @@ import { StudentsService } from '../../services/students.service';
 })
 export class ReportComponent implements OnInit {
 
-   private reports: Report[] = [];
+  private reports: Report[] = [];
 
   constructor(
     private reportService: StudentsService,
@@ -21,14 +23,22 @@ export class ReportComponent implements OnInit {
 
   ngOnInit() {
     this.reportService.getReports()
-      .subscribe(
-         data => this.reports = data,
-         response => {}
-        );
+    .subscribe(
+      data => this.reports = data,
+      response => {}
+    );
   }
 
   getReports() {
     return this.reports;
+  }
+
+  generatePDFReport(reportData: Report){
+    let doc = new jsPDF();
+
+    doc.text(15, 15, reportData.reason);
+
+    doc.save('report_student_' + reportData.student_id + '.pdf');
   }
 
 }
