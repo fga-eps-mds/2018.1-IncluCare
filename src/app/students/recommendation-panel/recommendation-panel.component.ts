@@ -13,6 +13,8 @@ export class RecommendationPanelComponent implements OnInit {
 
   @ViewChild( 'content' ) content: ElementRef;
   recommendation: RecommendationData = new RecommendationData();
+  idAux: number;
+
   constructor(
     private recommendationService: RecommendationService,
     private router: Router,
@@ -22,27 +24,37 @@ export class RecommendationPanelComponent implements OnInit {
   ngOnInit() {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
-
-      if (!id)
+        if (!id)
         return;
 
-      this.recommendationService.getRecommendation(id)
-        .subscribe(
-          recommendation => this.recommendation = recommendation,
-          response => {});
+    this.recommendationService.getRecommendation(id)
+      .subscribe(
+        recommendation => this.recommendation = recommendation,
+        response => {});
+
+    this.idAux = id;
     });
   }
 
   updateRecommendation(recommendation){
     var result;
     result = this.recommendationService.updateRecommendation(this.recommendation);
-
     result.subscribe(data => this.router.navigate(['/recommendation']));
 
     window.location.reload(true); //refrash the page
   }
 
-  public generatePDFRecommendation(){
+  createRecommendation(){
+    this.recommendation.id = this.idAux
+    this.recommendation.student_id = this.idAux
+    var result;
+    result = this.recommendationService.createRecommendation(this.recommendation);
+    result.subscribe(data => this.router.navigate(['/recommendation']));
+
+    window.location.reload(true); //refrash the page
+  }
+
+  public generatePDFRecommendation(name){
     let doc = new jsPDF();
 
     let specialElementHandlers = {
@@ -58,6 +70,7 @@ export class RecommendationPanelComponent implements OnInit {
       'elementHandlers': specialElementHandlers
     });
 
-    doc.save('recomendação.pdf');
+    doc.save('recomendação_' + name + '.pdf');
   }
+
 }

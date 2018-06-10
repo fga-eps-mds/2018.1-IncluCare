@@ -13,12 +13,6 @@ export class RecommendationService{
 
   constructor(private http: Http) {}
 
-
-  getRecommendations(){
-    return this.http.get(this.url)
-      .map(res => res.json());
-  }
-
   getRecommendation(id){
     return this.http.get(this.url + '/' + id)
       .map(res => res.json());
@@ -26,6 +20,11 @@ export class RecommendationService{
 
   updateRecommendation(recommendation){
     return this.http.put(this.url + '/' + recommendation.id, {'recommendation': recommendation})
+      .map(res => res.json());
+  }
+
+  createRecommendation(recommendation){
+    return this.http.post(this.url, {recommendation})
       .map(res => res.json());
   }
 
