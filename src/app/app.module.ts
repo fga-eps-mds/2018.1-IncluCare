@@ -31,6 +31,7 @@ import { ReferralService }                  from './students/shared/referral.ser
 import { ReferralComponent }                from './students/referral/referral.component';
 import { ReferralFormComponent }            from './students/referral-form/referral-form.component';
 import { ReferralPanelComponent }           from './students/referral-panel/referral-panel.component';
+import { DailyLogPanelComponent }           from './students/daily-log-panel/daily-log-panel.component';
 import { RecommendationPanelComponent }     from './students/recommendation-panel/recommendation-panel.component';
 import { RecommendationService }            from './students/shared/recommendation.service';
 
@@ -53,6 +54,7 @@ import { RecommendationService }            from './students/shared/recommendati
     ReferralComponent,
     ReferralFormComponent,
     ReferralPanelComponent,
+    DailyLogPanelComponent,
     RecommendationPanelComponent
   ],
   imports: [
