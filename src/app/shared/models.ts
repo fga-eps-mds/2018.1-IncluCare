@@ -12,7 +12,6 @@ export class Student {
   responsible: string;
   address: string;
   parent_telephone: number;
-  //parent_email: string;
 }
 
 export class DailyLog {
@@ -42,28 +41,21 @@ export class Report {
   psycholog_name: string;
   psycholog_function: string;
   psycholog_registry: string;
-  reason_adequation: string;
-  reason_emotional: string;
-  reason_performance: string;
-  reason_behavior: string;
-  reason_language: string;
-  level_school: string;
-  level_family: string;
-  level_student: string;
+  reason_adequation: boolean;
+  reason_emotional: boolean;
+  reason_performance: boolean;
+  reason_behavior: boolean;
+  reason_language: boolean;
+  level_school: boolean;
+  level_family: boolean;
+  level_student: boolean;
   envolved_school: string;
   envolved_family: string;
   envolved_student: string;
   realized_actions: any;
-  possibly_saa: string;
-  possibly_eeaa: string;
-  possibly_resources: string;
-  possibly_adequation: string;
+  possibly_saa: boolean;
+  possibly_eeaa: boolean;
+  possibly_resources: boolean;
+  possibly_adequation: boolean;
   student_id: any;
 }
-
-/*
-possibly_saa: string;
-possibly_eeaa: string;
-possibly_resources: string;
-possibly_adequation: string;
-*/
