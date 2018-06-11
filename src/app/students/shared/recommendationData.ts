@@ -1,4 +1,4 @@
-export class Referral {
+export class RecommendationData {
   id: number;
   title: any;
   body: any;

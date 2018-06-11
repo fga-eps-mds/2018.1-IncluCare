@@ -1,0 +1,123 @@
+<div id="showprofile">
+  <div class="card">
+    <h4 align="center"> Painel de Recomendação </h4>
+    <form id="recommendation_data" role="form">
+      <div class="row">
+        <div class="row">
+
+          <div class="card-action" align="right">
+
+            <div *ngIf = "!recommendation?.student; else elseBlock" class="container">
+            <div class="input-field">
+              <label class="active" for="title">Título</label>
+              <input
+                     type="text"
+                     id="title"
+                     placeholder=""
+                     [(ngModel)]="recommendation.title"
+                     name="title"
+                     #title="ngModel"
+              >
+            </div>
+            <div class="active input-field">
+              <label class="active" for="body">Recomendação</label>
+              <textarea
+                    id="body"
+                    placeholder=""
+                    [(ngModel)]="recommendation.body"
+                    name='body'
+                    #body="ngModel"
+                    class="materialize-textarea"
+              ></textarea>
+            </div>
+
+            <div class="card-action" align="right">
+                <a class="btn waves-effect waves-light gradient-inclucare"
+                   type="button" name="action" (click) = "createRecommendation(recommendation)">Enviar
+                  <i class="material-icons right">send</i>
+                </a>
+            </div>
+        </div>
+
+          <ng-template #elseBlock>
+
+    <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
+      <i class="material-icons right">edit</i>
+    </a>
+
+            <div *ngIf="!editMode" id="content" #content>
+               <h4 align="Left">Dados do Estudante</h4>
+               <p>Estabelecimento de Ensino: Escola Classe 401</p>
+               <p>Nome: {{recommendation.student.name}}</p>
+               <p>Data de Nascimento: {{recommendation.student.birth_date}}</p>
+               <p>Ano: {{recommendation.student.year}}</p>
+               <p>Turno: {{recommendation.student.shift}}</p>
+               <p>Turma: {{recommendation.student.student_class}}</p>
+               <p>Naturalidade: {{recommendation.student.nationality}}</p>
+               <p>Endereço: {{recommendation.student.address}}</p>
+               <p>Telefone: {{recommendation.student.parent_telephone}}</p>
+
+               <br/>
+               <h5 align="Left">{{recommendation.title}}</h5>
+               <div align="Left" style="word-wrap: break-word; max-width: 1000px; white-space: pre-line;">
+               {{recommendation.body}}
+             </div>
+           </div>
+          <div *ngIf="editMode" id="edit" #edit>
+          <div class="input-field">
+            <label class="active" for="title">Título</label>
+            <input
+                   type="text"
+                   id="title"
+                   placeholder=""
+                   [(ngModel)]="recommendation.title"
+                   name="title"
+                   #title="ngModel"
+                   [readonly]="!editMode"
+            >
+          </div>
+          <div class="active input-field">
+            <label class="active" for="body">Editar Recomendação</label>
+            <textarea
+                  id="body"
+                  placeholder=""
+                  [(ngModel)]="recommendation.body"
+                  name='body'
+                  #body="ngModel"
+                  class="materialize-textarea"
+                  [readonly]="!editMode"
+            ></textarea>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+            <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
+               type="button" name="action">Cancelar
+              <i class="material-icons right">close</i>
+            </button>
+        </div>
+        <div class="input-field col s6">
+            <a *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
+               type="button" name="action" (click) = "updateRecommendation(recommendation)">Salvar alterações
+              <i class="material-icons right">send</i>
+            </a>
+        </div>
+    </div>
+
+    <div id = "content" #content>
+      <div class="card-action">
+        <a  *ngIf="!editMode" class="btn waves-effect waves-light gradient-inclucare" (click) = "generatePDFRecommendation(recommendation.student.name)">Gerar PDF
+          <i class="material-icons right">description</i>
+        </a>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<table>
+  <td>
+  <tr>
+  </tr>
+  </td>
+</table>

@@ -19,7 +19,7 @@ import { StudentsComponent }                from './students/students.component'
 import { StudentFormComponent }             from './students/student-form/student-form.component';
 import { FilterStudentClass }               from './students/filterStudentClass.pipe';
 import { SidenavComponent }                 from './sidenav/sidenav.component';
-import { NavbarComponent }                 from './navbar/navbar.component';
+import { NavbarComponent }                  from './navbar/navbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
 import { DailyLogComponent }                from './students/daily-log/daily-log.component';
 import { DailyLogService }                  from './students/shared/dailylog.service';
@@ -30,8 +30,10 @@ import { ReportFormComponent }              from './students/report-form/report-
 import { ReferralService }                  from './students/shared/referral.service';
 import { ReferralComponent }                from './students/referral/referral.component';
 import { ReferralFormComponent }            from './students/referral-form/referral-form.component';
-import { ReferralPanelComponent } from './students/referral-panel/referral-panel.component';
-import { DailyLogPanelComponent } from './students/daily-log-panel/daily-log-panel.component';
+import { ReferralPanelComponent }           from './students/referral-panel/referral-panel.component';
+import { DailyLogPanelComponent }           from './students/daily-log-panel/daily-log-panel.component';
+import { RecommendationPanelComponent }     from './students/recommendation-panel/recommendation-panel.component';
+import { RecommendationService }            from './students/shared/recommendation.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { DailyLogPanelComponent } from './students/daily-log-panel/daily-log-pan
     ReferralComponent,
     ReferralFormComponent,
     ReferralPanelComponent,
-    DailyLogPanelComponent
+    DailyLogPanelComponent,
+    RecommendationPanelComponent
   ],
   imports: [
     HttpModule,
@@ -70,7 +73,8 @@ import { DailyLogPanelComponent } from './students/daily-log-panel/daily-log-pan
     StudentService,
     DailyLogService,
     ReportService,
-    ReferralService
+    ReferralService,
+    RecommendationService
   ],
   bootstrap: [ AppComponent ]
 })
