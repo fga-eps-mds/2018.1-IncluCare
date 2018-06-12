@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DailyLogService } from '../shared/dailylog.service';
+import { StudentsService } from '../../services/students.service';
 
-import {DailyLog} from "../shared/dailylog";
+import { DailyLog } from "../../shared/models";
 
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -20,7 +20,7 @@ export class DailyLogPanelComponent implements OnInit {
 
   constructor(
 
-    private dailylogService: DailyLogService,
+    private dailylogService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

@@ -36,19 +36,8 @@ export class ProfileComponent implements OnInit {
     this.authService.updatePassword(this.updatePasswordData).subscribe(
       res => {
         this.updatePasswordData    = <UpdatePasswordData>{};
-    });
-  }
-
-  deleteAccount() {
-    this.authService.deleteAccount().subscribe(
-      res =>      console.log(res),
-      error =>    console.log(error)
+      }
     );
   }
-
-  updateTeamMember(teamMemberName, teamMemberEmail) {
-    return this.authService.updateTeamMember(teamMemberName, teamMemberEmail)
-    .subscribe();
-  }
-
+  
 }

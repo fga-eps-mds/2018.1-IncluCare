@@ -46,3 +46,51 @@
 img {
   vertical-align: middle;
 }
+
+.login-outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+}
+
+.login-middle {
+  background-image: url("https://www.secureaplus.com/wp-content/uploads/2016/04/SecureAPlus-For-Education-Background.png");
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.login-inner {
+  position: relative;
+  min-height: 338px;
+  width: calc(100% - 40px);
+  min-width: 320px;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 28px;
+  padding: 28px;
+}
+
+.login-logo {
+  max-width: 256px;
+  height: 24px;
+}
+
+.login-title {
+  color: #404040;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.login-submit {
+	margin-top: 40px;
+	margin-bottom: 0px;
+}
+
+img {
+  vertical-align: middle;
+}

@@ -1,221 +1,205 @@
 <div id="showprofile">
-  <div class="card">
-    <h4 align="center"> Painel do Estudante </h4>
-    <form id="student_data" role="form">
-      <div class="row">
-        <div class="container">
-          <div class="card-action" align="right">
-            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
-              <i class="material-icons right">edit</i>
-            </a>
-            <a (click)="deleteStudent(student)" href="/students" class="btn waves-effect waves-light gradient-inclucare"
-              type="button" name="action">Deletar Estudante
-              <i class="material-icons right">delete</i>
-            </a>
-          </div>
+
+  <section id="content">
+
+    <div class="container">
+      <div class="row mb-0">
+        <div class="col s10 m6 l6">
+          <h5 class="m-2">Painel do Aluno</h5>
         </div>
-          <div class="container">
-          <div class="input-field col s6">
+      </div>
+    </div>
+
+    <div class="card container">
+      <div class="row container mt-1">
+        <form id="student_data" role="form">
+          <div class="input-field col s8">
             <input
-                   type="text"
-                   id="name"
-                   placeholder=""
-                   [(ngModel)]="student.name"
-                   name="name"
-                   #name="ngModel"
-                   [readonly]="!editMode"
-            >
+            type="text"
+            id="name"
+            placeholder=""
+            [(ngModel)]="student.name"
+            name="name"
+            #name="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="name">Nome</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s2">
             <input
-                  type="text"
-                  id="birth_date"
-                  placeholder=""
-                  [(ngModel)]="student.birth_date"
-                  name='birth_date'
-                  #birth_date="ngModel"
-                  [readonly]="!editMode"
-            >
+            type="text"
+            id="birth_date"
+            placeholder=""
+            [(ngModel)]="student.birth_date"
+            name='birth_date'
+            #birth_date="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="birth_date">Data de Nascimento</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s2">
             <input
-                  type="text"
-                  id="age"
-                  placeholder=""
-                  [(ngModel)]="student.age"
-                  name='age'
-                  #age="ngModel"
-                  [readonly]="!editMode"
-            >
+            type="text"
+            id="age"
+            placeholder=""
+            [(ngModel)]="student.age"
+            name='age'
+            #age="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="age">Idade</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s2">
             <input
-                  type="text"
-                  id="nationality"
-                  placeholder=""
-                  [(ngModel)]="student.nationality"
-                  name='nationality'
-                  #nationality="ngModel"
-                  [readonly]="!editMode"
-            >
-            <label class="active" for="nationality">Nacionalidade</label>
-          </div>
-          <div class="input-field col s6">
-            <input
-                  type="text"
-                  id="year"
-                  placeholder=""
-                  [(ngModel)]="student.year"
-                  name='year'
-                  #year="ngModel"
-                  [readonly]="!editMode"
-            >
+            type="text"
+            id="year"
+            placeholder=""
+            [(ngModel)]="student.year"
+            name='year'
+            #year="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="year">Ano</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s2">
             <input
-                  type="text"
-                  id="student_class"
-                  placeholder=""
-                  [(ngModel)]="student.student_class"
-                  name='student_class'
-                  #student_class="ngModel"
-                  [readonly]="!editMode"
-            >
+            type="text"
+            id="student_class"
+            placeholder=""
+            [(ngModel)]="student.student_class"
+            name='student_class'
+            #student_class="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="student_class">Turma</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s3">
             <input
-                  type="text"
-                  id="shift"
-                  placeholder=""
-                  [(ngModel)]="student.shift"
-                  name='shift'
-                  #shift="ngModel"
-                  [readonly]="!editMode"
-            >
+            type="text"
+            id="shift"
+            placeholder=""
+            [(ngModel)]="student.shift"
+            name='shift'
+            #shift="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="shift">Turno</label>
+          </div>
+          <div class="input-field col s5">
+            <input
+            type="text"
+            id="nationality"
+            placeholder=""
+            [(ngModel)]="student.nationality"
+            name='nationality'
+            #nationality="ngModel"
+            [readonly]="!editMode">
+            <label class="active" for="nationality">Naturalidade</label>
           </div>
           <div class="input-field col s6">
             <input
-                  type="text"
-                  id="father_name"
-                  placeholder=""
-                  [(ngModel)]="student.father_name"
-                  name='father_name'
-                  #father_name="ngModel"
-                  [readonly]="!editMode"
-            >
+            type="text"
+            id="father_name"
+            placeholder=""
+            [(ngModel)]="student.father_name"
+            name='father_name'
+            #father_name="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="father_name">Nome do pai</label>
           </div>
           <div class="input-field col s6">
             <input
-                  type="text"
-                  id="mother_name"
-                  placeholder=""
-                  [(ngModel)]="student.mother_name"
-                  name='mother_name'
-                  #mother_name="ngModel"
-                  [readonly]="!editMode"
-            >
+            type="text"
+            id="mother_name"
+            placeholder=""
+            [(ngModel)]="student.mother_name"
+            name='mother_name'
+            #mother_name="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="mother_name">Nome da mãe</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s4">
             <input
-                  type="text"
-                  id="address"
-                  placeholder=""
-                  [(ngModel)]="student.address"
-                  name='address'
-                  #address="ngModel"
-                  [readonly]="!editMode"
-            >
-            <label class="active" for="address">Endereço</label>
+            type="text"
+            id="responsible"
+            placeholder=""
+            [(ngModel)]="student.responsible"
+            name='responsible'
+            #responsible="ngModel"
+            [readonly]="!editMode">
+            <label class="active" for="responsible">Nome do responsável</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s2">
             <input
-                  type="text"
-                  id="parent_telephone"
-                  placeholder=""
-                  [(ngModel)]="student.parent_telephone"
-                  name='parent_telephone'
-                  #parent_telephone="ngModel"
-                  [readonly]="!editMode"
-            >
+            type="text"
+            id="parent_telephone"
+            placeholder=""
+            [(ngModel)]="student.parent_telephone"
+            name='parent_telephone'
+            #parent_telephone="ngModel"
+            [readonly]="!editMode">
             <label class="active" for="parent_telephone">Telefone do responsável</label>
           </div>
           <div class="input-field col s6">
             <input
-                  type="email"
-                  id="parent_email"
-                  placeholder=""
-                  [(ngModel)]="student.parent_email"
-                  name='parent_email'
-                  #parent_email="ngModel"
-                  [readonly]="!editMode"
-            >
-            <label class="active" for="parent_email">Email do responsável</label>
+            type="text"
+            id="address"
+            placeholder=""
+            [(ngModel)]="student.address"
+            name='address'
+            #address="ngModel"
+            [readonly]="!editMode">
+            <label class="active" for="address">Endereço</label>
           </div>
-      </div>
-      <div class="input-field col s6">
 
-          <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
-             type="button" name="action">Cancelar
-            <i class="material-icons right">close</i>
-          </button>
+          <div class="card-action" align="right">
+            <button *ngIf="!editMode" (click)="editMode = !editMode" class="btn waves-effect waves-light" type="submit" name="action">
+              Editar
+              <i class="material-icons right">edit</i>
+            </button>
+            <button *ngIf="!editMode" (click)="deleteStudent(student)" href="/students" class="btn waves-effect waves-light red" type="button" name="action">
+              Deletar Estudante
+              <i class="material-icons right">delete</i>
+            </button>
+            <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light" type="button" name="action">
+              Cancelar
+              <i class="material-icons right">close</i>
+            </button>
+            <button *ngIf="editMode" (click)="updateStudent(student)" class="btn waves-effect waves-light" type="button" name="action">
+              Salvar alterações
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="input-field col s6">
-          <a  (click)="updateStudent(student)" *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
-             type="button" name="action">Salvar alterações
-            <i class="material-icons right">send</i>
-          </a>
-      </div>
-
-
     </div>
-    </form>
-  </div>
+
+    <div id="card-stats">
+      <div class="row ml-1 mr-1 mt-1">
+        <div class="col s12 m6 l3">
+          <div class="card blue" [routerLink]="['/dailylog', student.id]">
+            <div class="card-action">
+              <h6 class="center uppercase white-text">Gerar Registro Diário</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6 l3">
+          <div class="card blue" [routerLink]="['/referral', student.id]">
+            <div class="card-action">
+              <h6 class="center uppercase white-text">Gerar encaminhamento</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6 l3">
+          <div class="card blue" [routerLink]="['/report', student.id]">
+            <div class="card-action">
+              <h6 class="center uppercase white-text">Gerar Relatório</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6 l3">
+          <div class="card blue" [routerLink]="['/recommendation', student.id]">
+            <div class="card-action">
+              <h6 class="center uppercase white-text">Enviar recomendações</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
 </div>
-
-
-<table>
-  <td>
-    <tr>
-    <div class="card gradient-inclucare">
-        <div class="card-action">
-        <a [routerLink]="['/report', student.id]">Gerar Relatório</a>
-      </div>
-    </div>
-  </tr>
-
-<tr>
-  <div class="card gradient-inclucare">
-    <div class="card-action">
-      <a [routerLink]="['/referral', student.id]">Gerar encaminhamento</a>
-    </div>
-  </div>
-</tr>
-</td>
-
-<td>
-<tr>
-  <div class="card gradient-inclucare">
-    <div class="card-action">
-      <a [routerLink]="['/recommendation', student.id]">Enviar recomendações</a>
-    </div>
-  </div>
-</tr>
-
-<tr>
-  <div class="card gradient-inclucare">
-    <div class="card-action">
-      <a [routerLink]="['/dailylog', student.id]">Gerar Registro Diário</a>
-    </div>
-  </div>
-</tr>
-</td>
-
-</table>
