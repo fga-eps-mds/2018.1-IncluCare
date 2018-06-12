@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://codeclimate.com/github/fga-gpp-mds/2018.1-IncluCare"><img src="https://codeclimate.com/github/fga-gpp-mds/2018.1-IncluCare/badges/gpa.svg"></a>
 <a href="https://travis-ci.org/fga-gpp-mds/2018.1-IncluCare/"><img src="https://api.travis-ci.org/fga-gpp-mds/2018.1-IncluCare.svg?branch=master"></a>
-<a href='https://coveralls.io/github/fga-gpp-mds/2018.1-IncluCare?branch=feature%2Fcoveralls'><img src='https://coveralls.io/repos/github/fga-gpp-mds/2018.1-IncluCare/badge.svg?branch=feature%2Fcoveralls' alt='Coverage Status' /></a>
+<a href='https://coveralls.io/github/fga-gpp-mds/2018.1-IncluCare?branch=master'><img src='https://coveralls.io/repos/github/fga-gpp-mds/2018.1-IncluCare/badge.svg?branch=master' alt='Coverage Status' /></a>
 
 </p>  
 
