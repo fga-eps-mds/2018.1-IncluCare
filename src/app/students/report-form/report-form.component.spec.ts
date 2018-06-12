@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule }                      from '@angular/forms';
-import { ReportFormComponent }             from './report-form.component';
-import { ReportService }                   from '../shared/report.service';
-import { HttpModule }                       from '@angular/http';
-import { RouterTestingModule }              from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { ReportFormComponent } from './report-form.component';
+import { StudentsService } from '../../services/students.service';
 
 describe('ReportFormComponent', () => {
   let component: ReportFormComponent;
@@ -17,7 +18,7 @@ describe('ReportFormComponent', () => {
         RouterTestingModule
       ],
       declarations: [ ReportFormComponent ],
-      providers: [ ReportService ]
+      providers: [ StudentsService ]
     })
     .compileComponents();
   }));

@@ -10,7 +10,7 @@ import { RegisterFormComponent } from '../register/register-form/register-form.c
 
 import { AuthService } from '../services/auth.service';
 
-describe('AppComponent', () => {
+describe('NavbarComponent', () => {
   let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
   tokenMock.validateToken.and.returnValue(tokenMock);
 

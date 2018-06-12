@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { StudentService } from '../shared/student.service';
-
-import {Student} from "../shared/student";
-
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Student } from "../../shared/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-student-panel',
@@ -14,13 +11,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class StudentPanelComponent implements OnInit {
   name: string;
-  editMode: boolean;
   student: Student = new Student();
 
+  editMode: boolean;
 
   constructor(
-
-    private studentService: StudentService,
+    private studentService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -29,13 +25,14 @@ export class StudentPanelComponent implements OnInit {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
 
-      if (!id)
-        return;
+      if(!id)
+      return;
 
       this.studentService.getStudent(id)
-        .subscribe(
-          student => this.student = student,
-          response => {});
+      .subscribe(
+        student => this.student = student,
+        response => {}
+      );
     });
   }
 

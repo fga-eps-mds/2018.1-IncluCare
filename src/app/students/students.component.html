@@ -1,56 +1,46 @@
 <div class="container">
-  <h4>Lista de Alunos</h4>
-  <a routerLink="/students/new" class="btn waves-effect waves-light middle-btn right">
-    Adicionar Aluno
-    <i class="material-icons left">person_add</i>
-  </a>
-  <!-- <input type="text" id="pesquisa" ng-model="pesquisaAluno" placeholder="Digite a pesquisa"> -->
+  <div class="row">
+    <div class="col s10 m6 l6">
+      <h5 class="mt-2 mb-0">Relação de Alunos</h5>
+      <p class="mt-0">Escola Classe 401</p>
+    </div>
+    <div class="col s2 m6 l6">
+      <a routerLink="/students/new" class="btn waves-effect waves-light right title-btn">
+        <i class="material-icons hide-on-med-and-up">add_circle_outline</i>
+        <span class="hide-on-small-only">Adicionar Aluno</span>
+      </a>
+    </div>
+  </div>
 </div>
 
-<div class="container">
-
-  <!-- <p>Mostrando {{ getStudents().length }} estudantes.</p> -->
-
-  <table class="striped">
-    <thead>
-      <tr>
-        <th>
-          <div>
-            <input [(ngModel)]="searchClass" placeholder="Pesquisar Turma" class="filter-input">
-          </div>
-        </th>
-      </tr>
-    <tr>
-
-      <!-- <tr ng-repeat="StudentsTable in students | filter:pesquisaAluno"> -->
-        <th data-field="name">Nome</th>
-        <th data-field="year">Ano</th>
-        <th data-field="student_class">Turma</th>
-        <th data-field="parent_telephone">Telefone do responsável</th>
-        <th data-field="parent_email">Email do responsável</th>
-        <th></th> <!-- Espaço referente aos botôes de ação -->
-      </tr>
-
-    </thead>
-
-
-  <!--<div>
-    <div class="filter-wrap">
-      <input [(ngModel)]="searchText" placeholder="Filter Student" class="filter-input">
+<div class="container card">
+  <div class="container">
+    <div class="row">
+      <div class="input-field col s12">
+        <input [(ngModel)]="searchClass" type="text" class="form-control" placeholder="Pesquisar Turma">
+      </div>
     </div>
-</div> -->
-
-      <tr *ngFor="let s of getStudents() | filter : searchClass">
-        <td>{{ s.name }}</td>
-        <td>{{ s.year }}</td>
-        <td>{{ s.student_class }}</td>
-        <td>{{ s.parent_telephone }}</td>
-        <td>{{ s.parent_email }}</td>
-        <td>
-          <a [routerLink]="['/studentpanel', s.id]">
-            Visualizar perfil
-          </a>
-        </td>
-      </tr>
-  </table>
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th data-field="name">Nome</th>
+          <th data-field="year">Ano</th>
+          <th data-field="student_class">Turma</th>
+          <th data-field="birth_date">Data de nascimento</th>
+          <th data-field="parent_telephone">Telefone do responsável</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of getStudents() | filter : searchClass">
+          <td>{{ s.name }}</td>
+          <td>{{ s.year }}</td>
+          <td>{{ s.student_class }}</td>
+          <td>{{ s.birth_date }}</td>
+          <td>{{ s.parent_telephone }}</td>
+          <td><a [routerLink]="['/studentpanel', s.id]">Visualizar perfil</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

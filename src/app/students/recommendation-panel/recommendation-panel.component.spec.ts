@@ -1,31 +1,29 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpModule }                       from '@angular/http';
-import { StudentsService }                   from '../../services/students.service';
-import { RouterTestingModule }              from '@angular/router/testing';
 import { FormsModule }                      from '@angular/forms';
-import { ReferralService }                  from '../shared/referral.service';
+import { RecommendationService } from '../shared/recommendation.service'
+import { RecommendationPanelComponent } from './recommendation-panel.component';
+import { HttpModule }                       from '@angular/http';
+import { RouterTestingModule }              from '@angular/router/testing';
 
-import { ReferralComponent } from './referral.component';
-
-describe('ReferralComponent', () => {
-  let component: ReferralComponent;
-  let fixture: ComponentFixture<ReferralComponent>;
+describe('RecommendationComponent', () => {
+  let component: RecommendationPanelComponent;
+  let fixture: ComponentFixture<RecommendationPanelComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:  [
+      imports: [
         FormsModule,
         HttpModule,
         RouterTestingModule
       ],
-      declarations: [ ReferralComponent ],
-      providers: [ReferralService]
+      providers: [ RecommendationService ],
+      declarations: [ RecommendationPanelComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReferralComponent);
+    fixture = TestBed.createComponent(RecommendationPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

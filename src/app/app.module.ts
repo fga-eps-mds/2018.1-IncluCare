@@ -14,23 +14,24 @@ import { AuthService }                      from "./services/auth.service";
 import { LoginComponent }                   from './login/login.component';
 import { RegisterFormComponent }            from './register/register-form/register-form.component';
 import { ProfileComponent }                 from './profile/profile.component';
-import { StudentService }                   from './students/shared/student.service';
+import { StudentsService }                   from './services/students.service';
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
-import { FilterStudentClass }               from './students/filterStudentClass.pipe';
+import { FilterClassPipe }               from './students/shared/filter-class.pipe';
 import { SidenavComponent }                 from './sidenav/sidenav.component';
-import { NavbarComponent }                 from './navbar/navbar.component';
+import { NavbarComponent }                  from './navbar/navbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
 import { DailyLogComponent }                from './students/daily-log/daily-log.component';
-import { DailyLogService }                  from './students/shared/dailylog.service';
 import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';
-import { ReportService }                    from './students/shared/report.service';
 import { ReportComponent }                  from './students/report/report.component';
 import { ReportFormComponent }              from './students/report-form/report-form.component';
 import { ReferralService }                  from './students/shared/referral.service';
 import { ReferralComponent }                from './students/referral/referral.component';
 import { ReferralFormComponent }            from './students/referral-form/referral-form.component';
-import { ReferralPanelComponent } from './students/referral-panel/referral-panel.component';
+import { ReferralPanelComponent }           from './students/referral-panel/referral-panel.component';
+import { DailyLogPanelComponent }           from './students/daily-log-panel/daily-log-panel.component';
+import { RecommendationPanelComponent }     from './students/recommendation-panel/recommendation-panel.component';
+import { RecommendationService }            from './students/shared/recommendation.service';
 
 @NgModule({
   declarations: [
@@ -47,10 +48,12 @@ import { ReferralPanelComponent } from './students/referral-panel/referral-panel
     DailyLogFormComponent,
     ReportComponent,
     ReportFormComponent,
-    FilterStudentClass,
+    FilterClassPipe,
     ReferralComponent,
     ReferralFormComponent,
-    ReferralPanelComponent
+    ReferralPanelComponent,
+    DailyLogPanelComponent,
+    RecommendationPanelComponent,
   ],
   imports: [
     HttpModule,
@@ -65,10 +68,9 @@ import { ReferralPanelComponent } from './students/referral-panel/referral-panel
     AuthGuard,
     AuthService,
     Angular2TokenService,
-    StudentService,
-    DailyLogService,
-    ReportService,
-    ReferralService
+    StudentsService,
+    ReferralService,
+    RecommendationService
   ],
   bootstrap: [ AppComponent ]
 })
