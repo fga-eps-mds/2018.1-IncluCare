@@ -38,15 +38,14 @@ export class StudentPanelComponent implements OnInit {
 
   deleteStudent(student) {
     if (confirm("Você tem certeza que quer deletar o estudante " + student.name + "?")) {
-      this.studentService.deleteStudent(student.id).subscribe(null);
+      this.studentService.deleteStudent(student.id)
+      .subscribe(data => this.router.navigate(['/students']));
     }
   }
 
   updateStudent(student){
-    var result;
-    result = this.studentService.updateStudent(this.student);
-
-    result.subscribe(data => this.router.navigate(['/students']));
+    this.studentService.updateStudent(this.student)
+    .subscribe(data => this.router.navigate(['/students']));
   }
 
 }
