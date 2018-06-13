@@ -1,19 +1,27 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { StudentsService } from './students.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpModule } from '@angular/http';
 
 describe('StudentsService', () => {
+  let service: StudentsService;
+  let httpMock: HttpTestingController;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpModule,
-                 RouterTestingModule
+      imports: [ HttpClientTestingModule,
+                 HttpModule
                ],
       providers: [StudentsService]
     });
+
+    service = TestBed.get(StudentsService);
+    httpMock = TestBed.get(HttpTestingController);
   });
 
-  it('should be created', inject([StudentsService], (service: StudentsService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should have a service instance', () => {
+    expect(service).toBeDefined();
+  });
+
 });
