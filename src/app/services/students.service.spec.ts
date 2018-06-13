@@ -144,4 +144,81 @@ describe('StudentsService', () => {
     expect(promise).toBeDefined();
   }));
 
+  it('updateStudent should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const data: Student = {
+      id: 445,
+      name: 'adalberto',
+      birth_date: '12-12-1929',
+      age: 18,
+      year: 9,
+      student_class: 'a',
+      shift: 'matutino',
+      nationality: 'brasileiro',
+      father_name: 'jair',
+      mother_name: 'edineia',
+      responsible: 'responsavel',
+      address: 'riacho fundo',
+      parent_telephone: 444122323,
+
+    };
+    const promise = service.updateStudent(data);
+    expect(promise).toBeDefined();
+  }));
+
+  it('updateReport should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const data: Report = {
+      id: 9,
+      init_date: '12-8-1998',
+      end_date: '12-8-1999',
+      school_phone: '999999999',
+      member_name: '88888888',
+      school_name: 'escola do riacho',
+      reason: '',
+      general_information: '',
+      synthesis: '',
+      conclusion: '',
+      family_orientation: '',
+      school_orientation: '',
+      pedagogue_name: '',
+      pedagogue_function: '',
+      pedagogue_registry: '',
+      psycholog_name: '',
+      psycholog_function: '',
+      psycholog_registry: '',
+      reason_adequation: true,
+      reason_emotional: true,
+      reason_performance: true,
+      reason_behavior: true,
+      reason_language: true,
+      level_school: true,
+      level_family: true,
+      level_student: true,
+      envolved_school: '',
+      envolved_family: '',
+      envolved_student: '',
+      realized_actions: '',
+      possibly_saa: true,
+      possibly_eeaa: true,
+      possibly_resources: true,
+      possibly_adequation: true,
+      student_id: 9,
+
+    };
+    const promise = service.updateReport(data);
+    expect(promise).toBeDefined();
+  }));
+
+  it('updateDailyLog should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const data: DailyLog = {
+      id: 9,
+      date: '12-8-1998',
+      activity: 'natacao',
+      note: 'dificuldade no nado borboleta',
+      student_id: 9,
+
+    };
+    const promise = service.updateDailyLog(data);
+    expect(promise).toBeDefined();
+  }));
+
 });
