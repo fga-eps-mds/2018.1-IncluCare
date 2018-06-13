@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { RecommendationData } from "../shared/recommendationData";
 import { Router, ActivatedRoute } from '@angular/router';
-import { RecommendationService } from '../shared/recommendation.service';
+
 import * as jsPDF from 'jspdf';
+
+import { RecommendationData } from "../../shared/models";
+import { RecommendationService } from '../shared/recommendation.service';
 
 @Component({
   selector: 'app-recommendation-panel',

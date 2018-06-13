@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ReferralService } from '../shared/referral.service';
-
-import { Referral } from "../shared/referral";
-
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Referral } from "../../shared/models";
+import { ReferralService } from '../shared/referral.service';
 
 @Component({
   selector: 'app-referral-form',

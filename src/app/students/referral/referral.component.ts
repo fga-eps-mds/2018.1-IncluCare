@@ -1,7 +1,8 @@
-import { Component, OnInit }      from '@angular/core';
-import { ReferralService }        from '../shared/referral.service';
-import { Referral }                 from "../shared/referral";
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Referral } from "../../shared/models";
+import { ReferralService } from '../shared/referral.service';
 
 @Component({
   selector: 'app-referral',
@@ -9,8 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./referral.component.css']
 })
 export class ReferralComponent implements OnInit {
-
-   private referrals: Referral[] = [];
+  private referrals: Referral[] = [];
 
   constructor(
     private referralService: ReferralService,
@@ -20,10 +20,10 @@ export class ReferralComponent implements OnInit {
 
   ngOnInit() {
     this.referralService.getReferrals()
-      .subscribe(
-         data => this.referrals = data,
-         response => {}
-        );
+    .subscribe(
+      data => this.referrals = data,
+      response => {}
+    );
   }
 
   getReferrals() {
@@ -35,7 +35,7 @@ export class ReferralComponent implements OnInit {
       var index = this.referrals.indexOf(referrals);
       this.referrals.splice(index, 1);
       this.referralService.deleteReferral(referrals.id)
-        .subscribe(null);
+      .subscribe(null);
     }
   }
 

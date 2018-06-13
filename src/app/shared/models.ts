@@ -59,3 +59,19 @@ export class Report {
   possibly_adequation: boolean;
   student_id: any;
 }
+
+export class Referral {
+  id: number;
+  title: any;
+  body: any;
+  student: any;
+  student_id: any;
+}
+
+export class RecommendationData {
+  id: number;
+  title: any;
+  body: any;
+  student: any;
+  student_id: any;
+}

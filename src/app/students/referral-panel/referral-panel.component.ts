@@ -1,12 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-
-import { ReferralService } from '../shared/referral.service';
-
-import {Referral} from "../shared/referral";
-
 import { Router, ActivatedRoute } from '@angular/router';
 
 import * as jsPDF from 'jspdf';
+
+import { Referral } from "../../shared/models";
+import { ReferralService } from '../shared/referral.service';
 
 @Component({
   selector: 'app-referral-panel',
@@ -21,7 +19,6 @@ export class ReferralPanelComponent implements OnInit {
   referral: Referral = new Referral();
 
   constructor(
-
     private referralService: ReferralService,
     private router: Router,
     private route: ActivatedRoute
