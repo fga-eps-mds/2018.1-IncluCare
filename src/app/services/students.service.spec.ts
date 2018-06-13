@@ -46,6 +46,27 @@ describe('StudentsService', () => {
     expect(promise).toBeDefined();
   }));
 
+  it('deleteReport should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const userID = 1;
+
+    const promise = service.deleteReport(userID);
+    expect(promise).toBeDefined();
+  }));
+
+  it('deleteStudent should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const userID = 1;
+
+    const promise = service.deleteStudent(userID);
+    expect(promise).toBeDefined();
+  }));
+
+  it('deleteDailyLog should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const userID = 1;
+
+    const promise = service.deleteDailyLog(userID);
+    expect(promise).toBeDefined();
+  }));
+
   it('addStudent should return a promise', inject([StudentsService], (service: StudentsService) => {
     const user: Student = {
       id: 445,
