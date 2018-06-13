@@ -181,41 +181,9 @@
 </div>
 
 
-<table>
-  <td>
-    <tr>
-    <div class="card gradient-inclucare">
-        <div class="card-action">
-        <a [routerLink]="['/report', student.id]">Gerar Relatório</a>
-      </div>
-    </div>
-  </tr>
-
-<tr>
-  <div class="card gradient-inclucare">
-    <div class="card-action">
-      <a [routerLink]="['/referral', student.id]">Gerar encaminhamento</a>
-    </div>
-  </div>
-</tr>
-</td>
-
-<td>
-<tr>
-  <div class="card gradient-inclucare">
-    <div class="card-action">
-      <a [routerLink]="['/recommendation', student.id]">Enviar recomendações</a>
-    </div>
-  </div>
-</tr>
-
-<tr>
-  <div class="card gradient-inclucare">
-    <div class="card-action">
-      <a [routerLink]="['/dailylog', student.id]">Gerar Registro Diário</a>
-    </div>
-  </div>
-</tr>
-</td>
-
-</table>
+<div class="row">
+  <a [routerLink]="['/report', student.id]" class="waves-effect waves-light btn-large">Gerar Relatório</a>
+  <a [routerLink]="['/referral', student.id]" class="waves-effect waves-light btn-large">Gerar encaminhamento</a>
+  <a [routerLink]="['/dailylog', student.id]" class="waves-effect waves-light btn-large">Gerar Registro Diário</a>
+  <a [routerLink]="['/recommendation', student.id]" class="waves-effect light-blue darken-4 btn-large">Painel de Recomendação</a>
+</div>
