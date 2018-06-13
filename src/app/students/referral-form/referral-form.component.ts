@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Referral } from "../../shared/models";
-import { ReferralService } from '../shared/referral.service';
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-referral-form',
@@ -16,7 +16,7 @@ export class ReferralFormComponent implements OnInit {
   idC: number;
   constructor(
 
-    private referralService: ReferralService,
+    private StudentsService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -38,9 +38,9 @@ export class ReferralFormComponent implements OnInit {
     var result;
     this.referral.student_id = this.idC
     if (this.referral.id){
-      result = this.referralService.updateReferral(this.referral);
+      result = this.StudentsService.updateReferral(this.referral);
     } else {
-      result = this.referralService.addReferral(this.referral);
+      result = this.StudentsService.addReferral(this.referral);
     }
 
     result.subscribe(data => this.router.navigate(['/referrals']));

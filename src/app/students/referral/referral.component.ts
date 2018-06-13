@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Referral } from "../../shared/models";
-import { ReferralService } from '../shared/referral.service';
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-referral',
@@ -13,7 +13,7 @@ export class ReferralComponent implements OnInit {
   private referrals: Referral[] = [];
 
   constructor(
-    private referralService: ReferralService,
+    private referralService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

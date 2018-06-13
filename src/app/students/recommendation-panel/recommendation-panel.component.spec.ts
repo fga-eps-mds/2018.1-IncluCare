@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule }                      from '@angular/forms';
-import { RecommendationService } from '../shared/recommendation.service'
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { StudentsService } from '../../services/students.service'
 import { RecommendationPanelComponent } from './recommendation-panel.component';
-import { HttpModule }                       from '@angular/http';
-import { RouterTestingModule }              from '@angular/router/testing';
 
 describe('RecommendationComponent', () => {
   let component: RecommendationPanelComponent;
@@ -16,7 +17,7 @@ describe('RecommendationComponent', () => {
         HttpModule,
         RouterTestingModule
       ],
-      providers: [ RecommendationService ],
+      providers: [ StudentsService ],
       declarations: [ RecommendationPanelComponent ]
     })
     .compileComponents();

@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as jsPDF from 'jspdf';
 
 import { RecommendationData } from "../../shared/models";
-import { RecommendationService } from '../shared/recommendation.service';
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-recommendation-panel',
@@ -13,12 +13,12 @@ import { RecommendationService } from '../shared/recommendation.service';
 })
 export class RecommendationPanelComponent implements OnInit {
 
-  @ViewChild( 'content' ) content: ElementRef;
+  @ViewChild('content') content: ElementRef;
   recommendation: RecommendationData = new RecommendationData();
   idAux: number;
 
   constructor(
-    private recommendationService: RecommendationService,
+    private recommendationService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
