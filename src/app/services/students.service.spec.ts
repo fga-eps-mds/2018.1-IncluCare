@@ -24,4 +24,11 @@ describe('StudentsService', () => {
     expect(service).toBeDefined();
   });
 
+  it('getUser should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const userID = 1;
+
+    const promise = service.getStudent(userID);
+    expect(promise).toBeDefined();
+  }));
+
 });
