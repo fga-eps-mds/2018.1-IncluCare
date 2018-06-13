@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { StudentsService } from './students.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule } from '@angular/http';
-import { Student } from '../shared/models'
+import { Student, DailyLog, Report } from '../shared/models'
 
 describe('StudentsService', () => {
   let service: StudentsService;
@@ -68,7 +68,7 @@ describe('StudentsService', () => {
   }));
 
   it('addStudent should return a promise', inject([StudentsService], (service: StudentsService) => {
-    const user: Student = {
+    const data: Student = {
       id: 445,
       name: 'adalberto',
       birth_date: '12-12-1929',
@@ -84,7 +84,63 @@ describe('StudentsService', () => {
       parent_telephone: 444122323,
 
     };
-    const promise = service.addStudent(user);
+    const promise = service.addStudent(data);
+    expect(promise).toBeDefined();
+  }));
+
+  it('addDailyLog should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const data: DailyLog = {
+      id: 9,
+      date: '12-8-1998',
+      activity: 'natacao',
+      note: 'dificuldade no nado borboleta',
+      student_id: 9,
+
+    };
+    const promise = service.addDailyLog(data);
+    expect(promise).toBeDefined();
+  }));
+
+  it('addReport should return a promise', inject([StudentsService], (service: StudentsService) => {
+    const data: Report = {
+      id: 9,
+      init_date: '12-8-1998',
+      end_date: '12-8-1999',
+      school_phone: '999999999',
+      member_name: '88888888',
+      school_name: 'escola do riacho',
+      reason: '',
+      general_information: '',
+      synthesis: '',
+      conclusion: '',
+      family_orientation: '',
+      school_orientation: '',
+      pedagogue_name: '',
+      pedagogue_function: '',
+      pedagogue_registry: '',
+      psycholog_name: '',
+      psycholog_function: '',
+      psycholog_registry: '',
+      reason_adequation: true,
+      reason_emotional: true,
+      reason_performance: true,
+      reason_behavior: true,
+      reason_language: true,
+      level_school: true,
+      level_family: true,
+      level_student: true,
+      envolved_school: '',
+      envolved_family: '',
+      envolved_student: '',
+      realized_actions: '',
+      possibly_saa: true,
+      possibly_eeaa: true,
+      possibly_resources: true,
+      possibly_adequation: true,
+      student_id: 9,
+
+    };
+    const promise = service.addReport(data);
     expect(promise).toBeDefined();
   }));
 
