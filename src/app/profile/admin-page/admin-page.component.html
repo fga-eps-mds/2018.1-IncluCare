@@ -1,3 +1,8 @@
-<p>
-  admin-page works!
-</p>
+<div>
+<tr *ngFor="let teamMember of getTeamMembers()">
+  <td>{{ teamMember.name }}</td>
+  <td>{{ teamMember.email }}</td>
+  <td>
+  </td>
+</tr>
+</div>

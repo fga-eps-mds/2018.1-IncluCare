@@ -14,8 +14,9 @@ import { Angular2TokenService, SignInData, RegisterData, UpdatePasswordData} fro
 export class AuthService {
 
   private url: string = "http://localhost:3000/auth";
+  private url2: string = "http://localhost:3000/team_members";
 
-  constructor(public _tokenService: Angular2TokenService) {}
+  constructor(public _tokenService: Angular2TokenService,private http: Http) {}
 
   public signIn(signInData: SignInData): Observable<Response>{
     return this._tokenService.signIn(signInData)
@@ -53,6 +54,11 @@ export class AuthService {
 
   public deleteAccount(): Observable<Response>{
     return this._tokenService.deleteAccount();
+  }
+
+  getTeamMembers(){
+    return this.http.get(this.url2)
+      .map(res => res.json());
   }
 
   private handleErrors(error: Response){
