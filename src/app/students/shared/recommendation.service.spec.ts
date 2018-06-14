@@ -28,11 +28,20 @@ describe('RecommendationService', () => {
     expect(service).toBeDefined();
   });
 
-  it('getRecommendation should return a promise', inject([RecommendationService], (service: RecommendationService) => {
-    const userID = 1;
-
-    const promise = service.getRecommendation(userID);
-    expect(promise).toBeDefined();
+  it('should update recommendation data', inject([RecommendationService, XHRBackend], (recommendationDataService, backend) => {
+    const mockResponse = {
+    data: [{
+      id: 9
+    }]
+    }
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response( new ResponseOptions({
+        body: JSON.stringify(mockResponse)
+      })));
+    });
+    recommendationDataService.getRecommendation(mockResponse.data).subscribe((res) => {
+      expect(res).toBeDefined();
+    });
   }));
 
   it('should update recommendation data', inject([RecommendationService, XHRBackend], (recommendationDataService, backend) => {
