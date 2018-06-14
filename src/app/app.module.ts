@@ -34,6 +34,7 @@ import { ReferralPanelComponent }           from './students/referral-panel/refe
 import { DailyLogPanelComponent }           from './students/daily-log-panel/daily-log-panel.component';
 import { RecommendationPanelComponent }     from './students/recommendation-panel/recommendation-panel.component';
 import { RecommendationService }            from './students/shared/recommendation.service';
+import { AdminPageComponent } from './profile/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { RecommendationService }            from './students/shared/recommendati
     ReferralFormComponent,
     ReferralPanelComponent,
     DailyLogPanelComponent,
-    RecommendationPanelComponent
+    RecommendationPanelComponent,
+    AdminPageComponent
   ],
   imports: [
     HttpModule,
