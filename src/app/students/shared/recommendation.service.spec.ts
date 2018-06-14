@@ -4,6 +4,7 @@ import { RouterTestingModule }                               from '@angular/rout
 import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import { MockBackend, MockConnection }                       from '@angular/http/testing';
 import { RecommendationService }                             from './recommendation.service'
+import { RecommendationData }                                from './recommendationData'
 
 describe('RecommendationService', () => {
   let service: RecommendationService;
@@ -32,6 +33,46 @@ describe('RecommendationService', () => {
 
     const promise = service.getRecommendation(userID);
     expect(promise).toBeDefined();
+  }));
+
+  it('should update recommendation data', inject([RecommendationService, XHRBackend], (recommendationDataService, backend) => {
+    const mockResponse = {
+    data: [{
+      id: 9,
+      title: '',
+      body: '',
+      student: 'Joao',
+      student_id: ''
+    }]
+    }
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response( new ResponseOptions({
+        body: JSON.stringify(mockResponse)
+      })));
+    });
+    recommendationDataService.updateRecommendation(mockResponse.data).subscribe((res) => {
+      expect(res).toBeDefined();
+    });
+  }));
+
+  it('should create recommendation data', inject([RecommendationService, XHRBackend], (recommendationDataService, backend) => {
+    const mockResponse = {
+    data: [{
+      id: 9,
+      title: '',
+      body: '',
+      student: 'Joao',
+      student_id: ''
+    }]
+    }
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response( new ResponseOptions({
+        body: JSON.stringify(mockResponse)
+      })));
+    });
+    recommendationDataService.createRecommendation(mockResponse.data).subscribe((res) => {
+      expect(res).toBeDefined();
+    });
   }));
 
 });
