@@ -1,12 +1,12 @@
-import { Component, OnInit }                        from '@angular/core';
-import { Router }                                   from "@angular/router";
-import { FormBuilder, FormControl, FormGroup, Validators }  from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
-import { RegisterData }                             from "angular2-token";
-import { MaterializeAction }                        from "angular2-materialize";
+import { RegisterData } from "angular2-token";
+import { MaterializeAction } from "angular2-materialize";
 
-import { AuthService }                              from "../services/auth.service";
-import { FormUtils }                                from "../shared/form.utils";
+import { AuthService } from "../services/auth.service";
+import { FormUtils } from "../shared/form.utils";
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
   ) {
     this.setupForm();
     this.formUtils = new FormUtils(this.form);
