@@ -17,7 +17,7 @@ describe('LoginComponent', () => {
     tokenMock.validateToken.and.returnValue(tokenMock);
 
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [LoginComponent],
       imports: [
         HttpModule,
         FormsModule,
@@ -29,14 +29,14 @@ describe('LoginComponent', () => {
         { provide: Angular2TokenService, useValue: tokenMock }
       ]
     })
-    .compileComponents();
-  }));
+      .compileComponents();
+  })
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+      fixture = TestBed.createComponent(LoginComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
 
   it('should create', () => {
     expect(component).toBeTruthy();

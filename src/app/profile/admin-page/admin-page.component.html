@@ -1,8 +1,18 @@
-<div>
-<tr *ngFor="let teamMember of getTeamMembers()">
-  <td>{{ teamMember.name }}</td>
-  <td>{{ teamMember.email }}</td>
-  <td>
-  </td>
-</tr>
+<div class="container">
+  <h4>Painel de Membros</h4>
+  <table class="striped">
+  <thead>
+    <tr>
+      <th data-field="name">Nome</th>
+      <th data-field="email">Email</th>
+      <tr>
+  </thead>
+
+      <tr *ngFor="let teamMember of getTeamMembers()">
+        <td>{{ teamMember.name }}</td>
+        <td>{{ teamMember.email }}</td>
+        <td>
+        </td>
+      </tr>
+    </table>
 </div>
