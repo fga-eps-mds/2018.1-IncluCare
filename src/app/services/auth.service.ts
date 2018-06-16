@@ -13,8 +13,7 @@ import { Angular2TokenService, SignInData, RegisterData, UpdatePasswordData} fro
 @Injectable()
 export class AuthService {
 
-  private url: string = "http://localhost:3000/auth";
-  private url2: string = "http://localhost:3000/team_members";
+  private url: string = "http://localhost:3000/team_members";
 
   constructor(public _tokenService: Angular2TokenService,private http: Http) {}
 
@@ -57,7 +56,7 @@ export class AuthService {
   }
 
   getTeamMembers(){
-    return this.http.get(this.url2)
+    return this.http.get(this.url)
       .map(res => res.json());
   }
 
