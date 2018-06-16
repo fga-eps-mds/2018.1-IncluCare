@@ -31,4 +31,23 @@ getTeamMembers() {
   return this.teamMember;
   }
 
+  deleteAccount() {
+    this.authService.deleteAccount().subscribe(
+      res =>      console.log(res),
+      error =>    console.log(error)
+    );
+  }
+
+  deleteTeamMember(teamMember) {
+    if (confirm("Você tem certeza que quer deletar o membro " + teamMember.name + "?")) {
+      this.authService.deleteTeamMember(teamMember.id).subscribe(null);
+    }
+  }
+
+// deleteTeamMember() {
+//   if (confirm("Você tem certeza que quer deletar o usuario " + teamMember.name + "?")) {
+//     this.authService.deleteTeamMember().subscribe(null);
+//   }
+// }
+
 }

@@ -61,6 +61,23 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  deleteTeamMember(id){
+    return this.http.delete(this.url + '/' + id)
+      .map(res => res.json());
+  }
+
+  // public deleteTeamMember(): Observable<Response>{
+  //   return this._tokenService.deleteTeamMember();
+  // }
+
+  // public deleteTeamMember(id: number): Observable<null> {
+  //   let url = `${this.teamMemberUrl}/${id}`;
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+
+  //   return this.http.delete(url, { headers: headers })
+  //     .map(() => null)
+  // }
+
   private handleErrors(error: Response){
     console.log("SALVANDO O ERRO NUM ARQUIVO DE LOG - DETALHES DO ERRO => ", error);
     return Observable.throw(error);
