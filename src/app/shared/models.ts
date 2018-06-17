@@ -3,15 +3,17 @@ export class Student {
   name: string;
   birth_date: any;
   age: number;
+  nationality: string;
   year: number;
   student_class: string;
   shift: string;
-  nationality: string;
   father_name: string;
   mother_name: string;
   responsible: string;
   address: string;
   parent_telephone: number;
+  created_at: any;
+  updated_at: any;
 }
 
 export class DailyLog {
@@ -19,6 +21,11 @@ export class DailyLog {
   date: any;
   activity: any;
   note: string;
+  created_by: any;
+  updated_by: any;
+  created_at: any;
+  updated_at: any;
+  student: any;
   student_id: any;
 }
 
@@ -57,6 +64,11 @@ export class Report {
   possibly_eeaa: boolean;
   possibly_resources: boolean;
   possibly_adequation: boolean;
+  created_by: string;
+  updated_by: string;
+  created_at: any;
+  updated_at: any;
+  student: any;
   student_id: any;
 }
 
@@ -64,14 +76,32 @@ export class Referral {
   id: number;
   title: any;
   body: any;
+  created_by: string;
+  updated_by: string;
+  created_at: any;
+  updated_at: any;
   student: any;
   student_id: any;
 }
 
-export class RecommendationData {
+export class Recommendation {
   id: number;
   title: any;
   body: any;
+  created_by: string;
+  updated_by: string;
+  created_at: any;
+  updated_at: any;
   student: any;
+  student_id: any;
+}
+
+export class Activity {
+  id: number;
+  title: any;
+  created_by: string;
+  updated_by: string;
+  created_at: any;
+  updated_at: any;
   student_id: any;
 }

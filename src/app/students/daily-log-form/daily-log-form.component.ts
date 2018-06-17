@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Angular2TokenService } from "angular2-token";
+
 import { DailyLog } from "../../shared/models";
 import { StudentsService } from '../../services/students.service';
 
@@ -15,7 +17,7 @@ export class DailyLogFormComponent implements OnInit {
   daily_log: DailyLog = new DailyLog();
   idC: number;
   constructor(
-
+    public authTokenService: Angular2TokenService,
     private daily_logService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
@@ -37,6 +39,8 @@ export class DailyLogFormComponent implements OnInit {
   save() {
     var result;
     this.daily_log.student_id = this.idC
+    this.daily_log.created_by = this.authTokenService.currentUserData.name
+    this.daily_log.updated_by = this.authTokenService.currentUserData.name
     if (this.daily_log.id){
       result = this.daily_logService.updateDailyLog(this.daily_log);
     } else {

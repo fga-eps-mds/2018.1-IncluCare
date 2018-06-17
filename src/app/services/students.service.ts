@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class StudentsService {
@@ -15,7 +15,7 @@ export class StudentsService {
   private referralsUrl: string = "http://localhost:3000/referrals";
   private recommendationsUrl: string = "http://localhost:3000/recommendations";
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {}
 
   //Students Service
 

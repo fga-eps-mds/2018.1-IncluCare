@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Student } from "../../shared/models";
+import { Student, Activity } from "../../shared/models";
 import { StudentsService } from '../../services/students.service';
 
 @Component({
@@ -10,10 +10,11 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./student-panel.component.css']
 })
 export class StudentPanelComponent implements OnInit {
+  idC: number;
   name: string;
-  student: Student = new Student();
-
   editMode: boolean;
+  student: Student = new Student();
+  activities: Activity[] = [];
 
   constructor(
     private studentService: StudentsService,
@@ -36,16 +37,15 @@ export class StudentPanelComponent implements OnInit {
     });
   }
 
-  deleteStudent(student) {
-    if (confirm("Você tem certeza que quer deletar o estudante " + student.name + "?")) {
-      this.studentService.deleteStudent(student.id)
-      .subscribe(data => this.router.navigate(['/students']));
-    }
-  }
-
   updateStudent(student){
     this.studentService.updateStudent(this.student)
     .subscribe(data => this.router.navigate(['/students']));
   }
 
+  deleteStudent(student) {
+    if(confirm("Você tem certeza que quer deletar o estudante " + student.name + "?")) {
+      this.studentService.deleteStudent(student.id)
+      .subscribe(data => this.router.navigate(['/students']));
+    }
+  }
 }

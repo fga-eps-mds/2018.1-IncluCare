@@ -12,7 +12,7 @@ import { FilterClassPipe } from './shared/filter-class.pipe';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-
+  searchClass: string;
   private students: Student[] = [];
 
   constructor(private studentService: StudentsService) {}
@@ -26,7 +26,7 @@ export class StudentsComponent implements OnInit {
   }
 
   deleteStudent(students) {
-    if (confirm("Você tem certeza que quer deletar o estudante " + students.name + "?")) {
+    if(confirm("Você tem certeza que quer deletar o estudante " + students.name + "?")) {
       var index = this.students.indexOf(students);
       this.students.splice(index, 1);
       this.studentService.deleteStudent(students.id)

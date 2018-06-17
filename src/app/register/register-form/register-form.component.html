@@ -16,7 +16,7 @@
           <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('name')">
             <label for="name" class="col-sm-4 control-label">Nome</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="name" formControlName="name">
+              <input type="text" class="form-control" id="show_name" formControlName="name">
               <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('name')"></span>
 
               <div *ngIf="formUtils.showFieldError('name')" class="text-danger">
@@ -30,7 +30,7 @@
           <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('email')">
             <label for="email" class="col-sm-4 control-label">Email</label>
             <div class="col-sm-4">
-              <input type="email" class="form-control" id="email" formControlName="email">
+              <input type="email" class="form-control" id="show_email" formControlName="email">
               <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('email')"></span>
 
               <div *ngIf="formUtils.showFieldError('email')" class="text-danger">
@@ -43,7 +43,7 @@
           <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('password')">
             <label for="password" class="col-sm-4 control-label">Senha</label>
             <div class="col-sm-4">
-              <input type="password" class="form-control" id="password" formControlName="password">
+              <input type="password" class="form-control" id="show_password" formControlName="password">
               <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('password')"></span>
 
               <div *ngIf="formUtils.showFieldError('password')" class="text-danger">
@@ -56,7 +56,7 @@
           <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('passwordConfirmation')">
             <label for="passwordConfirmation" class="col-sm-4 control-label">Confirmação de Senha</label>
             <div class="col-sm-4">
-              <input type="password" class="form-control" id="passwordConfirmation" formControlName="passwordConfirmation">
+              <input type="password" class="form-control" id="show_passwordConfirmation" formControlName="passwordConfirmation">
               <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('passwordConfirmation')"></span>
 
               <div *ngIf="formUtils.showFieldError('passwordConfirmation')" class="text-danger">
