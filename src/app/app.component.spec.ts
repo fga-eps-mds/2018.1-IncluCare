@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
@@ -9,7 +10,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RegisterFormComponent } from './register/register-form/register-form.component';
-
 import { AuthService } from './services/auth.service';
 
 describe('AppComponent', () => {
@@ -28,7 +28,8 @@ describe('AppComponent', () => {
         RouterTestingModule,
         MaterializeModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpModule
       ],
       providers: [
         AuthService,

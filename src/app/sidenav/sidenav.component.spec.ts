@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule }                       from '@angular/http';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
@@ -10,7 +11,7 @@ import { RegisterFormComponent } from '../register/register-form/register-form.c
 
 import { AuthService } from '../services/auth.service';
 
-describe('AppComponent', () => {
+describe('SidenavComponent', () => {
   let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
   tokenMock.validateToken.and.returnValue(tokenMock);
 
@@ -24,7 +25,8 @@ describe('AppComponent', () => {
         RouterTestingModule,
         MaterializeModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpModule
       ],
       providers: [
         AuthService,
