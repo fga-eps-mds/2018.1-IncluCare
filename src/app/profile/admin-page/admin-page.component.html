@@ -1,22 +1,23 @@
-<div class="container">
+<div *ngIf="authTokenService.currentUserData">
+  <div *ngIf="authTokenService.currentUserData.nickname == 'admin' ">
   <h4>Painel de Membros</h4>
   <table class="striped">
-  <thead>
-    <tr>
-      <th data-field="name">Nome</th>
-      <th data-field="email">Email</th>
+    <thead>
       <tr>
-  </thead>
+        <th data-field="name">Nome</th>
+        <th data-field="email">Email</th>
+        <tr>
+    </thead>
 
-      <tr *ngFor="let teamMember of getTeamMembers()">
-        <td>{{ teamMember.name }}</td>
-        <td>{{ teamMember.email }}</td>
-        <td>
-          <a (click)="deleteTeamMember(teamMember)" class="btn waves-effect waves-light gradient-inclucare"
-            type="button" name="action">Excluir Membro da Equipe
+    <tr *ngFor="let teamMember of getTeamMembers()">
+      <td>{{ teamMember.name }}</td>
+      <td>{{ teamMember.email }}</td>
+      <td>
+        <a (click)="deleteTeamMember(teamMember)" class="btn waves-effect waves-light gradient-inclucare" type="button" name="action">Excluir Membro da Equipe
             <i class="material-icons right">delete</i>
           </a>
-        </td>
-      </tr>
-    </table>
+      </td>
+    </tr>
+  </table>
+</div>
 </div>
