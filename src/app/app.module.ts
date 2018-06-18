@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterializeModule }                from 'angular2-materialize';
 import { Angular2TokenService }             from 'angular2-token';
+import { OrderModule }                      from 'ngx-order-pipe';
 
 import { AppComponent }                     from './app.component';
 import { routes }                           from './app.routes';
@@ -57,6 +58,7 @@ import { RecommendationPanelComponent }     from './students/recommendation-pane
     HttpModule,
     BrowserModule,
     FormsModule,
+    OrderModule,
     ReactiveFormsModule,
     MaterializeModule,
     routes
@@ -65,7 +67,6 @@ import { RecommendationPanelComponent }     from './students/recommendation-pane
     LoginGuard,
     AuthGuard,
     AuthService,
-    FilterPipe,
     Angular2TokenService,
     StudentsService
   ],

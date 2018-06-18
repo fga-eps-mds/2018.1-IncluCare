@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule } from '@angular/http';
 
+import { OrderPipe } from 'ngx-order-pipe';
 import { Angular2TokenService } from 'angular2-token';
 
 import { StudentsComponent } from './students.component';
@@ -20,7 +21,8 @@ describe('StudentsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         StudentsComponent,
-        FilterPipe
+        FilterPipe,
+        OrderPipe
       ],
       imports: [
         HttpModule,
@@ -31,6 +33,7 @@ describe('StudentsComponent', () => {
       providers: [
         StudentsService,
         AuthService,
+        OrderPipe,
         {provide: Angular2TokenService, useValue: tokenMock}
       ]
     })
