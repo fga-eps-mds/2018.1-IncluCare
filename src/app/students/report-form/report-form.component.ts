@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ReportService } from '../shared/report.service';
-
-import { Report } from "../shared/report";
-
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Report, Student } from "../../shared/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-report-form',
@@ -15,10 +13,11 @@ export class ReportFormComponent implements OnInit {
 
   name: string;
   report: Report = new Report();
+  student: Student = new Student();
   idC: number;
   constructor(
 
-    private reportService: ReportService,
+    private reportService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -27,18 +26,37 @@ export class ReportFormComponent implements OnInit {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
 
-      this.name = id ? 'Editar Relatório' : 'Criar Relatório';
+      if(!id)
+      return;
 
-      if (!id)
-        return;
-
-      this.idC = id
+      this.reportService.getStudent(id)
+      .subscribe(
+        student => this.student = student,
+        response => {}
+      );
     });
+
+    this.initCheckboxes();
+  }
+
+  initCheckboxes(){
+    this.report.reason_adequation = false;
+    this.report.reason_emotional = false;
+    this.report.reason_performance = false;
+    this.report.reason_behavior = false;
+    this.report.reason_language = false;
+    this.report.level_school = false;
+    this.report.level_family = false;
+    this.report.level_student = false;
+    this.report.possibly_saa = false;
+    this.report.possibly_eeaa = false;
+    this.report.possibly_resources = false;
+    this.report.possibly_adequation = false;
   }
 
   save() {
     var result;
-    this.report.student_id = this.idC
+    this.report.student_id = this.student.id;
     if (this.report.id){
       result = this.reportService.updateReport(this.report);
     } else {

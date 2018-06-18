@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Response } from "@angular/http";
-import { Http } from '@angular/http';
 
 //import { Subject, Observable } from "rxjs";
 import { Subject } from "rxjs";
@@ -10,6 +9,7 @@ import { Observable } from "rxjs/Observable";
 //import { TokenService } from "token.service";
 
 import { Angular2TokenService, SignInData, RegisterData, UpdatePasswordData} from "angular2-token";
+
 @Injectable()
 export class AuthService {
 
@@ -30,16 +30,6 @@ export class AuthService {
   public registerAccount(registerData: RegisterData): Observable<Response>{
     return this._tokenService.registerAccount(registerData)
     .catch(this.handleErrors)
-  }
-
-  public updateTeamMember(teamMemberName, teamMemberEmail): Observable<Response>{
-    let args = {
-        name: teamMemberName,
-        email: teamMemberEmail
-      };
-
-    let body = JSON.stringify(args);
-    return this._tokenService.put('auth', body);
   }
 
   public updatePassword(updatePasswordData: UpdatePasswordData): Observable<Response>{
@@ -65,17 +55,6 @@ export class AuthService {
       .map(res => res.json());
   }
 
-  // public deleteTeamMember(): Observable<Response>{
-  //   return this._tokenService.deleteTeamMember();
-  // }
-
-  // public deleteTeamMember(id: number): Observable<null> {
-  //   let url = `${this.teamMemberUrl}/${id}`;
-  //   let headers = new Headers({'Content-Type': 'application/json'});
-
-  //   return this.http.delete(url, { headers: headers })
-  //     .map(() => null)
-  // }
 
   private handleErrors(error: Response){
     console.log("SALVANDO O ERRO NUM ARQUIVO DE LOG - DETALHES DO ERRO => ", error);

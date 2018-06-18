@@ -1,25 +1,30 @@
 <div class="container">
-  <h4>Lista de Relatórios </h4>
+  <div class="row">
+    <div class="col s10 m6 l6">
+      <h5 class="mt-2 mb-0">Relação de Relatórios</h5>
+    </div>
+  </div>
 </div>
 
-<div class="container">
-
-
-  <table class="striped">
-    <thead>
-      <tr>
-        <th data-field="id">ID do Relatório</th>
-        <th data-field="general_information">Informação Geral</th>
-        <th data-field="student_id">ID do Aluno</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let r of getReports()">
-        <td>{{ r.id }}</td>
-        <td>{{ r.general_information }}</td>
-        <td>{{ r.student.id }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container card">
+  <div class="container">
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th data-field="student_name">Nome do Aluno</th>
+          <th data-field="id">ID do Relatório</th>
+          <th data-field="general_information">Informação Geral</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of getReports()">
+          <td>{{ r.student.name }}</td>
+          <td>{{ r.id }}</td>
+          <td>{{ r.general_information }}</td>
+          <td><a class="btn waves-effect waves-light" (click)="loadFileGeneration(r)">Gerar DOC</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

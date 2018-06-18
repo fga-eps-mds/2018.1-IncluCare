@@ -14,17 +14,15 @@ import { AuthService }                      from "./services/auth.service";
 import { LoginComponent }                   from './login/login.component';
 import { RegisterFormComponent }            from './register/register-form/register-form.component';
 import { ProfileComponent }                 from './profile/profile.component';
-import { StudentService }                   from './students/shared/student.service';
+import { StudentsService }                   from './services/students.service';
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
-import { FilterStudentClass }               from './students/filterStudentClass.pipe';
+import { FilterClassPipe }               from './students/shared/filter-class.pipe';
 import { SidenavComponent }                 from './sidenav/sidenav.component';
 import { NavbarComponent }                  from './navbar/navbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
 import { DailyLogComponent }                from './students/daily-log/daily-log.component';
-import { DailyLogService }                  from './students/shared/dailylog.service';
 import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';
-import { ReportService }                    from './students/shared/report.service';
 import { ReportComponent }                  from './students/report/report.component';
 import { ReportFormComponent }              from './students/report-form/report-form.component';
 import { ReferralService }                  from './students/shared/referral.service';
@@ -51,13 +49,14 @@ import { AdminPageComponent } from './profile/admin-page/admin-page.component';
     DailyLogFormComponent,
     ReportComponent,
     ReportFormComponent,
-    FilterStudentClass,
+    FilterClassPipe,
     ReferralComponent,
     ReferralFormComponent,
     ReferralPanelComponent,
     DailyLogPanelComponent,
     RecommendationPanelComponent,
     AdminPageComponent
+
   ],
   imports: [
     HttpModule,
@@ -72,9 +71,7 @@ import { AdminPageComponent } from './profile/admin-page/admin-page.component';
     AuthGuard,
     AuthService,
     Angular2TokenService,
-    StudentService,
-    DailyLogService,
-    ReportService,
+    StudentsService,
     ReferralService,
     RecommendationService
   ],

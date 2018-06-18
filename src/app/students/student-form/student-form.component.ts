@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { StudentService } from '../shared/student.service';
-
-import { Student } from "../shared/student";
-
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Student } from "../../shared/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-student-form',
@@ -19,7 +16,7 @@ export class StudentFormComponent implements OnInit {
 
   constructor(
 
-    private studentService: StudentService,
+    private studentService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }

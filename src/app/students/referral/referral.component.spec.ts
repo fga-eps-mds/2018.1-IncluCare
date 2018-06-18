@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpModule }                       from '@angular/http';
-import { StudentService }                   from '../shared/student.service';
+import { StudentsService }                   from '../../services/students.service';
 import { RouterTestingModule }              from '@angular/router/testing';
 import { FormsModule }                      from '@angular/forms';
 import { ReferralService }                  from '../shared/referral.service';

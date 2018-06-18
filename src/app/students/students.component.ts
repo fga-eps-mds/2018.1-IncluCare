@@ -1,11 +1,10 @@
-import { Component, OnInit }  from '@angular/core';
-import { StudentService }     from './shared/student.service';
-import { Student }            from "./shared/student";
-import { BrowserModule }      from '@angular/platform-browser';
-import { FormsModule }        from '@angular/forms';
-import { Pipe, PipeTransform } from '@angular/core';
-import { FilterStudentClass } from './filterStudentClass.pipe';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
+import { Student } from "../shared/models";
+import { StudentsService } from '../services/students.service';
+import { FilterClassPipe } from './shared/filter-class.pipe';
 
 @Component({
   selector: 'app-students',
@@ -14,18 +13,16 @@ import { FilterStudentClass } from './filterStudentClass.pipe';
 })
 export class StudentsComponent implements OnInit {
 
-
   private students: Student[] = [];
 
-  constructor(private studentService: StudentService) {
-     }
+  constructor(private studentService: StudentsService) {}
 
   ngOnInit() {
     this.studentService.getStudents()
-      .subscribe(
-         data => this.students = data,
-         response => {}
-        );
+    .subscribe(
+      data => this.students = data,
+      response => {}
+    );
   }
 
   deleteStudent(students) {
@@ -33,8 +30,7 @@ export class StudentsComponent implements OnInit {
       var index = this.students.indexOf(students);
       this.students.splice(index, 1);
       this.studentService.deleteStudent(students.id)
-        .subscribe(null);
-
+      .subscribe(null);
     }
   }
 

@@ -1,9 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DailyLogService }                   from '../shared/dailylog.service';
-import { HttpModule }                       from '@angular/http';
-import { RouterTestingModule }              from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 import { DailyLogPanelComponent } from './daily-log-panel.component';
-import { FormsModule }                      from '@angular/forms';
+import { StudentsService } from '../../services/students.service';
 
 describe('DailyLogPanelComponent', () => {
   let component: DailyLogPanelComponent;
@@ -17,7 +18,7 @@ describe('DailyLogPanelComponent', () => {
         RouterTestingModule
       ],
       declarations: [ DailyLogPanelComponent ],
-      providers: [ DailyLogService ]
+      providers: [ StudentsService ]
     })
     .compileComponents();
   }));
