@@ -17,7 +17,7 @@
   <div class="container">
     <div class="row">
       <div class="input-field col s12">
-        <input [(ngModel)]="searchClass" type="text" class="form-control" placeholder="Pesquisar Turma">
+        <input [(ngModel)]="filterClass" type="text" placeholder="Pesquisar Turma">
       </div>
     </div>
     <table class="highlight">
@@ -32,7 +32,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let s of getStudents() | filter : searchClass">
+        <tr *ngFor="let s of students | filter:'student_class':filterClass">
           <td>{{ s.name }}</td>
           <td>{{ s.year }}</td>
           <td>{{ s.student_class }}</td>

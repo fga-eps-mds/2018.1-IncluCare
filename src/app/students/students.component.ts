@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { Student } from "../shared/models";
 import { StudentsService } from '../services/students.service';
-import { FilterClassPipe } from './shared/filter-class.pipe';
 
 @Component({
   selector: 'app-students',
@@ -12,10 +11,12 @@ import { FilterClassPipe } from './shared/filter-class.pipe';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-  searchClass: string;
-  private students: Student[] = [];
+  filterClass: string;
+  students: Student[] = [];
 
-  constructor(private studentService: StudentsService) {}
+  constructor(
+    private studentService: StudentsService
+  ) {}
 
   ngOnInit() {
     this.studentService.getStudents()
@@ -33,9 +34,4 @@ export class StudentsComponent implements OnInit {
       .subscribe(null);
     }
   }
-
-  getStudents() {
-    return this.students;
-  }
-
 }

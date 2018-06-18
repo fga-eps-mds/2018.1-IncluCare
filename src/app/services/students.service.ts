@@ -71,33 +71,6 @@ export class StudentsService {
     .map(res => res.json());
   }
 
-  //ReportsService
-
-  getReports(){
-    return this.http.get(this.reportsUrl)
-    .map(res => res.json());
-  }
-
-  getReport(id){
-    return this.http.get(this.reportsUrl + '/' + id)
-    .map(res => res.json());
-  }
-
-  addReport(report){
-    return this.http.post(this.reportsUrl, {'report': report})
-    .map(res => res.json());
-  }
-
-  updateReport(report){
-    return this.http.put(this.reportsUrl + '/' + report.id, {'report': report})
-    .map(res => res.json());
-  }
-
-  deleteReport(id){
-    return this.http.delete(this.reportsUrl + '/' + id)
-    .map(res => res.json());
-  }
-
   //ReferralsService
 
   getReferrals(){
@@ -122,6 +95,33 @@ export class StudentsService {
 
   deleteReferral(id){
     return this.http.delete(this.referralsUrl + '/' + id)
+    .map(res => res.json());
+  }
+
+  //ReportsService
+
+  getReports(){
+    return this.http.get(this.reportsUrl)
+    .map(res => res.json());
+  }
+
+  getReport(id){
+    return this.http.get(this.reportsUrl + '/' + id)
+    .map(res => res.json());
+  }
+
+  addReport(report){
+    return this.http.post(this.reportsUrl, {'report': report})
+    .map(res => res.json());
+  }
+
+  updateReport(report){
+    return this.http.put(this.reportsUrl + '/' + report.id, {'report': report})
+    .map(res => res.json());
+  }
+
+  deleteReport(id){
+    return this.http.delete(this.reportsUrl + '/' + id)
     .map(res => res.json());
   }
 

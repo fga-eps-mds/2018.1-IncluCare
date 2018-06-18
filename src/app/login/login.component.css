@@ -1,3 +1,7 @@
+img {
+  vertical-align: middle;
+}
+
 .login-outer {
   display: table;
   position: absolute;
@@ -40,8 +44,4 @@
 .login-submit {
 	margin-top: 40px;
 	margin-bottom: 0px;
-}
-
-img {
-  vertical-align: middle;
 }

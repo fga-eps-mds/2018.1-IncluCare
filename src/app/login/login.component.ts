@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
-import { RegisterData } from "angular2-token";
 import { MaterializeAction } from "angular2-materialize";
+import { RegisterData } from "angular2-token";
 
 import { AuthService } from "../services/auth.service";
 import { FormUtils } from "../shared/form.utils";
@@ -14,16 +14,15 @@ import { FormUtils } from "../shared/form.utils";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   form: FormGroup;
   formUtils: FormUtils;
   public submitted: boolean;
   public formErrors: Array<string>;
 
   constructor(
-    private authService: AuthService,
-    private formBuilder: FormBuilder,
     private router: Router,
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {
     this.setupForm();
     this.formUtils = new FormUtils(this.form);
@@ -47,7 +46,6 @@ export class LoginComponent implements OnInit {
           console.log('err:', err);
         }
     );
-
   }
 
   private setupForm(){

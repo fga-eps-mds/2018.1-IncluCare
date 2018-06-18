@@ -8,7 +8,7 @@ import { Angular2TokenService } from 'angular2-token';
 import { StudentsComponent } from './students.component';
 import { AuthService } from "../services/auth.service";
 import { StudentsService } from '../services/students.service';
-import { FilterClassPipe } from "./shared/filter-class.pipe";
+import { FilterPipe } from "../shared/filter.pipe";
 
 describe('StudentsComponent', () => {
   let component: StudentsComponent;
@@ -18,8 +18,10 @@ describe('StudentsComponent', () => {
     let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
     tokenMock.validateToken.and.returnValue(tokenMock);
     TestBed.configureTestingModule({
-      declarations: [ StudentsComponent,
-      FilterClassPipe ],
+      declarations: [
+        StudentsComponent,
+        FilterPipe
+      ],
       imports: [
         HttpModule,
         FormsModule,
@@ -29,7 +31,8 @@ describe('StudentsComponent', () => {
       providers: [
         StudentsService,
         AuthService,
-        {provide: Angular2TokenService, useValue: tokenMock}]
+        {provide: Angular2TokenService, useValue: tokenMock}
+      ]
     })
     .compileComponents();
   }));
