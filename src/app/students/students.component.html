@@ -16,8 +16,14 @@
 <div class="container card">
   <div class="container">
     <div class="row">
-      <div class="input-field col s12">
-        <input [(ngModel)]="filterClass" type="text" placeholder="Pesquisar Turma">
+      <div class="input-field col s9">
+        <input [(ngModel)]="filterStudent" type="text" placeholder="Pesquisar Aluno">
+      </div>
+      <div class="input-field col s3">
+        <select [(ngModel)]="filterClass" materialize="material_select" [materializeSelectOptions]="classes">
+          <option value="" selected>Filtrar Turma</option>
+          <option *ngFor="let c of classes" [value]="c">{{c}}</option>
+        </select>
       </div>
     </div>
 
@@ -25,27 +31,22 @@
       <thead>
         <tr>
           <th [class.active]="order === 'name'" (click)="setOrder('name')">
-            Nome
-            <span [hidden]="reverse">▼</span>
-            <span [hidden]="!reverse">▲</span>
-          </th>
-          <th [class.active]="order === 'year'" (click)="setOrder('year')">
-            Ano
+            Nome Completo
             <span [hidden]="reverse">▼</span>
             <span [hidden]="!reverse">▲</span>
           </th>
           <th [class.active]="order === 'student_class'" (click)="setOrder('student_class')">
-            Turma
+            Ano/Turma
             <span [hidden]="reverse">▼</span>
             <span [hidden]="!reverse">▲</span>
           </th>
           <th [class.active]="order === 'birth_date'" (click)="setOrder('birth_date')">
-            Data de nascimento
+            Data de Nascimento
             <span [hidden]="reverse">▼</span>
             <span [hidden]="!reverse">▲</span>
           </th>
           <th [class.active]="order === 'parent_telephone'" (click)="setOrder('parent_telephone')">
-            Telefone do responsável
+            Telefone do Responsável
             <span [hidden]="reverse">▼</span>
             <span [hidden]="!reverse">▲</span>
           </th>
@@ -53,13 +54,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let s of students | orderBy: order:reverse:'case-insensitive' | filter:'student_class':filterClass ">
+        <tr *ngFor="let s of students | orderBy: order:reverse:'case-insensitive' | filter:'name':filterStudent | filter:'year_class':filterClass">
           <td>{{ s.name }}</td>
-          <td>{{ s.year }}</td>
-          <td>{{ s.student_class }}</td>
+          <td>{{ s.year_class }}</td>
           <td>{{ s.birth_date }}</td>
           <td>{{ s.parent_telephone }}</td>
-          <td><a [routerLink]="['/studentpanel', s.id]">Visualizar perfil</a></td>
+          <td>
+            <a [routerLink]="['/studentpanel', s.id]">
+              <i class="material-icons">send</i>
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>

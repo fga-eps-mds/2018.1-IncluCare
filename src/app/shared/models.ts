@@ -6,6 +6,7 @@ export class Student {
   nationality: string;
   year: number;
   student_class: string;
+  year_class?: string;
   shift: string;
   father_name: string;
   mother_name: string;

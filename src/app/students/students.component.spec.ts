@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { OrderPipe } from 'ngx-order-pipe';
 import { Angular2TokenService } from 'angular2-token';
+import { MaterializeModule } from 'angular2-materialize';
 
 import { StudentsComponent } from './students.component';
 import { AuthService } from "../services/auth.service";
@@ -27,6 +28,7 @@ describe('StudentsComponent', () => {
       imports: [
         HttpModule,
         FormsModule,
+        MaterializeModule,
         ReactiveFormsModule,
         RouterTestingModule
       ],
