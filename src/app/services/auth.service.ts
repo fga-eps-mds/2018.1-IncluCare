@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Response } from "@angular/http";
-
+import { Http } from '@angular/http';
 //import { Subject, Observable } from "rxjs";
 import { Subject } from "rxjs";
 import 'rxjs/add/operator/map';
@@ -13,7 +13,9 @@ import { Angular2TokenService, SignInData, RegisterData, UpdatePasswordData} fro
 @Injectable()
 export class AuthService {
 
-  constructor(public _tokenService: Angular2TokenService) {}
+  private url: string = "http://localhost:3000/team_members";
+
+  constructor(public _tokenService: Angular2TokenService,private http: Http) {}
 
   public signIn(signInData: SignInData): Observable<Response>{
     return this._tokenService.signIn(signInData)
@@ -38,6 +40,21 @@ export class AuthService {
   public userSignedIn(): boolean{
     return this._tokenService.userSignedIn();
   }
+
+  public deleteAccount(): Observable<Response>{
+    return this._tokenService.deleteAccount();
+  }
+
+  getTeamMembers(){
+    return this.http.get(this.url)
+      .map(res => res.json());
+  }
+
+  deleteTeamMember(id){
+    return this.http.delete(this.url + '/' + id)
+      .map(res => res.json());
+  }
+
 
   private handleErrors(error: Response){
     console.log("SALVANDO O ERRO NUM ARQUIVO DE LOG - DETALHES DO ERRO => ", error);
