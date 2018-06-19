@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Student, Activity } from "../../shared/models";
+import { Student } from "../../shared/models";
 import { StudentsService } from '../../services/students.service';
 
 @Component({
@@ -10,16 +10,14 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./student-panel.component.css']
 })
 export class StudentPanelComponent implements OnInit {
-  idC: number;
-  name: string;
-  editMode: boolean;
   student: Student = new Student();
-  activities: Activity[] = [];
+
+  editMode: boolean;
 
   constructor(
-    private studentService: StudentsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private studentsService: StudentsService,
   ) { }
 
   ngOnInit() {
@@ -29,7 +27,7 @@ export class StudentPanelComponent implements OnInit {
       if(!id)
       return;
 
-      this.studentService.getStudent(id)
+      this.studentsService.getStudent(id)
       .subscribe(
         student => this.student = student,
         response => {}
@@ -38,13 +36,13 @@ export class StudentPanelComponent implements OnInit {
   }
 
   updateStudent(student){
-    this.studentService.updateStudent(this.student)
+    this.studentsService.updateStudent(this.student)
     .subscribe(data => this.router.navigate(['/students']));
   }
 
   deleteStudent(student) {
     if(confirm("Você tem certeza que quer deletar o estudante " + student.name + "?")) {
-      this.studentService.deleteStudent(student.id)
+      this.studentsService.deleteStudent(student.id)
       .subscribe(data => this.router.navigate(['/students']));
     }
   }

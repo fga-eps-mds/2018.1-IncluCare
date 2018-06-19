@@ -67,6 +67,7 @@ import { RecommendationPanelComponent }     from './students/recommendation-pane
     LoginGuard,
     AuthGuard,
     AuthService,
+    FilterPipe,
     Angular2TokenService,
     StudentsService
   ],

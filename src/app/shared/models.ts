@@ -27,7 +27,7 @@ export class DailyLog {
   created_at: any;
   updated_at: any;
   student: any;
-  student_id: any;
+  student_id: number;
 }
 
 export class Report {

@@ -14,12 +14,13 @@ import { StudentsService } from '../services/students.service';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-  filterStudent: string;
-  filterClass: string;
-  order: string = 'name';
-  reverse: boolean = false;
   students: Student[] = [];
   classes = [];
+
+  filterStudent: string;
+  filterClass: string;
+  reverse: boolean = false;
+  order: string = 'name';
 
   constructor(
     private orderPipe: OrderPipe,

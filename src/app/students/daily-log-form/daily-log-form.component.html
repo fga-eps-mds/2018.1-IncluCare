@@ -1,24 +1,37 @@
 <div class="container">
-    <h3>Criar Registro Diário</h3>
-    <form (ngSubmit)="save()" #f="ngForm">
-      <div>
-        <label for="date">Data</label>
-        <input type="text" id="date" required [(ngModel)]="daily_log.date" name="date" class="validate" #date="ngModel">
-        <span class="helper-text"  *ngIf="!date.valid && date.touched" data-error="wrong" data-success="right">Data é necessária!</span>
+  <div class="row mb-0">
+    <div class="col s10 m6 l6">
+      <h5 class="m-2">Adicionar Registro Diário</h5>
+    </div>
+  </div>
+</div>
+
+<div class="card container">
+  <form (ngSubmit)="save()" #f="ngForm">
+    <div class="card-content">
+      <div class="row">
+        <div class="input-field col s9">
+          <label for="activity">Atividade</label>
+          <input type="text" id="activity" required [(ngModel)]="daily_log.activity" name="activity" class="validate" #activity="ngModel">
+          <span class="helper-text" *ngIf="!activity.valid && activity.touched" data-error="wrong" data-success="right">Atividade é necessária!</span>
+        </div>
+        <div class="input-field col s3">
+          <label for="date">Data</label>
+          <input type="text" id="date" required [(ngModel)]="daily_log.date" name="date" class="validate" #date="ngModel">
+          <span class="helper-text" *ngIf="!date.valid && date.touched" data-error="wrong" data-success="right">Data é necessária!</span>
+        </div>
       </div>
-      <div>
-        <label for="activity">Atividade</label>
-        <input type="text" id="activity" required [(ngModel)]="daily_log.activity" name='activity' class="validate" #activity="ngModel">
-        <span class="helper-text"  *ngIf="!activity.valid && activity.touched" data-error="wrong" data-success="right">Atividade é necessária</span>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="note">Observações</label>
+          <input type="text" id="note" required [(ngModel)]="daily_log.note" name="note" class="validate" #note="ngModel">
+          <span class="helper-text" *ngIf="!note.valid && note.touched" data-error="wrong" data-success="right">Observação é necessária!</span>
+        </div>
       </div>
-      <div>
-        <label for="note">Observação</label>
-        <input type="text" id="note" required [(ngModel)]="daily_log.note" name='note' class="validate" #note="ngModel">
-        <span class="helper-text"  *ngIf="!note.valid && note.touched" data-error="wrong" data-success="right">Observação é necessária!</span>
-      </div>
-      <div class="col s12">
-        <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn blue right">Enviar</button>
-      </div>
-    </form>
-    <a routerLink="/dailylogs">Voltar</a>
+    </div>
+    <div class="card-action">
+      <button [routerLink]="['/dailylogs', id]" class="waves-effect waves-light btn blue left">Voltar</button>
+      <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn green right">Enviar</button>
+    </div>
+  </form>
 </div>
