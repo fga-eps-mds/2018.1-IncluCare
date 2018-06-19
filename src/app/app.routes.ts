@@ -18,6 +18,7 @@ import { ReferralPanelComponent }       from './students/referral-panel/referral
 import { DailyLogPanelComponent }       from './students/daily-log-panel/daily-log-panel.component';
 import { RecommendationPanelComponent } from './students/recommendation-panel/recommendation-panel.component';
 import { AdminPageComponent }           from './profile/admin-page/admin-page.component';
+import { TutorialComponent }            from './tutorial/tutorial.component';
 
 const APP_ROUTES: Routes = [
   { path: ''                  , redirectTo: 'students'            , pathMatch: 'full'                            },
@@ -35,7 +36,8 @@ const APP_ROUTES: Routes = [
   { path: 'report/:id'        , component: ReportFormComponent    ,                     canActivate: [AuthGuard] },
   { path: 'reports'           , component: ReportComponent        ,                     canActivate: [AuthGuard] },
   { path: 'recommendation/:id', component: RecommendationPanelComponent,                canActivate: [AuthGuard] },
-  { path: 'admin'             , component: AdminPageComponent,                          canActivate: [AuthGuard] }
+  { path: 'admin'             , component: AdminPageComponent,                          canActivate: [AuthGuard] },
+  { path: 'tutorial'          , component: TutorialComponent,                           canActivate: [AuthGuard] }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
