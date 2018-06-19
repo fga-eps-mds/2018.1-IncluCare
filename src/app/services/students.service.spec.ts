@@ -1,10 +1,11 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { StudentsService } from './students.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
-import { Student, DailyLog, Report } from '../shared/models'
-import {MockBackend, MockConnection} from '@angular/http/testing';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+
+import { Student, DailyLog, Report, Recommendation, Referral } from '../shared/models';
+import { StudentsService } from './students.service';
 
 describe('StudentsService', () => {
   let service: StudentsService;
@@ -14,10 +15,14 @@ describe('StudentsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule,
-                 HttpModule
-               ],
-      providers: [StudentsService, { provide: XHRBackend, useClass: MockBackend }]
+      imports: [
+        HttpClientTestingModule,
+        HttpModule
+      ],
+      providers: [
+        StudentsService,
+        { provide: XHRBackend, useClass: MockBackend }
+      ]
     });
 
     service = TestBed.get(StudentsService);
@@ -470,6 +475,136 @@ describe('StudentsService', () => {
 
        ]
     }
+
+    //Referral
+    it('should get referral id', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
+      const mockResponse = {
+      data: [{
+        id: 9
+      }]
+      }
+      backend.connections.subscribe(connection => {
+        connection.mockRespond(new Response( new ResponseOptions({
+          body: JSON.stringify(mockResponse)
+        })));
+      });
+      studentDataService.getReferral(mockResponse.data).subscribe((res) => {
+        expect(res).toBeDefined();
+      });
+    }));
+
+    it('should add referral', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
+      const mockResponse = {
+      data: [{
+        id: 9,
+        title: '',
+        body: '',
+        student: 'Joao',
+        student_id: ''
+      }]
+      }
+      backend.connections.subscribe(connection => {
+        connection.mockRespond(new Response( new ResponseOptions({
+          body: JSON.stringify(mockResponse)
+        })));
+      });
+      studentDataService.addReferral(mockResponse.data).subscribe((res) => {
+        expect(res).toBeDefined();
+      });
+    }));
+
+    it('should update referral', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
+      const mockResponse = {
+      data: [{
+        id: 9,
+        title: '',
+        body: '',
+        student: 'Joao',
+        student_id: ''
+      }]
+      }
+      backend.connections.subscribe(connection => {
+        connection.mockRespond(new Response( new ResponseOptions({
+          body: JSON.stringify(mockResponse)
+        })));
+      });
+      studentDataService.updateReferral(mockResponse.data).subscribe((res) => {
+        expect(res).toBeDefined();
+      });
+    }));
+
+    it('should delete referral', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
+      const mockResponse = {
+      data: [{
+        id: 9
+      }]
+      }
+      backend.connections.subscribe(connection => {
+        connection.mockRespond(new Response( new ResponseOptions({
+          body: JSON.stringify(mockResponse)
+        })));
+      });
+      studentDataService.deleteReferral(mockResponse.data).subscribe((res) => {
+        expect(res).toBeDefined();
+      });
+    }));
+
+    //Recommendation
+    it('should update recommendation data', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
+      const mockResponse = {
+      data: [{
+        id: 9
+      }]
+      }
+      backend.connections.subscribe(connection => {
+        connection.mockRespond(new Response( new ResponseOptions({
+          body: JSON.stringify(mockResponse)
+        })));
+      });
+      studentDataService.getRecommendation(mockResponse.data).subscribe((res) => {
+        expect(res).toBeDefined();
+      });
+    }));
+
+    it('should update recommendation data', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
+      const mockResponse = {
+      data: [{
+        id: 9,
+        title: '',
+        body: '',
+        student: 'Joao',
+        student_id: ''
+      }]
+      }
+      backend.connections.subscribe(connection => {
+        connection.mockRespond(new Response( new ResponseOptions({
+          body: JSON.stringify(mockResponse)
+        })));
+      });
+      studentDataService.updateRecommendation(mockResponse.data).subscribe((res) => {
+        expect(res).toBeDefined();
+      });
+    }));
+
+    it('should create recommendation data', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
+      const mockResponse = {
+      data: [{
+        id: 9,
+        title: '',
+        body: '',
+        student: 'Joao',
+        student_id: ''
+      }]
+      }
+      backend.connections.subscribe(connection => {
+        connection.mockRespond(new Response( new ResponseOptions({
+          body: JSON.stringify(mockResponse)
+        })));
+      });
+      studentDataService.createRecommendation(mockResponse.data).subscribe((res) => {
+        expect(res).toBeDefined();
+      });
+    }));
 
     // When the request subscribes for results on a connection, return a fake response
     backend.connections.subscribe(connection => {

@@ -1,33 +1,61 @@
 <div class="container">
-  <h4>Lista de Registros Diários</h4>
+  <div class="row">
+    <div class="col s10 m6 l6">
+      <h5 class="mt-2 mb-0">Relatórios Diários</h5>
+      <p class="mt-0">{{student.name}}</p>
+    </div>
+    <div class="col s2 m6 l6">
+      <a [routerLink]="['/dailylog', student.id]" class="btn waves-effect waves-light right title-btn">
+        <i class="material-icons hide-on-med-and-up">add_circle_outline</i>
+        <span class="hide-on-small-only">Novo Registro</span>
+      </a>
+    </div>
+  </div>
 </div>
 
-<div class="container">
+<div class="container card">
+  <div class="container">
+    <table class="striped">
+      <thead>
+        <tr>
+          <th [class.active]="order === 'date'" (click)="setOrder('date')">
+            Data
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'activity'" (click)="setOrder('activity')">
+            Atividade
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'note'" (click)="setOrder('note')">
+            Observações
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'updated_by'" (click)="setOrder('updated_by')">
+            Autor
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of dailyLogs | orderBy: order:reverse:'case-insensitive'">
+          <td>{{ d.date }}</td>
+          <td>{{ d.activity }}</td>
+          <td class="list-text">{{ d.note }}</td>
+          <td>{{ d.updated_by }}</td>
+          <td>
+            <a [routerLink]="['/dailylogpanel', d.id]">
+              <i class="material-icons">send</i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-
-  <table class="striped">
-    <thead>
-      <tr>
-        <th data-field="name">Nome do Aluno</th>
-        <th data-field="date">Data</th>
-        <th data-field="activity">Atividade</th>
-        <th style="word-wrap: break-word; max-width: 300px;" data-field="note">Observação</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let d of getDailyLogs()">
-        <td>{{ d.student.name }}</td>
-        <td>{{ d.date }}</td>
-        <td>{{ d.activity }}</td>
-        <td style="word-wrap: break-word; max-width: 300px; white-space: pre-line;">{{ d.note }}</td>
-        <td>
-          <a [routerLink]="['/dailylogpanel', d.id]">
-            Visualizar registro
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <a [routerLink]="['/studentpanel', student.id]">Voltar</a>
+  </div>
 </div>

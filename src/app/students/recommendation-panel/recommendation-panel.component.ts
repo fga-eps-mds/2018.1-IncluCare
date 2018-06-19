@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { RecommendationData } from "../shared/recommendationData";
 import { Router, ActivatedRoute } from '@angular/router';
-import { RecommendationService } from '../shared/recommendation.service';
+
+import { Angular2TokenService } from "angular2-token";
 import * as jsPDF from 'jspdf';
+
+import { Recommendation } from "../../shared/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-recommendation-panel',
@@ -11,12 +14,13 @@ import * as jsPDF from 'jspdf';
 })
 export class RecommendationPanelComponent implements OnInit {
 
-  @ViewChild( 'content' ) content: ElementRef;
-  recommendation: RecommendationData = new RecommendationData();
+  @ViewChild('content') content: ElementRef;
+  recommendation: Recommendation = new Recommendation();
   idAux: number;
 
   constructor(
-    private recommendationService: RecommendationService,
+    public authTokenService: Angular2TokenService,
+    private recommendationService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -37,6 +41,7 @@ export class RecommendationPanelComponent implements OnInit {
   }
 
   updateRecommendation(recommendation){
+    this.recommendation.updated_by = this.authTokenService.currentUserData.name
     var result;
     result = this.recommendationService.updateRecommendation(this.recommendation);
     result.subscribe(data => this.router.navigate(['/recommendation']));
@@ -47,6 +52,8 @@ export class RecommendationPanelComponent implements OnInit {
   createRecommendation(){
     this.recommendation.id = this.idAux
     this.recommendation.student_id = this.idAux
+    this.recommendation.created_by = this.authTokenService.currentUserData.name
+    this.recommendation.updated_by = this.authTokenService.currentUserData.name
     var result;
     result = this.recommendationService.createRecommendation(this.recommendation);
     result.subscribe(data => this.router.navigate(['/recommendation']));

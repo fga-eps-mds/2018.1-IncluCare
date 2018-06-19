@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MaterializeModule } from 'angular2-materialize';
+
 import { StudentFormComponent } from './student-form.component';
 import { StudentsService } from '../../services/students.service';
 
@@ -15,6 +17,7 @@ describe('StudentFormComponent', () => {
       imports: [
         FormsModule,
         HttpModule,
+        MaterializeModule,
         RouterTestingModule
       ],
       declarations: [ StudentFormComponent ],

@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterializeModule }                from 'angular2-materialize';
 import { Angular2TokenService }             from 'angular2-token';
+import { OrderModule }                      from 'ngx-order-pipe';
 
 import { AppComponent }                     from './app.component';
 import { routes }                           from './app.routes';
@@ -14,10 +15,10 @@ import { AuthService }                      from "./services/auth.service";
 import { LoginComponent }                   from './login/login.component';
 import { RegisterFormComponent }            from './register/register-form/register-form.component';
 import { ProfileComponent }                 from './profile/profile.component';
-import { StudentsService }                   from './services/students.service';
+import { StudentsService }                  from './services/students.service';
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
-import { FilterClassPipe }               from './students/shared/filter-class.pipe';
+import { FilterPipe }                       from './shared/filter.pipe';
 import { SidenavComponent }                 from './sidenav/sidenav.component';
 import { NavbarComponent }                  from './navbar/navbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
@@ -25,14 +26,12 @@ import { DailyLogComponent }                from './students/daily-log/daily-log
 import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';
 import { ReportComponent }                  from './students/report/report.component';
 import { ReportFormComponent }              from './students/report-form/report-form.component';
-import { ReferralService }                  from './students/shared/referral.service';
 import { ReferralComponent }                from './students/referral/referral.component';
 import { ReferralFormComponent }            from './students/referral-form/referral-form.component';
 import { ReferralPanelComponent }           from './students/referral-panel/referral-panel.component';
 import { DailyLogPanelComponent }           from './students/daily-log-panel/daily-log-panel.component';
 import { RecommendationPanelComponent }     from './students/recommendation-panel/recommendation-panel.component';
-import { RecommendationService }            from './students/shared/recommendation.service';
-import { AdminPageComponent } from './profile/admin-page/admin-page.component';
+import { AdminPageComponent }               from './profile/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +48,7 @@ import { AdminPageComponent } from './profile/admin-page/admin-page.component';
     DailyLogFormComponent,
     ReportComponent,
     ReportFormComponent,
-    FilterClassPipe,
+    FilterPipe,
     ReferralComponent,
     ReferralFormComponent,
     ReferralPanelComponent,
@@ -62,6 +61,7 @@ import { AdminPageComponent } from './profile/admin-page/admin-page.component';
     HttpModule,
     BrowserModule,
     FormsModule,
+    OrderModule,
     ReactiveFormsModule,
     MaterializeModule,
     routes
@@ -70,10 +70,9 @@ import { AdminPageComponent } from './profile/admin-page/admin-page.component';
     LoginGuard,
     AuthGuard,
     AuthService,
+    FilterPipe,
     Angular2TokenService,
-    StudentsService,
-    ReferralService,
-    RecommendationService
+    StudentsService
   ],
   bootstrap: [ AppComponent ]
 })

@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Angular2TokenService} from "angular2-token";
 
 import { AuthService } from "../../services/auth.service";
-import { TeamMember }  from "../../shared/teamMember";
+import { TeamMember }  from "../../shared/models";
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',

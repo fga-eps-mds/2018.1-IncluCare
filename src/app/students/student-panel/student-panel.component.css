@@ -1,5 +1,13 @@
+.min-height-64 {
+	min-height: 64px !important;
+}
+
 .middle-align {
 	display: block;
 	text-align: center;
 	color: #fff;
+}
+
+.btn-large {
+	width: 100%;
 }

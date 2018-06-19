@@ -1,12 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-
-import { ReferralService } from '../shared/referral.service';
-
-import {Referral} from "../shared/referral";
-
 import { Router, ActivatedRoute } from '@angular/router';
 
 import * as jsPDF from 'jspdf';
+
+import { Referral } from "../../shared/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-referral-panel',
@@ -21,8 +19,7 @@ export class ReferralPanelComponent implements OnInit {
   referral: Referral = new Referral();
 
   constructor(
-
-    private referralService: ReferralService,
+    private studentsService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -34,7 +31,7 @@ export class ReferralPanelComponent implements OnInit {
       if (!id)
         return;
 
-      this.referralService.getReferral(id)
+      this.studentsService.getReferral(id)
         .subscribe(
           referral => this.referral = referral,
           response => {});
@@ -43,13 +40,13 @@ export class ReferralPanelComponent implements OnInit {
 
   deleteReferral(referral) {
     if (confirm("Você tem certeza que quer deletar o encaminhamento " + referral.id + "?")) {
-      this.referralService.deleteReferral(referral.id).subscribe(null);
+      this.studentsService.deleteReferral(referral.id).subscribe(null);
     }
   }
 
   updateReferral(referral){
     var result;
-    result = this.referralService.updateReferral(this.referral);
+    result = this.studentsService.updateReferral(this.referral);
 
     result.subscribe(data => this.router.navigate(['/referrals']));
   }

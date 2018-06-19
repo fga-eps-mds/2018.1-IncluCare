@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpModule }                       from '@angular/http';
-import { NO_ERRORS_SCHEMA }                 from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule }              from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpModule } from '@angular/http';
 
-import { Angular2TokenService }             from 'angular2-token';
+import { Angular2TokenService } from 'angular2-token';
+import { MaterializeModule } from 'angular2-materialize';
 
-import { ProfileComponent }                 from './profile.component';
-import { AuthService }                      from "../services/auth.service";
+import { ProfileComponent } from './profile.component';
+import { AuthService } from "../services/auth.service";
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -18,14 +18,14 @@ describe('ProfileComponent', () => {
     tokenMock.validateToken.and.returnValue(tokenMock);
 
     TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ],
-      schemas: [ NO_ERRORS_SCHEMA ],
       imports: [
         HttpModule,
         FormsModule,
+        MaterializeModule,
         ReactiveFormsModule,
         RouterTestingModule
       ],
+      declarations: [ ProfileComponent ],
       providers:[
         AuthService,
         {provide: Angular2TokenService, useValue: tokenMock}

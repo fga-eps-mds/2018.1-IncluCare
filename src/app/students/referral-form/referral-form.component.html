@@ -1,19 +1,32 @@
 <div class="container">
-    <h3>Criar Encaminhamento</h3>
-    <form (ngSubmit)="save()" #f="ngForm">
-      <div>
-        <label for="title">Título do Encaminhamento</label>
-        <input type="text" id="title" required [(ngModel)]="referral.title" name="title" class="validate" #title="ngModel">
-        <span class="helper-text"  *ngIf="!title.valid && title.touched" data-error="wrong" data-success="right">Título é necessário!</span>
+  <div class="row mb-0">
+    <div class="col s10 m6 l6">
+      <h5 class="m-2">Adicionar Encaminhamento</h5>
+    </div>
+  </div>
+</div>
+
+<div class="card container">
+  <form (ngSubmit)="save()" #f="ngForm">
+    <div class="card-content">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="title">Título do Encaminhamento</label>
+          <input type="text" id="title" required [(ngModel)]="referral.title" name="title" class="validate" #title="ngModel">
+          <span class="helper-text" *ngIf="!title.valid && title.touched" data-error="wrong" data-success="right">Título é necessário!</span>
+        </div>
       </div>
-      <div>
-        <label for="body">Texto</label>
-        <textarea id="body" required [(ngModel)]="referral.body" name='body' class="validate materialize-textarea" #body="ngModel"></textarea>
-        <span class="helper-text"  *ngIf="!body.valid && body.touched" data-error="wrong" data-success="right">Texto é necessário</span>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="body">Texto</label>
+          <textarea id="body" required [(ngModel)]="referral.body" name='body' class="validate materialize-textarea" #body="ngModel"></textarea>
+          <span class="helper-text" *ngIf="!body.valid && body.touched" data-error="wrong" data-success="right">Texto é necessário!</span>
+        </div>
       </div>
-      <div class="col s12">
-        <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn blue right">Enviar</button>
-      </div>
-    </form>
-    <a routerLink="/referrals">Voltar</a>
+    </div>
+    <div class="card-action">
+      <button [routerLink]="['/referrals', id]" class="waves-effect waves-light btn blue left">Voltar</button>
+      <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn green right">Enviar</button>
+    </div>
+  </form>
 </div>

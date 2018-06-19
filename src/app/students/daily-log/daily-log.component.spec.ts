@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { OrderPipe } from 'ngx-order-pipe';
+
 import { DailyLogComponent } from './daily-log.component';
 import { StudentsService } from '../../services/students.service';
 
@@ -17,8 +19,8 @@ describe('DailyLogComponent', () => {
         HttpModule,
         RouterTestingModule
       ],
-      declarations: [ DailyLogComponent ],
-      providers: [ StudentsService ]
+      declarations: [ DailyLogComponent, OrderPipe ],
+      providers: [ StudentsService, OrderPipe ]
     })
     .compileComponents();
   }));

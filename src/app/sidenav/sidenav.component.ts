@@ -25,19 +25,19 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit() {}
 
+  refreshComponent(){
+    this.ngOnInit();
+  }
+
+  presentAuthDialog(){
+    this.registerForm.openDialog();
+  }
+
   signOut(){
     this.authService.signOut()
     .subscribe(
       () => this.router.navigate(['/login'])
     )
-  }
-
-  userSignedIn(){
-    return this.authService.userSignedIn();
-  }
-
-  presentAuthDialog(){
-    this.registerForm.openDialog();
   }
 
 }

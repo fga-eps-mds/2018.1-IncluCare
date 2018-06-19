@@ -2,9 +2,11 @@ import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+import { MaterializeDirective } from 'angular2-materialize';
+import { OrderPipe } from 'ngx-order-pipe';
+
 import { Student } from "../shared/models";
 import { StudentsService } from '../services/students.service';
-import { FilterClassPipe } from './shared/filter-class.pipe';
 
 @Component({
   selector: 'app-students',
@@ -12,30 +14,42 @@ import { FilterClassPipe } from './shared/filter-class.pipe';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
+  students: Student[] = [];
+  classes = [];
 
-  private students: Student[] = [];
+  filterStudent: string;
+  filterClass: string;
+  reverse: boolean = false;
+  order: string = 'name';
 
-  constructor(private studentService: StudentsService) {}
+  constructor(
+    private orderPipe: OrderPipe,
+    private studentService: StudentsService
+  ) {}
 
   ngOnInit() {
     this.studentService.getStudents()
     .subscribe(
-      data => this.students = data,
+      data => this.students = this.setYearClassOfStudent(data),
       response => {}
     );
+
+    this.initClasses();
   }
 
-  deleteStudent(students) {
-    if (confirm("Você tem certeza que quer deletar o estudante " + students.name + "?")) {
-      var index = this.students.indexOf(students);
-      this.students.splice(index, 1);
-      this.studentService.deleteStudent(students.id)
-      .subscribe(null);
+  setOrder(value: string) {
+    if (this.order === value) this.reverse = !this.reverse;
+    this.order = value;
+  }
+
+  initClasses(){
+    this.classes = ["1° A", "1° B", "2° A", "2° B"];
+  }
+
+  setYearClassOfStudent(students: Student[]){
+    for(let s of students){
+      s.year_class = s.year + "° " + s.student_class;
     }
+    return students;
   }
-
-  getStudents() {
-    return this.students;
-  }
-
 }

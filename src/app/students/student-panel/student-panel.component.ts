@@ -10,15 +10,14 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./student-panel.component.css']
 })
 export class StudentPanelComponent implements OnInit {
-  name: string;
   student: Student = new Student();
 
   editMode: boolean;
 
   constructor(
-    private studentService: StudentsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private studentsService: StudentsService,
   ) { }
 
   ngOnInit() {
@@ -28,7 +27,7 @@ export class StudentPanelComponent implements OnInit {
       if(!id)
       return;
 
-      this.studentService.getStudent(id)
+      this.studentsService.getStudent(id)
       .subscribe(
         student => this.student = student,
         response => {}
@@ -36,17 +35,15 @@ export class StudentPanelComponent implements OnInit {
     });
   }
 
+  updateStudent(student){
+    this.studentsService.updateStudent(this.student)
+    .subscribe(data => this.router.navigate(['/students']));
+  }
+
   deleteStudent(student) {
-    if (confirm("Você tem certeza que quer deletar o estudante " + student.name + "?")) {
-      this.studentService.deleteStudent(student.id).subscribe(null);
+    if(confirm("Você tem certeza que quer deletar o estudante " + student.name + "?")) {
+      this.studentsService.deleteStudent(student.id)
+      .subscribe(data => this.router.navigate(['/students']));
     }
   }
-
-  updateStudent(student){
-    var result;
-    result = this.studentService.updateStudent(this.student);
-
-    result.subscribe(data => this.router.navigate(['/students']));
-  }
-
 }

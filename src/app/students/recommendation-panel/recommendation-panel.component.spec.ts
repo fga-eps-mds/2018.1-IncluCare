@@ -1,23 +1,33 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule }                      from '@angular/forms';
-import { RecommendationService } from '../shared/recommendation.service'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpModule } from '@angular/http';
+
+import { Angular2TokenService } from 'angular2-token';
+
+import { StudentsService } from '../../services/students.service'
 import { RecommendationPanelComponent } from './recommendation-panel.component';
-import { HttpModule }                       from '@angular/http';
-import { RouterTestingModule }              from '@angular/router/testing';
 
 describe('RecommendationComponent', () => {
   let component: RecommendationPanelComponent;
   let fixture: ComponentFixture<RecommendationPanelComponent>;
 
   beforeEach(async(() => {
+    let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
+    tokenMock.validateToken.and.returnValue(tokenMock);
+
     TestBed.configureTestingModule({
       imports: [
-        FormsModule,
         HttpModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterTestingModule
       ],
-      providers: [ RecommendationService ],
-      declarations: [ RecommendationPanelComponent ]
+      declarations: [ RecommendationPanelComponent ],
+      providers: [
+        StudentsService,
+        {provide: Angular2TokenService, useValue: tokenMock}
+      ]
     })
     .compileComponents();
   }));

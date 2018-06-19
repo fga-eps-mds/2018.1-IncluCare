@@ -1,87 +1,90 @@
-<div id="showprofile">
+<div class="container">
+  <div class="row mb-0">
+    <div class="col s10 m6 l6">
+      <h5 class="m-2">Adicionar Aluno</h5>
+    </div>
+  </div>
+</div>
 
-  <section id="content">
-
-    <div class="container">
-      <div class="row mb-0">
-        <div class="col s10 m6 l6">
-          <h5 class="m-2">Adicionar Aluno</h5>
+<div class="card container">
+  <form (ngSubmit)="save()" #f="ngForm">
+    <div class="card-content">
+      <h6>Dados do Aluno</h6>
+      <div class="row">
+        <div class="input-field col s8">
+          <label for="name">Nome</label>
+          <input type="text" id="add_name" required [(ngModel)]="student.name" name="name" class="validate" #name="ngModel">
+          <span class="helper-text"  *ngIf="!name.valid && name.touched" data-error="wrong" data-success="right">Nome é necessário!</span>
+        </div>
+        <div class="input-field col s2">
+          <label for="birth_date">Data de Nascimento</label>
+          <input type="text" materialize="pickadate" [materializeParams]="[{format: 'dd/mm/yyyy'}]" id="add_birth_date" required [(ngModel)]="student.birth_date" name='birth_date' class="validate" #birth_date="ngModel">
+          <span class="helper-text"  *ngIf="!birth_date.valid && birth_date.touched" data-error="wrong" data-success="right">Data de nascimento é necessária</span>
+        </div>
+        <div class="input-field col s2">
+          <label for="age">Idade</label>
+          <input type="number" id="add_age" required [(ngModel)]="student.age" name='age' class="validate" #age="ngModel">
+          <span class="helper-text"  *ngIf="!age.valid && age.touched" data-error="wrong" data-success="right">Idade é necessária!</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3">
+          <select id="add_class" name="class" #class="ngModel" [(ngModel)]="selectedClass" materialize="material_select" [materializeSelectOptions]="classes" required class="validate">
+            <option value="" disabled selected>Turma</option>
+            <option *ngFor="let c of classes" [value]="c.value">{{c.name}}</option>
+          </select>
+          <span class="helper-text" *ngIf="!class.valid && class.touched" data-error="wrong" data-success="right">Classe do estudante é necessária!</span>
+        </div>
+        <div class="input-field col s4">
+          <select id="add_shift" name="shift" #shift="ngModel" [(ngModel)]="student.shift" materialize="material_select" required class="validate">
+            <option value="" disabled selected>Turno</option>
+            <option value="Matutino">Matutino</option>
+            <option value="Vespertino">Vespertino</option>
+          </select>
+          <span class="helper-text"  *ngIf="!shift.valid && shift.touched" data-error="wrong" data-success="right">Turno do estudante é necessário!</span>
+        </div>
+        <div class="input-field col s5">
+          <label for="nationality">Naturalidade</label>
+          <input type="text" id="add_nationality" required [(ngModel)]="student.nationality" name='nationality' class="validate" #nationality="ngModel">
+          <span class="helper-text"  *ngIf="!nationality.valid && nationality.touched" data-error="wrong" data-success="right">Naturalidade é necessária!</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="father_name">Nome do pai</label>
+          <input type="text" id="add_father_name" required [(ngModel)]="student.father_name" name='father_name' class="validate" #father_name="ngModel">
+          <span class="helper-text"  *ngIf="!father_name.valid && father_name.touched" data-error="wrong" data-success="right">Nome do pai do estudante é necessário!</span>
+        </div>
+        <div class="input-field col s6">
+          <label for="mother_name">Nome da mãe</label>
+          <input type="text" id="add_mother_name" required [(ngModel)]="student.mother_name" name='mother_name' class="validate" #mother_name="ngModel">
+          <span class="helper-text"  *ngIf="!mother_name.valid && mother_name.touched" data-error="wrong" data-success="right">Nome é necessário!</span>
+        </div>
+      </div>
+      <h6>Dados do Responsável</h6>
+      <div class="row">
+        <div class="input-field col s8">
+          <label for="responsible">Nome do responsável</label>
+          <input type="text" id="add_responsible" required [(ngModel)]="student.responsible" name='responsible' class="validate" #responsible="ngModel">
+          <span class="helper-text"  *ngIf="!responsible.valid && responsible.touched" data-error="wrong" data-success="right">Nome é necessário!</span>
+        </div>
+        <div class="input-field col s4">
+          <label for="parent_telephone">Telefone do responsável</label>
+          <input type="text" id="add_parent_telephone" required [(ngModel)]="student.parent_telephone" name='parent_telephone' class="validate" #parent_telephone="ngModel">
+          <span class="helper-text"  *ngIf="!parent_telephone.valid && parent_telephone.touched" data-error="wrong" data-success="right">Telefone do responsável é necessário!</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="address">Endereço</label>
+          <input type="text" id="add_address" required [(ngModel)]="student.address" name='address' class="validate" #address="ngModel">
+          <span class="helper-text"  *ngIf="!address.valid && address.touched" data-error="wrong" data-success="right">Endereço do estudante é necessário!</span>
         </div>
       </div>
     </div>
-
-    <div class="card container">
-      <div class="row container mb-1">
-        <form (ngSubmit)="save()" #f="ngForm">
-          <div class="input-field col s8">
-            <label for="name">Nome</label>
-            <input type="text" id="name" required [(ngModel)]="student.name" name="name" class="validate" #name="ngModel">
-            <span class="helper-text"  *ngIf="!name.valid && name.touched" data-error="wrong" data-success="right">Nome é necessário!</span>
-          </div>
-          <div class="input-field col s2">
-            <label for="birth_date">Data de Nascimento</label>
-            <input type="text" id="birth_date" required [(ngModel)]="student.birth_date" name='birth_date' class="validate" #birth_date="ngModel">
-            <span class="helper-text"  *ngIf="!birth_date.valid && birth_date.touched" data-error="wrong" data-success="right">Data de nascimento é necessária</span>
-          </div>
-          <div class="input-field col s2">
-            <label for="age">Idade</label>
-            <input type="number" id="age" required [(ngModel)]="student.age" name='age' class="validate" #age="ngModel">
-            <span class="helper-text"  *ngIf="!age.valid && age.touched" data-error="wrong" data-success="right">Idade é necessária!</span>
-          </div>
-          <div class="input-field col s2">
-            <label for="year">Ano</label>
-            <input type="number" id="year" required [(ngModel)]="student.year" name='year' class="validate" #year="ngModel">
-            <span class="helper-text"  *ngIf="!year.valid && year.touched" data-error="wrong" data-success="right">Ano do estudante é necessário!</span>
-          </div>
-          <div class="input-field col s2">
-            <label for="student_class">Turma</label>
-            <input type="text" id="student_class" required [(ngModel)]="student.student_class" name='student_class' class="validate" #student_class="ngModel">
-            <span class="helper-text"  *ngIf="!student_class.valid && student_class.touched" data-error="wrong" data-success="right">Turma do estudante é necessária!</span>
-          </div>
-          <div class="input-field col s3">
-            <label for="shift">Turno</label>
-            <input type="text" id="shift" required [(ngModel)]="student.shift" name='shift' class="validate" #shift="ngModel">
-            <span class="helper-text"  *ngIf="!shift.valid && shift.touched" data-error="wrong" data-success="right">Turno do estudante é necessário!</span>
-          </div>
-          <div class="input-field col s5">
-            <label for="nationality">Naturalidade</label>
-            <input type="text" id="nationality" required [(ngModel)]="student.nationality" name='nationality' class="validate" #nationality="ngModel">
-            <span class="helper-text"  *ngIf="!nationality.valid && nationality.touched" data-error="wrong" data-success="right">Naturalidade é necessária!</span>
-          </div>
-          <div class="input-field col s6">
-            <label for="father_name">Nome do pai</label>
-            <input type="text" id="father_name" required [(ngModel)]="student.father_name" name='father_name' class="validate" #father_name="ngModel">
-            <span class="helper-text"  *ngIf="!father_name.valid && father_name.touched" data-error="wrong" data-success="right">Nome do pai do estudante é necessário!</span>
-          </div>
-          <div class="input-field col s6">
-            <label for="mother_name">Nome da mãe</label>
-            <input type="text" id="mother_name" required [(ngModel)]="student.mother_name" name='mother_name' class="validate" #mother_name="ngModel">
-            <span class="helper-text"  *ngIf="!mother_name.valid && mother_name.touched" data-error="wrong" data-success="right">Nome é necessário!</span>
-          </div>
-          <div class="input-field col s4">
-            <label for="responsible">Nome do responsável</label>
-            <input type="text" id="responsible" required [(ngModel)]="student.responsible" name='responsible' class="validate" #responsible="ngModel">
-            <span class="helper-text"  *ngIf="!responsible.valid && responsible.touched" data-error="wrong" data-success="right">Nome é necessário!</span>
-          </div>
-          <div class="input-field col s2">
-            <label for="parent_telephone">Telefone do responsável</label>
-            <input type="text" id="parent_telephone" required [(ngModel)]="student.parent_telephone" name='parent_telephone' class="validate" #parent_telephone="ngModel">
-            <span class="helper-text"  *ngIf="!parent_telephone.valid && parent_telephone.touched" data-error="wrong" data-success="right">Telefone do responsável é necessário!</span>
-          </div>
-          <div class="input-field col s6">
-            <label for="address">Endereço</label>
-            <input type="text" id="address" required [(ngModel)]="student.address" name='address' class="validate" #address="ngModel">
-            <span class="helper-text"  *ngIf="!address.valid && address.touched" data-error="wrong" data-success="right">Endereço do estudante é necessário!</span>
-          </div>
-
-          <div class="card-action">
-            <button routerLink="/students" class="waves-effect waves-light btn blue left">Voltar</button>
-            <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn green right">Enviar</button>
-          </div>
-
-        </form>
-      </div>
+    <div class="card-action">
+      <button routerLink="/students" class="waves-effect waves-light btn blue left">Voltar</button>
+      <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn green right">Enviar</button>
     </div>
-
-  </section>
+  </form>
 </div>
