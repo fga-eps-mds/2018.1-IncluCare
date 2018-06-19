@@ -75,7 +75,8 @@ export class RegisterFormComponent implements OnInit {
       name: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]],
-      passwordConfirmation: [null, [Validators.required]]
+      passwordConfirmation: [null, [Validators.required]],
+      admin: [null, [Validators.minLength(3)]],
     }, { validator: this.passwordConfirmationValidator })
   }
 }

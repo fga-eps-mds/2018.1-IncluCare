@@ -48,6 +48,8 @@
     "@types/jspdf": "^1.1.31",
     "@types/node": "^6.0.106",
     "codelyzer": "^4.0.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-angular": "^3.3.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",

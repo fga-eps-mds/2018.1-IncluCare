@@ -39,11 +39,18 @@
           </div>
         </div>
         <div class="input-field col s12">
-          <label for="passwordConfirmation">Senha</label>
+          <label for="passwordConfirmation">Confirmar Senha</label>
           <input id="register_passwordConfirmation" type="password" formControlName="passwordConfirmation">
           <div *ngIf="formUtils.showFieldError('passwordConfirmation')">
             <span *ngIf="form.get('passwordConfirmation').errors.required" class="helper-text" data-error="wrong" data-success="right">A confirmação de senha é obrigatória</span>
             <span *ngIf="form.get('passwordConfirmation').errors.mismatch" class="helper-text" data-error="wrong" data-success="right">A senha e a confirmação de senha não estão combinando</span>
+          </div>
+        </div>
+        <div class="input-field col s12">
+          <label for="admin">Administrador?</label>
+          <input id="register_admin" type="text" formControlName="admin">
+          <div *ngIf="formUtils.showFieldError('admin')">
+            <span *ngIf="form.get('admin').errors.required" class="helper-text" data-error="wrong" data-success="right">É necessário confirmar se o usuário é administrador</span>
           </div>
         </div>
         <button [disabled]="form.invalid || submitted" type="submit" class="btn waves-effect waves-light green right">Criar Conta</button>
