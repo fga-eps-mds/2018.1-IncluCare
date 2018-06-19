@@ -12,41 +12,37 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./referral-form.component.css']
 })
 export class ReferralFormComponent implements OnInit {
-
-  name: string;
   referral: Referral = new Referral();
-  idC: number;
+
+  id: number;
+
   constructor(
-    public authTokenService: Angular2TokenService,
-    private StudentsService: StudentsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private studentsService: StudentsService,
+    public authTokenService: Angular2TokenService
   ) { }
 
   ngOnInit() {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
-
-      this.name = id ? 'Editar Encaminhamento' : 'Criar Encaminhamento';
-
-      if (!id)
-        return;
-
-      this.idC = id
+      if (!id) return;
+      this.id = id;
     });
   }
 
   save() {
     var result;
-    this.referral.student_id = this.idC
+
+    this.referral.student_id = this.id
     this.referral.created_by = this.authTokenService.currentUserData.name
     this.referral.updated_by = this.authTokenService.currentUserData.name
-    if (this.referral.id){
-      result = this.StudentsService.updateReferral(this.referral);
-    } else {
-      result = this.StudentsService.addReferral(this.referral);
-    }
 
-    result.subscribe(data => this.router.navigate(['/referrals']));
+    if (this.referral.id)
+    result = this.studentsService.updateReferral(this.referral);
+    else
+    result = this.studentsService.addReferral(this.referral);
+
+    result.subscribe(data => this.router.navigate(['/referrals', this.id]));
   }
 }

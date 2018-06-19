@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Referral } from "../../shared/models";
+import { Student, Referral } from "../../shared/models";
 import { StudentsService } from '../../services/students.service';
 
 @Component({
@@ -10,33 +10,54 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./referral.component.css']
 })
 export class ReferralComponent implements OnInit {
-  private referrals: Referral[] = [];
+  student: Student = new Student();
+  referrals: Referral[] = [];
+
+  reverse: boolean = false;
+  order: string = 'date';
 
   constructor(
-    private referralService: StudentsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private studentsService: StudentsService
   ) { }
 
   ngOnInit() {
-    this.referralService.getReferrals()
+    this.initStudent();
+    this.initReferrals();
+  }
+
+  initStudent(){
+    var id = this.route.params.subscribe(params => {
+      var id = params['id'];
+
+      if(!id)
+      return;
+
+      this.studentsService.getStudent(id)
+      .subscribe(
+        student => this.student = student,
+        response => {}
+      );
+    });
+  }
+
+  initReferrals(){
+    this.studentsService.getReferrals()
     .subscribe(
-      data => this.referrals = data,
+      data => this.filterByID(data),
       response => {}
     );
   }
 
-  getReferrals() {
-    return this.referrals;
+  filterByID(data){
+    for(let d of data)
+      if(d.student.id === this.student.id) this.referrals.push(d);
   }
 
-  deleteActivity(referrals){
-    if (confirm("Você tem certeza que quer deletar o Registro " + referrals.id + "?")) {
-      var index = this.referrals.indexOf(referrals);
-      this.referrals.splice(index, 1);
-      this.referralService.deleteReferral(referrals.id)
-      .subscribe(null);
-    }
+  setOrder(value: string) {
+    if (this.order === value) this.reverse = !this.reverse;
+    this.order = value;
   }
 
 }

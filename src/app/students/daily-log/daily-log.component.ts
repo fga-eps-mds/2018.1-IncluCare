@@ -60,13 +60,4 @@ export class DailyLogComponent implements OnInit {
     this.order = value;
   }
 
-  deleteActivity(dailyLogs){
-    if (confirm("Você tem certeza que quer deletar o Registro " + dailyLogs.id + "?")) {
-      var index = this.dailyLogs.indexOf(dailyLogs);
-      this.dailyLogs.splice(index, 1);
-      this.studentsService.deleteDailyLog(dailyLogs.id)
-      .subscribe(null);
-    }
-  }
-
 }

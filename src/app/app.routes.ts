@@ -19,21 +19,21 @@ import { DailyLogPanelComponent }       from './students/daily-log-panel/daily-l
 import { RecommendationPanelComponent } from './students/recommendation-panel/recommendation-panel.component';
 
 const APP_ROUTES: Routes = [
-  { path: ''                  , redirectTo: 'students'          , pathMatch: 'full'                            },
-  { path: 'login'             , component: LoginComponent       ,                     canActivate: [LoginGuard]},
-  { path: 'profile'           , component: ProfileComponent     ,                     canActivate: [AuthGuard] },
-  { path: 'students'          , component: StudentsComponent    , pathMatch: 'full' , canActivate: [AuthGuard] },
-  { path: 'students/new'      , component: StudentFormComponent ,                     canActivate: [AuthGuard] },
-  { path: 'studentpanel/:id'  , component: StudentPanelComponent,                     canActivate: [AuthGuard] },
-  { path: 'dailylogs/:id'     , component: DailyLogComponent    ,                     canActivate: [AuthGuard] },
-  { path: 'dailylog/:id'      , component: DailyLogFormComponent,                     canActivate: [AuthGuard] },
-  { path: 'report/:id'        , component: ReportFormComponent  ,                     canActivate: [AuthGuard] },
-  { path: 'reports'           , component: ReportComponent      ,                     canActivate: [AuthGuard] },
-  { path: 'referrals'         , component: ReferralComponent    ,                     canActivate: [AuthGuard] },
-  { path: 'referral/:id'      , component: ReferralFormComponent,                     canActivate: [AuthGuard] },
-  { path: 'referralpanel/:id' , component: ReferralPanelComponent,                    canActivate: [AuthGuard] },
-  { path: 'dailylogpanel/:id' , component: DailyLogPanelComponent,                    canActivate: [AuthGuard] },
-  { path: 'recommendation/:id', component: RecommendationPanelComponent,              canActivate: [AuthGuard] }
+  { path: ''                  , redirectTo: 'students'            , pathMatch: 'full'                            },
+  { path: 'login'             , component: LoginComponent         ,                     canActivate: [LoginGuard]},
+  { path: 'profile'           , component: ProfileComponent       ,                     canActivate: [AuthGuard] },
+  { path: 'students'          , component: StudentsComponent      , pathMatch: 'full' , canActivate: [AuthGuard] },
+  { path: 'students/new'      , component: StudentFormComponent   ,                     canActivate: [AuthGuard] },
+  { path: 'studentpanel/:id'  , component: StudentPanelComponent  ,                     canActivate: [AuthGuard] },
+  { path: 'dailylogs/:id'     , component: DailyLogComponent      ,                     canActivate: [AuthGuard] },
+  { path: 'dailylog/:id'      , component: DailyLogFormComponent  ,                     canActivate: [AuthGuard] },
+  { path: 'dailylogpanel/:id' , component: DailyLogPanelComponent ,                     canActivate: [AuthGuard] },
+  { path: 'referrals/:id'     , component: ReferralComponent      ,                     canActivate: [AuthGuard] },
+  { path: 'referral/:id'      , component: ReferralFormComponent  ,                     canActivate: [AuthGuard] },
+  { path: 'referralpanel/:id' , component: ReferralPanelComponent ,                     canActivate: [AuthGuard] },
+  { path: 'report/:id'        , component: ReportFormComponent    ,                     canActivate: [AuthGuard] },
+  { path: 'reports'           , component: ReportComponent        ,                     canActivate: [AuthGuard] },
+  { path: 'recommendation/:id', component: RecommendationPanelComponent,                canActivate: [AuthGuard] }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

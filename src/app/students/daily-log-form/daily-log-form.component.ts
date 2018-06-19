@@ -20,14 +20,14 @@ export class DailyLogFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private studentsService: StudentsService,
-    public authTokenService: Angular2TokenService,
+    public authTokenService: Angular2TokenService
   ) { }
 
   ngOnInit() {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
       if (!id) return;
-      this.id = id
+      this.id = id;
     });
   }
 

@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpModule }                       from '@angular/http';
-import { RouterTestingModule }              from '@angular/router/testing';
-import { FormsModule }                      from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-import { StudentsService }                   from '../../services/students.service';
+import { OrderPipe } from 'ngx-order-pipe';
 
 import { ReferralComponent } from './referral.component';
+import { StudentsService } from '../../services/students.service';
 
 describe('ReferralComponent', () => {
   let component: ReferralComponent;
@@ -18,8 +19,8 @@ describe('ReferralComponent', () => {
         HttpModule,
         RouterTestingModule
       ],
-      declarations: [ ReferralComponent ],
-      providers: [StudentsService]
+      declarations: [ ReferralComponent, OrderPipe ],
+      providers: [ StudentsService, OrderPipe ]
     })
     .compileComponents();
   }));
