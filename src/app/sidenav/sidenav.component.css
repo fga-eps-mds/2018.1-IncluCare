@@ -4,7 +4,7 @@ ul.side-nav {
   height: 100%;
   width: 240px;
   transition: 0.3s ease all;
-  background: #003355;
+  background: #004466;
   z-index: 888;
 }
 
@@ -32,7 +32,7 @@ ul.side-nav li .more-text > i {
 
 ul.side-nav .collapsible-body,
 ul.side-nav.fixed .collapsible-body {
-  background: #004466;
+  background: #005577;
 }
 
 ul.side-nav li a i {

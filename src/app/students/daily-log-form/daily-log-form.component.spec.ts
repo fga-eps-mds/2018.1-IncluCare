@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { Angular2TokenService } from 'angular2-token';
+
 import { DailyLogFormComponent } from './daily-log-form.component';
 import { StudentsService } from '../../services/students.service';
 
@@ -11,6 +13,9 @@ describe('DailyLogFormComponent', () => {
   let fixture: ComponentFixture<DailyLogFormComponent>;
 
   beforeEach(async(() => {
+    let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
+    tokenMock.validateToken.and.returnValue(tokenMock);
+
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -18,7 +23,10 @@ describe('DailyLogFormComponent', () => {
         RouterTestingModule
       ],
       declarations: [ DailyLogFormComponent ],
-      providers: [ StudentsService ]
+      providers: [
+        StudentsService,
+        {provide: Angular2TokenService, useValue: tokenMock}
+      ]
     })
     .compileComponents();
   }));

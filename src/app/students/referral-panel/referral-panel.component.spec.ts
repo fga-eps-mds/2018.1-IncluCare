@@ -1,9 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReferralService }                   from '../shared/referral.service';
-import { HttpModule }                       from '@angular/http';
-import { RouterTestingModule }              from '@angular/router/testing';
+import { HttpModule } from '@angular/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
+
+import { StudentsService } from '../../services/students.service';
+
 import { ReferralPanelComponent } from './referral-panel.component';
-import { FormsModule }                      from '@angular/forms';
+
 import * as jsPDF from 'jspdf';
 
 describe('ReferralPanelComponent', () => {
@@ -18,7 +21,7 @@ describe('ReferralPanelComponent', () => {
         RouterTestingModule
       ],
       declarations: [ ReferralPanelComponent ],
-      providers: [ ReferralService ]
+      providers: [ StudentsService ]
     })
     .compileComponents();
   }));

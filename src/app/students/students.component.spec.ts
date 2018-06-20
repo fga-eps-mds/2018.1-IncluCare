@@ -3,12 +3,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule } from '@angular/http';
 
+import { OrderPipe } from 'ngx-order-pipe';
 import { Angular2TokenService } from 'angular2-token';
+import { MaterializeModule } from 'angular2-materialize';
 
 import { StudentsComponent } from './students.component';
 import { AuthService } from "../services/auth.service";
 import { StudentsService } from '../services/students.service';
-import { FilterClassPipe } from "./shared/filter-class.pipe";
+import { FilterPipe } from "../shared/filter.pipe";
 
 describe('StudentsComponent', () => {
   let component: StudentsComponent;
@@ -18,18 +20,24 @@ describe('StudentsComponent', () => {
     let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
     tokenMock.validateToken.and.returnValue(tokenMock);
     TestBed.configureTestingModule({
-      declarations: [ StudentsComponent,
-      FilterClassPipe ],
+      declarations: [
+        StudentsComponent,
+        FilterPipe,
+        OrderPipe
+      ],
       imports: [
         HttpModule,
         FormsModule,
+        MaterializeModule,
         ReactiveFormsModule,
         RouterTestingModule
       ],
       providers: [
         StudentsService,
         AuthService,
-        {provide: Angular2TokenService, useValue: tokenMock}]
+        OrderPipe,
+        {provide: Angular2TokenService, useValue: tokenMock}
+      ]
     })
     .compileComponents();
   }));

@@ -1,31 +1,55 @@
 <div class="container">
-  <h4>Lista de Encaminhamentos</h4>
+  <div class="row">
+    <div class="col s10 m6 l6">
+      <h5 class="mt-2 mb-0">Encaminhamentos</h5>
+      <p class="mt-0">{{student.name}}</p>
+    </div>
+    <div class="col s2 m6 l6">
+      <a [routerLink]="['/referral', student.id]" class="btn waves-effect waves-light right title-btn">
+        <i class="material-icons hide-on-med-and-up">add_circle_outline</i>
+        <span class="hide-on-small-only">Novo Encaminhamento</span>
+      </a>
+    </div>
+  </div>
 </div>
 
-<div class="container">
+<div class="container card">
+  <div class="container">
+    <table class="striped">
+      <thead>
+        <tr>
+          <th [class.active]="order === 'title'" (click)="setOrder('title')">
+            Título
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'body'" (click)="setOrder('body')">
+            Texto
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th [class.active]="order === 'updated_by'" (click)="setOrder('updated_by')">
+            Autor
+            <span [hidden]="reverse">▼</span>
+            <span [hidden]="!reverse">▲</span>
+          </th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of referrals | orderBy: order:reverse:'case-insensitive'">
+          <td>{{ r.title }}</td>
+          <td class="list-text">{{ r.body }}</td>
+          <td>{{ r.updated_by }}</td>
+          <td>
+            <a [routerLink]="['/referralpanel', r.id]">
+              <i class="material-icons">send</i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-
-  <table class="striped">
-    <thead>
-      <tr>
-        <th data-field="title">Título</th>
-        <th style="word-wrap: break-word; max-width: 300px;" data-field="body">Texto</th>
-        <th data-field="studentid">ID do Aluno</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let r of getReferrals()">
-        <td>{{ r.title }}</td>
-        <td style="word-wrap: break-word; max-width: 300px; white-space: pre-line;">{{ r.body }}</td>
-        <td>{{ r.student.id }}</td>
-        <td>
-          <a [routerLink]="['/referralpanel', r.id]">
-            Visualizar encaminhamento
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <a [routerLink]="['/studentpanel', student.id]">Voltar</a>
+  </div>
 </div>

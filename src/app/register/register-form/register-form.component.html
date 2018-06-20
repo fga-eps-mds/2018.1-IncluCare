@@ -1,80 +1,61 @@
 <div class="modal" materialize="modal" [materializeActions]="modalActions">
-  <div class="modal-content">
-    <div class="col s12">
-      <h5 class="text-title">Registro de Membro</h5>
-
-      <div *ngIf="formErrors" class="no-margin">
-        <strong><span class="no-margin red-text">Ocorreu um erro ao tentar criar a sua conta no sistema.</span></strong>
-        <ul class="no-margin red-text">
+  <div class="container">
+    <div class="row">
+      <h5 class="col s12">Registro de Membro</h5>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div *ngIf="formErrors" class="col s12">
+        <strong><span class="red-text">Ocorreu um erro ao tentar criar a sua conta no sistema.</span></strong>
+        <ul class="red-text">
           <li *ngFor="let error of formErrors">{{ error }}</li>
         </ul>
       </div>
-
       <form [formGroup]="form" (ngSubmit)="signUpUser()">
-        <div class="row no-bottom">
-
-          <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('name')">
-            <label for="name" class="col-sm-4 control-label">Nome</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" id="name" formControlName="name">
-              <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('name')"></span>
-
-              <div *ngIf="formUtils.showFieldError('name')" class="text-danger">
-                <div *ngIf="form.get('name').errors.required">o nome é obrigatório</div>
-                <div *ngIf="form.get('name').errors.minlength">o nome deve ter no mínimo 5 caracteres</div>
-                <div *ngIf="form.get('name').errors.maxlength">o nome deve ter no máximo 100 caracteres</div>
-              </div>
-            </div>
+        <div class="input-field col s12">
+          <label for="name">Nome</label>
+          <input id="register_name" type="text" formControlName="name">
+          <div *ngIf="formUtils.showFieldError('name')">
+            <span *ngIf="form.get('name').errors.required" class="helper-text" data-error="wrong" data-success="right">O nome é obrigatório</span>
+            <span *ngIf="form.get('name').errors.minlength" class="helper-text" data-error="wrong" data-success="right">O nome deve ter no mínimo 5 caracteres</span>
+            <span *ngIf="form.get('name').errors.maxlength" class="helper-text" data-error="wrong" data-success="right">O nome deve ter no máximo 100 caracteres</span>
           </div>
-
-          <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('email')">
-            <label for="email" class="col-sm-4 control-label">Email</label>
-            <div class="col-sm-4">
-              <input type="email" class="form-control" id="email" formControlName="email">
-              <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('email')"></span>
-
-              <div *ngIf="formUtils.showFieldError('email')" class="text-danger">
-                <div *ngIf="form.get('email').errors.required">o email é obrigatório</div>
-                <div *ngIf="form.get('email').errors.email">o email digitado é inválido</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('password')">
-            <label for="password" class="col-sm-4 control-label">Senha</label>
-            <div class="col-sm-4">
-              <input type="password" class="form-control" id="password" formControlName="password">
-              <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('password')"></span>
-
-              <div *ngIf="formUtils.showFieldError('password')" class="text-danger">
-                <div *ngIf="form.get('password').errors.required">a senha é obrigatória</div>
-                <div *ngIf="form.get('password').errors.minlength">a senha deve ter no mínimo 8 caracteres</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group has-feedback" [ngClass]="formUtils.fieldClassForErrorOrSuccess('passwordConfirmation')">
-            <label for="passwordConfirmation" class="col-sm-4 control-label">Confirmação de Senha</label>
-            <div class="col-sm-4">
-              <input type="password" class="form-control" id="passwordConfirmation" formControlName="passwordConfirmation">
-              <span class="glyphicon form-control-feedback" [ngClass]="formUtils.iconClassForErrorOrSuccess('passwordConfirmation')"></span>
-
-              <div *ngIf="formUtils.showFieldError('passwordConfirmation')" class="text-danger">
-                <div *ngIf="form.get('passwordConfirmation').errors.required">a confirmação de senha é obrigatória</div>
-                <div *ngIf="form.get('passwordConfirmation').errors.mismatch">a senha e a confirmação de senha não estão combinando</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-8">
-              <button [disabled]="form.invalid || submitted" type="submit" class="btn btn-primary">Criar Conta</button>
-            </div>
-          </div>
-
         </div>
+        <div class="input-field col s12">
+          <label for="email">Email</label>
+          <input id="register_email" type="email" formControlName="email">
+          <div *ngIf="formUtils.showFieldError('email')">
+            <span *ngIf="form.get('email').errors.required" class="helper-text" data-error="wrong" data-success="right">O email é obrigatório</span>
+            <span *ngIf="form.get('email').errors.email" class="helper-text" data-error="wrong" data-success="right">O email digitado é inválido</span>
+          </div>
+        </div>
+        <div class="input-field col s12">
+          <label for="password">Senha</label>
+          <input id="register_password" type="password" formControlName="password">
+          <div *ngIf="formUtils.showFieldError('password')">
+            <span *ngIf="form.get('password').errors.required" class="helper-text" data-error="wrong" data-success="right">A senha é obrigatória</span>
+            <span *ngIf="form.get('password').errors.minlength" class="helper-text" data-error="wrong" data-success="right">A senha deve ter no mínimo 8 caracteres</span>
+          </div>
+        </div>
+        <div class="input-field col s12">
+          <label for="passwordConfirmation">Confirmar Senha</label>
+          <input id="register_passwordConfirmation" type="password" formControlName="passwordConfirmation">
+          <div *ngIf="formUtils.showFieldError('passwordConfirmation')">
+            <span *ngIf="form.get('passwordConfirmation').errors.required" class="helper-text" data-error="wrong" data-success="right">A confirmação de senha é obrigatória</span>
+            <span *ngIf="form.get('passwordConfirmation').errors.mismatch" class="helper-text" data-error="wrong" data-success="right">A senha e a confirmação de senha não estão combinando</span>
+          </div>
+        </div>
+        <div class="input-field col s12">
+          <label for="admin">Administrador?</label>
+          <input id="register_admin" type="text" formControlName="admin">
+          <div *ngIf="formUtils.showFieldError('admin')">
+            <span *ngIf="form.get('admin').errors.required" class="helper-text" data-error="wrong" data-success="right">É necessário confirmar se o usuário é administrador</span>
+          </div>
+        </div>
+        <button [disabled]="form.invalid || submitted" type="submit" class="btn waves-effect waves-light green right">Criar Conta</button>
       </form>
-
+      <button (click)="closeDialog()" class="btn waves-effect waves-light left">Voltar</button>
     </div>
   </div>
 </div>

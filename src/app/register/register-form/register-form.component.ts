@@ -1,11 +1,11 @@
-import { Component, OnInit, EventEmitter }                  from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators }  from "@angular/forms";
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
-import { RegisterData }                                     from "angular2-token";
-import { MaterializeAction }                                from "angular2-materialize";
+import { RegisterData } from "angular2-token";
+import { MaterializeAction } from "angular2-materialize";
 
-import { AuthService }                                      from "../../services/auth.service"
-import { FormUtils }                                        from "../../shared/form.utils";
+import { AuthService } from "../../services/auth.service"
+import { FormUtils } from "../../shared/form.utils";
 
 @Component({
   selector: 'app-register-form',
@@ -75,7 +75,8 @@ export class RegisterFormComponent implements OnInit {
       name: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]],
-      passwordConfirmation: [null, [Validators.required]]
+      passwordConfirmation: [null, [Validators.required]],
+      admin: [null, [Validators.minLength(3)]],
     }, { validator: this.passwordConfirmationValidator })
   }
 }

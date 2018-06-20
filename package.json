@@ -35,6 +35,7 @@
     "jszip": "^2.6.1",
     "jszip-utils": "0.0.2",
     "materialize-css": "^0.100.2",
+    "ngx-order-pipe": "^2.0.1",
     "rxjs": "^5.5.10",
     "zone.js": "^0.8.26"
   },
@@ -47,6 +48,8 @@
     "@types/jspdf": "^1.1.31",
     "@types/node": "^6.0.106",
     "codelyzer": "^4.0.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-angular": "^3.3.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",

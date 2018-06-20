@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { DailyLog } from "../../shared/models";
+import { Student, DailyLog } from "../../shared/models";
 import { StudentsService } from '../../services/students.service';
 
 @Component({
@@ -10,39 +10,54 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./daily-log.component.css']
 })
 export class DailyLogComponent implements OnInit {
+  student: Student = new Student();
+  dailyLogs: DailyLog[] = [];
 
-   private daily_logs: DailyLog[] = [];
+  reverse: boolean = false;
+  order: string = 'date';
 
   constructor(
-    private dailylogService: StudentsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private studentsService: StudentsService
   ) { }
 
   ngOnInit() {
-    this.dailylogService.getDailyLogs()
+    this.initStudent();
+    this.initDailyLogs();
+  }
+
+  initStudent(){
+    var id = this.route.params.subscribe(params => {
+      var id = params['id'];
+
+      if(!id)
+      return;
+
+      this.studentsService.getStudent(id)
       .subscribe(
-         data => this.daily_logs = data,
-         response => {}
-        );
+        student => this.student = student,
+        response => {}
+      );
+    });
   }
 
-  getDailyLogs() {
-    return this.daily_logs;
+  initDailyLogs(){
+    this.studentsService.getDailyLogs()
+    .subscribe(
+      data => this.filterByID(data),
+      response => {}
+    );
   }
 
-  createActivity(){
+  filterByID(data){
+    for(let d of data)
+      if(d.student.id === this.student.id) this.dailyLogs.push(d);
   }
 
-  deleteActivity(daily_logs){
-    if (confirm("Você tem certeza que quer deletar o Registro " + daily_logs.id + "?")) {
-      var index = this.daily_logs.indexOf(daily_logs);
-      this.daily_logs.splice(index, 1);
-      this.dailylogService.deleteDailyLog(daily_logs.id)
-        .subscribe(null);
-    }
+  setOrder(value: string) {
+    if (this.order === value) this.reverse = !this.reverse;
+    this.order = value;
   }
-
-  updateActivity(){}
 
 }

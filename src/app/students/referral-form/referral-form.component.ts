@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ReferralService } from '../shared/referral.service';
-
-import { Referral } from "../shared/referral";
-
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Angular2TokenService } from "angular2-token";
+
+import { Referral } from "../../shared/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-referral-form',
@@ -12,39 +12,37 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./referral-form.component.css']
 })
 export class ReferralFormComponent implements OnInit {
-
-  name: string;
   referral: Referral = new Referral();
-  idC: number;
-  constructor(
 
-    private referralService: ReferralService,
+  id: number;
+
+  constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private studentsService: StudentsService,
+    public authTokenService: Angular2TokenService
   ) { }
 
   ngOnInit() {
     var id = this.route.params.subscribe(params => {
       var id = params['id'];
-
-      this.name = id ? 'Editar Encaminhamento' : 'Criar Encaminhamento';
-
-      if (!id)
-        return;
-
-      this.idC = id
+      if (!id) return;
+      this.id = id;
     });
   }
 
   save() {
     var result;
-    this.referral.student_id = this.idC
-    if (this.referral.id){
-      result = this.referralService.updateReferral(this.referral);
-    } else {
-      result = this.referralService.addReferral(this.referral);
-    }
 
-    result.subscribe(data => this.router.navigate(['/referrals']));
+    this.referral.student_id = this.id
+    this.referral.created_by = this.authTokenService.currentUserData.name
+    this.referral.updated_by = this.authTokenService.currentUserData.name
+
+    if (this.referral.id)
+    result = this.studentsService.updateReferral(this.referral);
+    else
+    result = this.studentsService.addReferral(this.referral);
+
+    result.subscribe(data => this.router.navigate(['/referrals', this.id]));
   }
 }

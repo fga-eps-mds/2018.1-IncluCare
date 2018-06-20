@@ -1,7 +1,8 @@
-import { Component, OnInit }      from '@angular/core';
-import { ReferralService }        from '../shared/referral.service';
-import { Referral }                 from "../shared/referral";
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
+import { Student, Referral } from "../../shared/models";
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'app-referral',
@@ -9,34 +10,54 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./referral.component.css']
 })
 export class ReferralComponent implements OnInit {
+  student: Student = new Student();
+  referrals: Referral[] = [];
 
-   private referrals: Referral[] = [];
+  reverse: boolean = false;
+  order: string = 'date';
 
   constructor(
-    private referralService: ReferralService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private studentsService: StudentsService
   ) { }
 
   ngOnInit() {
-    this.referralService.getReferrals()
+    this.initStudent();
+    this.initReferrals();
+  }
+
+  initStudent(){
+    var id = this.route.params.subscribe(params => {
+      var id = params['id'];
+
+      if(!id)
+      return;
+
+      this.studentsService.getStudent(id)
       .subscribe(
-         data => this.referrals = data,
-         response => {}
-        );
+        student => this.student = student,
+        response => {}
+      );
+    });
   }
 
-  getReferrals() {
-    return this.referrals;
+  initReferrals(){
+    this.studentsService.getReferrals()
+    .subscribe(
+      data => this.filterByID(data),
+      response => {}
+    );
   }
 
-  deleteActivity(referrals){
-    if (confirm("Você tem certeza que quer deletar o Registro " + referrals.id + "?")) {
-      var index = this.referrals.indexOf(referrals);
-      this.referrals.splice(index, 1);
-      this.referralService.deleteReferral(referrals.id)
-        .subscribe(null);
-    }
+  filterByID(data){
+    for(let d of data)
+      if(d.student.id === this.student.id) this.referrals.push(d);
+  }
+
+  setOrder(value: string) {
+    if (this.order === value) this.reverse = !this.reverse;
+    this.order = value;
   }
 
 }

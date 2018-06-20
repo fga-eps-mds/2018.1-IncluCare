@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule }                       from '@angular/http';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
@@ -24,7 +25,8 @@ describe('SidenavComponent', () => {
         RouterTestingModule,
         MaterializeModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpModule
       ],
       providers: [
         AuthService,
