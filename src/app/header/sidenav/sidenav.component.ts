@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { MaterializeDirective } from "angular2-materialize";
 import { Angular2TokenService, UserData } from "angular2-token";
 
+import { TeamMember } from "../../shared/models/team-member.model";
 import { AuthService } from "../../shared/services/auth.service";
 import { RegisterFormComponent } from "../../register/register-form/register-form.component";
 
@@ -13,8 +14,6 @@ import { RegisterFormComponent } from "../../register/register-form/register-for
   styleUrls:    ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
-  memberData: UserData;
-
   @ViewChild('registerForm') registerForm: RegisterFormComponent;
 
   constructor(
@@ -24,10 +23,6 @@ export class SidenavComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
-
-  refreshComponent(){
-    this.ngOnInit();
-  }
 
   presentAuthDialog(){
     this.registerForm.openDialog();

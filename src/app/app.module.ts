@@ -3,12 +3,12 @@ import { HttpModule }                       from '@angular/http';
 import { BrowserModule }                    from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterializeModule }                from 'angular2-materialize';
+import { MaterializeModule }             from 'angular2-materialize';
 import { Angular2TokenService }             from 'angular2-token';
 import { OrderModule }                      from 'ngx-order-pipe';
 
 import { AppComponent }                     from './app.component';
-import { routes }                           from './app.routes';
+import { AppRouterModule } from "./app-router.module";
 import { AuthGuard }                        from "./shared/guards/auth.guard";
 import { LoginGuard }                       from "./shared/guards/login.guard";
 import { AuthService }                      from "./shared/services/auth.service";
@@ -55,7 +55,6 @@ import { AdminPageComponent }               from './profile/admin-page/admin-pag
     DailyLogPanelComponent,
     RecommendationPanelComponent,
     AdminPageComponent
-
   ],
   imports: [
     HttpModule,
@@ -64,7 +63,7 @@ import { AdminPageComponent }               from './profile/admin-page/admin-pag
     OrderModule,
     ReactiveFormsModule,
     MaterializeModule,
-    routes
+    AppRouterModule
   ],
   providers: [
     LoginGuard,

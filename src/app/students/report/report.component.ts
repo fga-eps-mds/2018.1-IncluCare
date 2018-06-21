@@ -66,7 +66,6 @@ export class ReportComponent implements OnInit {
         type: 'blob',
         mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
       })
-
       FileSaver.saveAs(out, 'report_student_' + report.student_id + '.docx')
     })
   }
