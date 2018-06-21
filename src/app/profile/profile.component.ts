@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Angular2TokenService, UpdatePasswordData } from "angular2-token";
 import { MaterializeAction } from "angular2-materialize"
 
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../shared/services/auth.service";
 
 @Component({
   selector: 'app-profile',

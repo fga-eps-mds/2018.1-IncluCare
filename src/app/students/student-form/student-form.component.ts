@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { MaterializeDirective } from 'angular2-materialize';
 
-import { Student } from '../../shared/models';
-import { StudentsService } from '../../services/students.service';
+import { Student } from '../../shared/models/models';
+import { StudentsService } from '../../shared/services/students.service';
 
 @Component({
   selector: 'app-student-form',

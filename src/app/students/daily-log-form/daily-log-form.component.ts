@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Angular2TokenService } from "angular2-token";
 
-import { DailyLog } from "../../shared/models";
-import { StudentsService } from '../../services/students.service';
+import { DailyLog } from "../../shared/models/models";
+import { StudentsService } from '../../shared/services/students.service';
 
 @Component({
   selector: 'app-daily-log-form',

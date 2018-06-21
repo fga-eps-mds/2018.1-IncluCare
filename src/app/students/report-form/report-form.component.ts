@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Angular2TokenService } from "angular2-token";
 
-import { Report, Student } from "../../shared/models";
-import { StudentsService } from '../../services/students.service';
+import { Report, Student } from "../../shared/models/models";
+import { StudentsService } from '../../shared/services/students.service';
 
 @Component({
   selector: 'app-report-form',

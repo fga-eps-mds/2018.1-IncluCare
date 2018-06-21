@@ -5,7 +5,7 @@ import { RouterTestingModule }              from '@angular/router/testing';
 
 
 
-import { AuthService } from "../../services/auth.service";
+import { AuthService } from "../../shared/services/auth.service";
 import { AdminPageComponent } from './admin-page.component';
 
 describe('AdminPageComponent', () => {

@@ -7,7 +7,7 @@ import { Angular2TokenService } from 'angular2-token';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { ProfileComponent } from './profile.component';
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../shared/services/auth.service";
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;

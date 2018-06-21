@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-import { Student, DailyLog, Report, Recommendation, Referral } from '../shared/models';
+import { Student, DailyLog, Report, Recommendation, Referral } from '../shared/models/models';
 import { StudentsService } from './students.service';
 
 describe('StudentsService', () => {

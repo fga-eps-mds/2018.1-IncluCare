@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { StudentFormComponent } from './student-form.component';
-import { StudentsService } from '../../services/students.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 describe('StudentFormComponent', () => {
   let component: StudentFormComponent;

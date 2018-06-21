@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { OrderPipe } from 'ngx-order-pipe';
 
 import { DailyLogComponent } from './daily-log.component';
-import { StudentsService } from '../../services/students.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 describe('DailyLogComponent', () => {
   let component: DailyLogComponent;

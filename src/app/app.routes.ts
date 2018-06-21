@@ -1,8 +1,8 @@
 import { ModuleWithProviders }          from '@angular/core';
 import { Routes, RouterModule }         from '@angular/router';
 
-import { AuthGuard }                    from "./guards/auth.guard";
-import { LoginGuard }                   from "./guards/login.guard";
+import { AuthGuard }                    from "./shared/guards/auth.guard";
+import { LoginGuard }                   from "./shared/guards/login.guard";
 import { LoginComponent }               from "./login/login.component";
 import { ProfileComponent }             from "./profile/profile.component";
 import { StudentsComponent }            from './students/students.component';

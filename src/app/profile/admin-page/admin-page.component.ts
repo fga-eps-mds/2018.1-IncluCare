@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Angular2TokenService} from "angular2-token";
 
-import { AuthService } from "../../services/auth.service";
-import { TeamMember }  from "../../shared/models";
+import { AuthService } from "../../shared/services/auth.service";
+import { TeamMember }  from "../../shared/models/models";
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',

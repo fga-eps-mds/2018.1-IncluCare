@@ -1,4 +1,4 @@
-import { FilterPipe } from './filter.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 describe('FilterPipe', () => {
   let filterPipe: FilterPipe;

@@ -9,7 +9,7 @@ import { Angular2TokenService } from 'angular2-token';
 import { SidenavComponent } from './sidenav.component';
 import { RegisterFormComponent } from '../register/register-form/register-form.component';
 
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../shared/services/auth.service';
 
 describe('SidenavComponent', () => {
   let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);

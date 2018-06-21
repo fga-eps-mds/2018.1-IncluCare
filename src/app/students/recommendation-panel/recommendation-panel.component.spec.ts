@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { Angular2TokenService } from 'angular2-token';
 
-import { StudentsService } from '../../services/students.service'
+import { StudentsService } from '../../shared/services/students.service'
 import { RecommendationPanelComponent } from './recommendation-panel.component';
 
 describe('RecommendationComponent', () => {

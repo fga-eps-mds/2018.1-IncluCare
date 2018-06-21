@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { Angular2TokenService } from 'angular2-token';
 
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../shared/services/auth.service";
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {

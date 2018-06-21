@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RegisterFormComponent } from './register/register-form/register-form.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './shared/services/auth.service';
 
 describe('AppComponent', () => {
   let tokenMock = jasmine.createSpyObj('tokenMock', ['init', 'validateToken', 'subscribe']);

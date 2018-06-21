@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { Angular2TokenService } from 'angular2-token';
 
 import { ReportFormComponent } from './report-form.component';
-import { StudentsService } from '../../services/students.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 describe('ReportFormComponent', () => {
   let component: ReportFormComponent;

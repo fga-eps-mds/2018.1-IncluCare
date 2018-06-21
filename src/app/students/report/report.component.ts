@@ -6,8 +6,8 @@ import * as JSZip from 'jszip';
 import * as JSZipUtils from 'jszip-utils';
 import * as FileSaver from 'file-saver';
 
-import { Report } from "../../shared/models";
-import { StudentsService } from '../../services/students.service';
+import { Report } from "../../shared/models/models";
+import { StudentsService } from '../../shared/services/students.service';
 
 declare const require: any;
 

@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { Angular2TokenService } from 'angular2-token';
 
 import { DailyLogFormComponent } from './daily-log-form.component';
-import { StudentsService } from '../../services/students.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 describe('DailyLogFormComponent', () => {
   let component: DailyLogFormComponent;
