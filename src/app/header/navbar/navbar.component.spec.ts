@@ -7,9 +7,9 @@ import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
 
 import { NavbarComponent } from './navbar.component';
-import { RegisterFormComponent } from '../register/register-form/register-form.component';
+import { RegisterFormComponent } from '../../register/register-form/register-form.component';
 
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 describe('NavbarComponent', () => {
   let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);

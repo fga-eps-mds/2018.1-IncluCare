@@ -19,8 +19,8 @@ import { StudentsService }                  from './shared/services/students.ser
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
 import { FilterPipe }                       from './shared/pipes/filter.pipe';
-import { SidenavComponent }                 from './sidenav/sidenav.component';
-import { NavbarComponent }                  from './navbar/navbar.component';
+import { SidenavComponent }                 from './header/sidenav/sidenav.component';
+import { NavbarComponent }                  from './header/navbar/navbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
 import { DailyLogComponent }                from './students/daily-log/daily-log.component';
 import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';

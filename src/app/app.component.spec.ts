@@ -7,8 +7,8 @@ import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { NavbarComponent } from './header/navbar/navbar.component';
+import { SidenavComponent } from './header/sidenav/sidenav.component';
 import { RegisterFormComponent } from './register/register-form/register-form.component';
 import { AuthService } from './shared/services/auth.service';
 
