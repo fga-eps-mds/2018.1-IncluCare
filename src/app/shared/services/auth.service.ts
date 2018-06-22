@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import { Subject } from "rxjs";
 
 import 'rxjs/add/operator/map';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import { Angular2TokenService, UserData, SignInData, RegisterData, UpdatePasswordData} from "angular2-token";
 
 import { TeamMember } from "../models/team-member.model";
@@ -15,8 +15,8 @@ export class AuthService {
   private url: string = "http://localhost:3000/team_members";
 
   constructor(
-    public _tokenService: Angular2TokenService,
-    private http: Http
+    private http: Http,
+    public _tokenService: Angular2TokenService
   ) {}
 
   public signIn(signInData: SignInData): Observable<Response>{
@@ -39,17 +39,21 @@ export class AuthService {
     .catch(this.handleErrors)
   }
 
-  public userSignedIn(): boolean{
-    return this._tokenService.userSignedIn();
-  }
-
   public deleteAccount(): Observable<Response>{
     return this._tokenService.deleteAccount();
   }
 
+  public userSignedIn(): boolean {
+    return this._tokenService.userSignedIn();
+  }
+
   public userIsAdmin(): boolean {
     var teamMember: TeamMember = this._tokenService.currentUserData as TeamMember;
-    return teamMember.admin;
+    if (teamMember !== undefined) return teamMember.admin;
+  }
+
+  public currentUserData(): TeamMember{
+    return this._tokenService.currentUserData as TeamMember;
   }
 
   public getTeamMembers(){

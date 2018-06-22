@@ -6,6 +6,7 @@ import * as jsPDF from 'jspdf';
 
 import { Recommendation } from "../../shared/models/models";
 import { StudentsService } from '../../shared/services/students.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-recommendation-panel',
@@ -19,7 +20,7 @@ export class RecommendationPanelComponent implements OnInit {
   idAux: number;
 
   constructor(
-    public authTokenService: Angular2TokenService,
+    public authTokenService: AuthService,
     private recommendationService: StudentsService,
     private router: Router,
     private route: ActivatedRoute

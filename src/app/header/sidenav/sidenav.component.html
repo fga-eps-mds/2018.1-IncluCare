@@ -1,4 +1,4 @@
-<ul id="slide-out" class="side-nav fixed">
+<ul *ngIf="authService.userSignedIn()" id="slide-out" class="side-nav fixed">
   <li class="li-hover mt-6">
     <p class="ultra-small margin more-text">Alunos</p>
   </li>
@@ -37,7 +37,7 @@
       <li class="bold">
         <a class="collapsible-header waves-effect waves-cyan">
           <i class="material-icons">account_circle</i>
-          <span class="nav-text" *ngIf='authTokenService.currentUserData'>{{authTokenService.currentUserData.name}}</span>
+          <span class="nav-text" *ngIf='authService.currentUserData()'>{{authService.currentUserData().name}}</span>
         </a>
         <div class="collapsible-body">
           <ul>
@@ -60,4 +60,4 @@
   </li>
 </ul>
 
-<app-register-form #registerForm ></app-register-form>
+<app-register-form #registerForm></app-register-form>

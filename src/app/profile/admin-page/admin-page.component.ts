@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { Angular2TokenService} from "angular2-token";
 
 import { AuthService } from "../../shared/services/auth.service";
 import { TeamMember }  from "../../shared/models/team-member.model";
@@ -11,9 +10,8 @@ import { TeamMember }  from "../../shared/models/team-member.model";
 })
 export class AdminPageComponent implements OnInit {
   private teamMember: TeamMember[] = [];
-  
+
   constructor(
-    public authTokenService: Angular2TokenService,
     public authService: AuthService,
     private router: Router
   ) { }
