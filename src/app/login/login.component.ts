@@ -8,7 +8,6 @@ import { RegisterData } from "angular2-token";
 import { AuthService } from "../shared/services/auth.service";
 import { FormUtils } from "../shared/form.utils";
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

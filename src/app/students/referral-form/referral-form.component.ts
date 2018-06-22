@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Angular2TokenService } from "angular2-token";
-
 import { Referral } from "../../shared/models/models";
+import { AuthService } from '../../shared/services/auth.service';
 import { StudentsService } from '../../shared/services/students.service';
 
 @Component({
@@ -20,7 +19,7 @@ export class ReferralFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private studentsService: StudentsService,
-    public authTokenService: Angular2TokenService
+    public authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -35,8 +34,8 @@ export class ReferralFormComponent implements OnInit {
     var result;
 
     this.referral.student_id = this.id
-    this.referral.created_by = this.authTokenService.currentUserData.name
-    this.referral.updated_by = this.authTokenService.currentUserData.name
+    this.referral.created_by = this.authService.currentUserData().name
+    this.referral.updated_by = this.authService.currentUserData().name
 
     if (this.referral.id)
     result = this.studentsService.updateReferral(this.referral);

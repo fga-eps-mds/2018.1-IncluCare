@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { Angular2TokenService } from 'angular2-token';
 
 import { ReferralFormComponent } from './referral-form.component';
+import { AuthService } from '../../shared/services/auth.service';
 import { StudentsService } from '../../shared/services/students.service';
 
 describe('ReferralFormComponent', () => {
@@ -25,6 +26,7 @@ describe('ReferralFormComponent', () => {
       ],
       declarations: [ ReferralFormComponent ],
       providers: [
+        AuthService,
         StudentsService,
         {provide: Angular2TokenService, useValue: tokenMock}
       ]

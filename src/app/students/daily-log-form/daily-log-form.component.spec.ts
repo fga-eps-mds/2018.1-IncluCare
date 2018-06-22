@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { Angular2TokenService } from 'angular2-token';
 
 import { DailyLogFormComponent } from './daily-log-form.component';
+import { AuthService } from '../../shared/services/auth.service';
 import { StudentsService } from '../../shared/services/students.service';
 
 describe('DailyLogFormComponent', () => {
@@ -24,6 +25,7 @@ describe('DailyLogFormComponent', () => {
       ],
       declarations: [ DailyLogFormComponent ],
       providers: [
+        AuthService,
         StudentsService,
         {provide: Angular2TokenService, useValue: tokenMock}
       ]

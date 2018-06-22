@@ -20,7 +20,7 @@
         <input [(ngModel)]="filterStudent" type="text" placeholder="Pesquisar Aluno">
       </div>
       <div class="input-field col s3">
-        <select [(ngModel)]="filterClass" materialize="material_select" [materializeSelectOptions]="classes">
+        <select [(ngModel)]="filterClass" materialize="material_select">
           <option value="" selected>Filtrar Turma</option>
           <option *ngFor="let c of classes" [value]="c">{{c}}</option>
         </select>

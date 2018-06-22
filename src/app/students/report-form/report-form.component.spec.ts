@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { Angular2TokenService } from 'angular2-token';
 
 import { ReportFormComponent } from './report-form.component';
+import { AuthService } from '../../shared/services/auth.service';
 import { StudentsService } from '../../shared/services/students.service';
 
 describe('ReportFormComponent', () => {
@@ -25,6 +26,7 @@ describe('ReportFormComponent', () => {
       ],
       declarations: [ ReportFormComponent ],
       providers: [
+        AuthService,
         StudentsService,
         {provide: Angular2TokenService, useValue: tokenMock}
       ]

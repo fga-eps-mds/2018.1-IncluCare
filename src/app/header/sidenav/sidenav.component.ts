@@ -20,13 +20,7 @@ export class SidenavComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    console.log("init");
-  }
-
-  refreshSidenav(){
-    this.ngOnInit();
-  }
+  ngOnInit() {}
 
   presentAuthDialog(){
     this.registerForm.openDialog();
