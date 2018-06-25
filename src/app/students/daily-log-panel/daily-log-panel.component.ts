@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StudentsService } from '../../services/students.service';
+import { StudentsService } from '../../shared/services/students.service';
 
-import { DailyLog } from "../../shared/models";
+import { DailyLog } from "../../shared/models/models";
 
 import { Router, ActivatedRoute } from '@angular/router';
 

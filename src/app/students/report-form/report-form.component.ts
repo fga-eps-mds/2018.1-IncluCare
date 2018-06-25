@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Angular2TokenService } from "angular2-token";
-
-import { Report, Student } from "../../shared/models";
-import { StudentsService } from '../../services/students.service';
+import { Report, Student } from "../../shared/models/models";
+import { AuthService } from '../../shared/services/auth.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 @Component({
   selector: 'app-report-form',
@@ -18,7 +17,7 @@ export class ReportFormComponent implements OnInit {
   student: Student = new Student();
   idC: number;
   constructor(
-    public authTokenService: Angular2TokenService,
+    public authService: AuthService,
     private reportService: StudentsService,
     private router: Router,
     private route: ActivatedRoute
@@ -59,8 +58,8 @@ export class ReportFormComponent implements OnInit {
   save() {
     var result;
     this.report.student_id = this.student.id
-    this.report.created_by = this.authTokenService.currentUserData.name
-    this.report.updated_by = this.authTokenService.currentUserData.name
+    this.report.created_by = this.authService.currentUserData().name
+    this.report.updated_by = this.authService.currentUserData().name
     if (this.report.id){
       result = this.reportService.updateReport(this.report);
     } else {

@@ -5,7 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 import { MaterializeAction } from "angular2-materialize";
 import { RegisterData } from "angular2-token";
 
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../shared/services/auth.service";
 import { FormUtils } from "../shared/form.utils";
 
 @Component({
@@ -22,12 +22,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.setupForm();
-    this.formUtils = new FormUtils(this.form);
-    this.submitted = false;
-    this.formErrors = null;
   }
 
   ngOnInit() {}
@@ -53,5 +50,9 @@ export class LoginComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(8)]]
     });
+
+    this.formUtils = new FormUtils(this.form);
+    this.submitted = false;
+    this.formErrors = null;
   }
 }

@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { MaterializeDirective } from 'angular2-materialize';
 import { OrderPipe } from 'ngx-order-pipe';
 
-import { Student } from "../shared/models";
-import { StudentsService } from '../services/students.service';
+import { Student } from "../shared/models/models";
+import { StudentsService } from '../shared/services/students.service';
 
 @Component({
   selector: 'app-students',

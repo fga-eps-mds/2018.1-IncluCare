@@ -1,10 +1,3 @@
-export class TeamMember {
-  id: number;
-  name: string;
-  email: string;
-  admin: boolean;
-}
-
 export class Student {
   id: number;
   name: string;

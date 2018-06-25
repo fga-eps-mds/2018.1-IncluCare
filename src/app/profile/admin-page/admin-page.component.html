@@ -1,5 +1,5 @@
-<div *ngIf="authTokenService.currentUserData">
-  <div *ngIf="authTokenService.currentUserData.nickname == 'admin'; else elseBlock ">
+<div *ngIf="authService.currentUserData()">
+  <div *ngIf="authService.currentUserData().nickname == 'admin'; else elseBlock ">
     <h3>Painel de Membros</h3>
     <table class="striped">
       <thead>
