@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpModule, XHRBackend, Response, ResponseOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-import { Student, DailyLog, Report, Recommendation, Referral } from '../shared/models';
+import { Student, DailyLog, Report, Recommendation, Referral,  } from '../shared/models';
 import { StudentsService } from './students.service';
 
 describe('StudentsService', () => {
@@ -225,6 +225,27 @@ describe('StudentsService', () => {
       })));
     });
     studentDataService.addDailyLog(mockResponse.data).subscribe((res) => {
+      expect(res).toBeDefined();
+    });
+  }));
+
+  it('should add referral', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
+    const mockResponse = {
+    data: [{
+        id: 1,
+        title: 'Encaminhamento 1',
+        body: 'Para Familia',
+        created_by: 'user',
+        updated_by: 'user',
+        student_id: 1
+    }]
+    }
+    backend.connections.subscribe(connection => {
+      connection.mockRespond(new Response( new ResponseOptions({
+        body: JSON.stringify(mockResponse)
+      })));
+    });
+    studentDataService.addReferral(mockResponse.data).subscribe((res) => {
       expect(res).toBeDefined();
     });
   }));
@@ -480,25 +501,9 @@ describe('StudentsService', () => {
     it('should get referral id', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
       const mockResponse = {
       data: [{
-        id: 9
-      }]
-      }
-      backend.connections.subscribe(connection => {
-        connection.mockRespond(new Response( new ResponseOptions({
-          body: JSON.stringify(mockResponse)
-        })));
-      });
-      studentDataService.getReferral(mockResponse.data).subscribe((res) => {
-        expect(res).toBeDefined();
-      });
-    }));
-
-    it('should add referral', inject([StudentsService, XHRBackend], (studentDataService, backend) => {
-      const mockResponse = {
-      data: [{
-        id: 9,
-        title: '',
-        body: '',
+        id: 1,
+        title: 'Titulo 1',
+        body: 'Ao professor 1',
         student: 'Joao',
         student_id: ''
       }]
@@ -508,7 +513,7 @@ describe('StudentsService', () => {
           body: JSON.stringify(mockResponse)
         })));
       });
-      studentDataService.addReferral(mockResponse.data).subscribe((res) => {
+      studentDataService.getReferral(1).subscribe((res) => {
         expect(res).toBeDefined();
       });
     }));
@@ -520,7 +525,7 @@ describe('StudentsService', () => {
         title: '',
         body: '',
         student: 'Joao',
-        student_id: ''
+        student_id: 9
       }]
       }
       backend.connections.subscribe(connection => {
