@@ -16,76 +16,15 @@
           <div class="login-submit">
             <button [disabled]="form.invalid || submitted" type="submit" class="btn waves-effect waves-light col s5 offset-s7">Entrar</button>
           </div>
-          <ul id="slide-out" class="container">
-            <li class="li-hover mt-6">
-              <p class="small margin more-text">Quem somos</p>
-            </li>
-            <li class="no-padding">
-              <ul class="collapsible collapsible-accordion">
-                <li class="bold">
-                  <a class="collapsible-header waves-effect waves-cyan">
-                    <i class="material-icons">class</i>
-                    <span class="nav-text">O que é o IncluCare?</span>
-                  </a>
-                  <div class="collapsible-body">
-                    <ul>
-                      <p>
-                        O IncluCare é uma aplicação para auxiliar a equipe educacional no acompanhamento e triagem
-                        de estudantes com dificuldade de aprendizagem. O objetivo do IncluCare é auxiliar a equipe
-                        educacional responsável, de escolas públicas, pela triagem e acompanhamento de estudantes
-                        que apresentam algum tipo de dificuldade de aprendizagem, facilitando e tornando estes
-                        processos mais rápidos e automatizados.
-                      </p>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </li>
-
-            <li class="li-hover">
-              <p class="small margin more-text">Perguntas frequentes</p>
-            </li>
-            <li class="no-padding">
-              <ul class="collapsible collapsible-accordion">
-                <li class="bold">
-                  <a class="collapsible-header waves-effect waves-cyan">
-                    <i class="material-icons">account_circle</i>
-                    <span class="nav-text">Como me cadastrar?</span>
-                  </a>
-                  <div class="collapsible-body">
-                    <ul>
-                      <p>
-                        Para que seja efetuado o seu cadastro no sistema,
-                         deve-se entrar em contato com a direção da sua escola para ser encaminhado à equipe gestora
-                         do IncluCare de sua instituição de ensino.
-                      </p>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <li class="no-padding">
-              <ul class="collapsible collapsible-accordion">
-                <li class="bold">
-                  <a class="collapsible-header waves-effect waves-cyan">
-                    <i class="material-icons">account_circle</i>
-                    <span class="nav-text">Como eu faço meu primeiro login no sistema?</span>
-                  </a>
-                  <div class="collapsible-body">
-                    <ul>
-                      <p>
-                        Assim que você for cadastrado no sistema, será lhe dado uma senha por um administrador para
-                        ser utilizado no seu primeiro login. Você pode anotar essa senha para uso, ou alterá-la mais
-                         tarde no seu perfil de usuário.
-                      </p>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
         </div>
       </form>
     </div>
   </div>
+  <div class="fixed-action-btn">
+    <a href="javascript:void(0);" (click)="openTutorial()" class="btn-floating cyan">
+      <i class="material-icons">help_outline</i>
+    </a>
+  </div>
 </div>
+
+<app-tutorial-login #tutorialLogin ></app-tutorial-login>

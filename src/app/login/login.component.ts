@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 
@@ -7,6 +7,7 @@ import { RegisterData } from "angular2-token";
 
 import { AuthService } from "../services/auth.service";
 import { FormUtils } from "../shared/form.utils";
+import { TutorialLoginComponent } from "../tutorial/tutorial-login/tutorial-login.component";
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   formUtils: FormUtils;
   public submitted: boolean;
   public formErrors: Array<string>;
+  @ViewChild('tutorialLogin') tutorialLogin: TutorialLoginComponent;
 
   constructor(
     private router: Router,
@@ -46,6 +48,10 @@ export class LoginComponent implements OnInit {
           console.log('err:', err);
         }
     );
+  }
+
+  openTutorial(){
+    this.tutorialLogin.openDialog();
   }
 
   private setupForm(){
