@@ -33,6 +33,8 @@ import { ReferralPanelComponent }           from './students/referral-panel/refe
 import { DailyLogPanelComponent }           from './students/daily-log-panel/daily-log-panel.component';
 import { RecommendationPanelComponent }     from './students/recommendation-panel/recommendation-panel.component';
 import { AdminPageComponent }               from './profile/admin-page/admin-page.component';
+import { TutorialComponent } from './tutorial/tutorial.component';
+import { TutorialLoginComponent } from "./tutorial/tutorial-login/tutorial-login.component";
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { AdminPageComponent }               from './profile/admin-page/admin-pag
     ReferralPanelComponent,
     DailyLogPanelComponent,
     RecommendationPanelComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    TutorialComponent,
+    TutorialLoginComponent
   ],
   imports: [
     HttpModule,
