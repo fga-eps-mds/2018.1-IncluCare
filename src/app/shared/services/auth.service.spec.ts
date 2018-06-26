@@ -1,9 +1,10 @@
-import { TestBed, inject, async, ComponentFixture }  from '@angular/core/testing';
-import { Angular2TokenService }             from 'angular2-token';
-import { AuthService }                      from './auth.service';
-import { HttpModule }                       from '@angular/http';
+import { TestBed, inject, async, ComponentFixture } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule }              from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
+import { Angular2TokenService } from 'angular2-token';
+import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
   beforeEach(async() => {

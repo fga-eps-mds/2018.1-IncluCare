@@ -1,9 +1,9 @@
-<ul id="slide-out" class="side-nav fixed">
+<ul *ngIf="authService.userSignedIn()" id="slide-out" class="side-nav fixed">
   <li class="li-hover mt-6">
     <p class="ultra-small margin more-text">Alunos</p>
   </li>
   <li class="no-padding">
-    <ul class="collapsible collapsible-accordion">
+    <ul class="collapsible collapsible-accordion" materialize="collapsible">
       <li class="bold">
         <a class="collapsible-header waves-effect waves-cyan">
           <i class="material-icons">class</i>
@@ -37,7 +37,7 @@
       <li class="bold">
         <a class="collapsible-header waves-effect waves-cyan">
           <i class="material-icons">account_circle</i>
-          <span class="nav-text" *ngIf='authTokenService.currentUserData'>{{authTokenService.currentUserData.name}}</span>
+          <span class="nav-text" *ngIf='authService.currentUserData()'>{{authService.currentUserData().name}}</span>
         </a>
         <div class="collapsible-body">
           <ul>
@@ -47,7 +47,7 @@
                 <span>Visitar Perfil</span>
               </a>
             </li>
-            <li *ngIf="authTokenService.currentUserData.admin == true ">
+            <li *ngIf="authService.userIsAdmin()">
               <a href="javascript:void(0);" (click)="presentAuthDialog()">
                 <i class="material-icons">person_add</i>
                 <span>Cadastrar Novo Membro</span>
@@ -58,6 +58,24 @@
       </li>
     </ul>
   </li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li class="bold">
+        <a class="collapsible-header waves-effect waves-cyan">
+          <span class="nav-text" *ngIf='authTokenService.currentUserData'>Novo no sistema?</span>
+        </a>
+        <div class="collapsible-body">
+          <ul>
+            <li>
+              <a [routerLink]="['/tutorial']">
+                <span>Visitar Tutorial</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
 </ul>
 
-<app-register-form #registerForm ></app-register-form>
+<app-register-form #registerForm></app-register-form>
