@@ -3,7 +3,7 @@ import { HttpModule } from '@angular/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 
-import { StudentsService } from '../../services/students.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 import { ReferralPanelComponent } from './referral-panel.component';
 

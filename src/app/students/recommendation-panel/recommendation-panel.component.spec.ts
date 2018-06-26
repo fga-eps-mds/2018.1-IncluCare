@@ -5,7 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { Angular2TokenService } from 'angular2-token';
 
-import { StudentsService } from '../../services/students.service'
+import { StudentsService } from '../../shared/services/students.service'
+import { AuthService } from '../../shared/services/auth.service';
 import { RecommendationPanelComponent } from './recommendation-panel.component';
 
 describe('RecommendationComponent', () => {
@@ -25,6 +26,7 @@ describe('RecommendationComponent', () => {
       ],
       declarations: [ RecommendationPanelComponent ],
       providers: [
+        AuthService,
         StudentsService,
         {provide: Angular2TokenService, useValue: tokenMock}
       ]

@@ -3,8 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Angular2TokenService } from "angular2-token";
 
-import { DailyLog } from "../../shared/models";
-import { StudentsService } from '../../services/students.service';
+import { DailyLog } from "../../shared/models/models";
+import { AuthService } from '../../shared/services/auth.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 @Component({
   selector: 'app-daily-log-form',
@@ -19,8 +20,8 @@ export class DailyLogFormComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private studentsService: StudentsService,
-    public authTokenService: Angular2TokenService
+    private authService: AuthService,
+    private studentsService: StudentsService
   ) { }
 
   ngOnInit() {
@@ -35,8 +36,8 @@ export class DailyLogFormComponent implements OnInit {
     var result;
 
     this.daily_log.student_id = this.id
-    this.daily_log.created_by = this.authTokenService.currentUserData.name
-    this.daily_log.updated_by = this.authTokenService.currentUserData.name
+    this.daily_log.created_by = this.authService.currentUserData().name
+    this.daily_log.updated_by = this.authService.currentUserData().name
 
     if (this.daily_log.id)
     result = this.studentsService.updateDailyLog(this.daily_log);

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 
 import { environment } from '../environments/environment';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector:     'app-root',

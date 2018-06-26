@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { DailyLogPanelComponent } from './daily-log-panel.component';
-import { StudentsService } from '../../services/students.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 describe('DailyLogPanelComponent', () => {
   let component: DailyLogPanelComponent;

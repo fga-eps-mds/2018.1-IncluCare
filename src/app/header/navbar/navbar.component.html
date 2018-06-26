@@ -1,4 +1,4 @@
-<div class="navbar-fixed">
+<div *ngIf="authService.userSignedIn()" class="navbar-fixed">
   <nav>
     <a [routerLink]="['']" class="brand-logo">IncluCare</a>
     <ul class="right">

@@ -1,4 +1,4 @@
-<div id="showprofile" *ngIf="authTokenService.currentUserData">
+<div id="showprofile" *ngIf="authService.currentUserData()">
 
   <div class="col l4 s12 center">
     <br/>
@@ -11,115 +11,79 @@
       <div class="row">
         <div class="container">
           <div class="card-action" align="right">
-            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar Dados
+            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">
+              Editar Dados
               <i class="material-icons right">edit</i>
             </a>
-            <a href="/students" class="btn waves-effect waves-light gradient-inclucare"
-              type="button" name="action">Deletar Perfil
+            <a href="/students" class="btn waves-effect waves-light gradient-inclucare" type="button" name="action">
+              Deletar Perfil
               <i class="material-icons right">delete</i>
             </a>
 
-            <a class="btn waves-effect waves-light gradient-inclucare" type="button" (click)="openNewPassawordModal()">Trocar Senha
-            <i class="material-icons right">lock</i>
-          </a>
+            <a class="btn waves-effect waves-light gradient-inclucare" type="button" (click)="openNewPassawordModal()">
+              Trocar Senha
+              <i class="material-icons right">lock</i>
+            </a>
           </div>
         </div>
 
-          <div class="input-field col s6">
-            <input
-                   type="text"
-                   id="name"
-                   placeholder=""
-                   [(ngModel)]="authTokenService.currentUserData.name"
-                   name="name"
-                   #name="ngModel"
-                   [readonly]="!editMode"
-            >
-            <label class="active" for="name">Nome</label>
+        <div class="input-field col s6">
+          <input type="text" id="name" placeholder="" [(ngModel)]="authService.currentUserData().name" name="name" #name="ngModel" [readonly]="!editMode">
+          <label class="active" for="name">Nome</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input type="email" id="email" placeholder="" [(ngModel)]="authService.currentUserData().email" name='email' #parent_email="ngModel" [readonly]="!editMode">
+          <label class="active" for="email">Email</label>
+        </div>
+
+        <div class="container">
+          <div class="card-action" align="center">
+            <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare" type="button" name="action">
+              Cancelar
+              <i class="material-icons right">close</i>
+            </button>
+
+            <a *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare" type="button" name="action">
+              Salvar alterações
+              <i class="material-icons right">send</i>
+            </a>
+
           </div>
-
-          <div class="input-field col s6">
-            <input
-                  type="email"
-                  id="email"
-                  placeholder=""
-                  [(ngModel)]="authTokenService.currentUserData.email"
-                  name='email'
-                  #parent_email="ngModel"
-                  [readonly]="!editMode"
-            >
-            <label class="active" for="email">Email</label>
-          </div>
-
-          <div class="container">
-            <div class="card-action" align="center">
-          <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
-             type="button" name="action">Cancelar
-            <i class="material-icons right">close</i>
-          </button>
-
-          <a *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
-             type="button" name="action">Salvar alterações
-            <i class="material-icons right">send</i>
-          </a>
-
-    </div>
-  </div>
-</div>
+        </div>
+      </div>
 
     </form>
   </div>
 
-<div id="modal" class="modal" materialize="modal" [materializeActions]="modalActions">
+  <div id="modal" class="modal" materialize="modal" [materializeActions]="modalActions">
     <div class="modal-content">
       <div class="col-md-6">
-  	     <div class="card card-block">
-  		       <h4 class="card-title">Trocar Senha</h4>
+        <div class="card card-block">
+          <h4 class="card-title">Trocar Senha</h4>
+          <form #changePasswordForm="ngForm" (ngSubmit)="updatePassword()">
 
-  		<form #changePasswordForm="ngForm" (ngSubmit)="updatePassword()">
+            <div class="form-group">
+              <label for="formGroupExampleInput">Senha Atual</label>
+              <input type="password" class="form-control" placeholder="Senha Atual" required [(ngModel)]="updatePasswordData.passwordCurrent" name="current-password">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Nova Senha</label>
+              <input type="password" class="form-control" placeholder="Nova Senha" required [(ngModel)]="updatePasswordData.password" name="password">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Confirmação Nova Senha</label>
+              <input type="password" class="form-control" placeholder="Confirmação Nova Senha" required [(ngModel)]="updatePasswordData.passwordConfirmation" name="password-confirmation">
+            </div>
+            <button type="submit" class="btn btn-primary right" [disabled]="!changePasswordForm.form.valid">
+              Enviar
+            </button>
 
-  			<div class="form-group">
-  				<label for="formGroupExampleInput">Senha Atual</label>
-  				<input type="password"
-  					class="form-control"
-  					placeholder="Senha Atual"
-  					required
-  					[(ngModel)]="updatePasswordData.passwordCurrent"
-  					name="current-password">
-  			</div>
+          </form>
 
-  			<div class="form-group">
-  				<label for="formGroupExampleInput">Nova Senha</label>
-  				<input type="password"
-  					class="form-control"
-  					placeholder="Nova Senha"
-  					required
-  					[(ngModel)]="updatePasswordData.password"
-  					name="password">
-  			</div>
-
-  			<div class="form-group">
-  				<label for="formGroupExampleInput">Confirmação Nova Senha</label>
-  				<input type="password"
-  					class="form-control"
-  					placeholder="Confirmação Nova Senha"
-  					required
-  					[(ngModel)]="updatePasswordData.passwordConfirmation"
-  					name="password-confirmation">
-  			</div>
-
-  			<button
-  				type="submit"
-  				class="btn btn-primary right"
-  				[disabled]="!changePasswordForm.form.valid">
-  				Enviar
-  			</button>
-
-</form>
-
-  	   </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
 </div>

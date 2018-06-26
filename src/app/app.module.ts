@@ -3,24 +3,24 @@ import { HttpModule }                       from '@angular/http';
 import { BrowserModule }                    from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterializeModule }                from 'angular2-materialize';
+import { MaterializeModule }             from 'angular2-materialize';
 import { Angular2TokenService }             from 'angular2-token';
 import { OrderModule }                      from 'ngx-order-pipe';
 
 import { AppComponent }                     from './app.component';
-import { routes }                           from './app.routes';
-import { AuthGuard }                        from "./guards/auth.guard";
-import { LoginGuard }                       from "./guards/login.guard";
-import { AuthService }                      from "./services/auth.service";
+import { AppRouterModule } from "./app-router.module";
+import { AuthGuard }                        from "./shared/guards/auth.guard";
+import { LoginGuard }                       from "./shared/guards/login.guard";
+import { AuthService }                      from "./shared/services/auth.service";
 import { LoginComponent }                   from './login/login.component';
 import { RegisterFormComponent }            from './register/register-form/register-form.component';
 import { ProfileComponent }                 from './profile/profile.component';
-import { StudentsService }                  from './services/students.service';
+import { StudentsService }                  from './shared/services/students.service';
 import { StudentsComponent }                from './students/students.component';
 import { StudentFormComponent }             from './students/student-form/student-form.component';
-import { FilterPipe }                       from './shared/filter.pipe';
-import { SidenavComponent }                 from './sidenav/sidenav.component';
-import { NavbarComponent }                  from './navbar/navbar.component';
+import { FilterPipe }                       from './shared/pipes/filter.pipe';
+import { SidenavComponent }                 from './header/sidenav/sidenav.component';
+import { NavbarComponent }                  from './header/navbar/navbar.component';
 import { StudentPanelComponent }            from './students/student-panel/student-panel.component';
 import { DailyLogComponent }                from './students/daily-log/daily-log.component';
 import { DailyLogFormComponent }            from './students/daily-log-form/daily-log-form.component';
@@ -59,7 +59,6 @@ import { TutorialLoginComponent } from "./tutorial/tutorial-login/tutorial-login
     AdminPageComponent,
     TutorialComponent,
     TutorialLoginComponent
-
   ],
   imports: [
     HttpModule,
@@ -68,7 +67,7 @@ import { TutorialLoginComponent } from "./tutorial/tutorial-login/tutorial-login
     OrderModule,
     ReactiveFormsModule,
     MaterializeModule,
-    routes
+    AppRouterModule
   ],
   providers: [
     LoginGuard,

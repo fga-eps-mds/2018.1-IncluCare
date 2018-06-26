@@ -4,8 +4,8 @@ import { Router } from "@angular/router";
 import { MaterializeDirective } from "angular2-materialize";
 import { Angular2TokenService } from "angular2-token";
 
-import { AuthService } from "../services/auth.service";
-import { RegisterFormComponent } from "../register/register-form/register-form.component";
+import { AuthService } from "../../shared/services/auth.service";
+import { RegisterFormComponent } from "../../register/register-form/register-form.component";
 
 @Component({
   selector:     'app-navbar',

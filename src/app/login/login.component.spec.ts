@@ -6,7 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
 
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../shared/services/auth.service";
 import { LoginComponent } from './login.component';
 import { TutorialLoginComponent } from '../tutorial/tutorial-login/tutorial-login.component';
 
