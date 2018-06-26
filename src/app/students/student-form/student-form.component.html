@@ -18,7 +18,7 @@
         </div>
         <div class="input-field col s2">
           <label for="birth_date">Data de Nascimento</label>
-          <input type="text" materialize="pickadate" [materializeParams]="[{format: 'dd/mm/yyyy'}]" id="add_birth_date" required [(ngModel)]="student.birth_date" name='birth_date' class="validate" #birth_date="ngModel">
+          <input type="text" mask="9999/99/99" id="add_birth_date" required [(ngModel)]="student.birth_date" name='birth_date' class="validate" #birth_date="ngModel">
           <span class="helper-text"  *ngIf="!birth_date.valid && birth_date.touched" data-error="wrong" data-success="right">Data de nascimento é necessária</span>
         </div>
         <div class="input-field col s2">
@@ -70,7 +70,7 @@
         </div>
         <div class="input-field col s4">
           <label for="parent_telephone">Telefone do responsável</label>
-          <input TelefoneMask type="text" id="add_parent_telephone" required [(ngModel)]="student.parent_telephone" name='parent_telephone' class="validate" #parent_telephone="ngModel">
+          <input type="text" mask="(00) 00000-0000" id="add_parent_telephone" required [(ngModel)]="student.parent_telephone" name='parent_telephone' class="validate" #parent_telephone="ngModel">
           <span class="helper-text"  *ngIf="!parent_telephone.valid && parent_telephone.touched" data-error="wrong" data-success="right">Telefone do responsável é necessário!</span>
         </div>
       </div>

@@ -3,14 +3,13 @@ import { HttpModule }                       from '@angular/http';
 import { BrowserModule }                    from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterializeModule }             from 'angular2-materialize';
+import { MaterializeModule }                from 'angular2-materialize';
 import { Angular2TokenService }             from 'angular2-token';
 import { OrderModule }                      from 'ngx-order-pipe';
-import { TelefoneMask }                     from 'telefone-mask-ng2';
-
+import { NgxMaskModule }                    from 'ngx-mask'
 
 import { AppComponent }                     from './app.component';
-import { AppRouterModule } from "./app-router.module";
+import { AppRouterModule }                  from "./app-router.module";
 import { AuthGuard }                        from "./shared/guards/auth.guard";
 import { LoginGuard }                       from "./shared/guards/login.guard";
 import { AuthService }                      from "./shared/services/auth.service";
@@ -56,8 +55,7 @@ import { AdminPageComponent }               from './profile/admin-page/admin-pag
     ReferralPanelComponent,
     DailyLogPanelComponent,
     RecommendationPanelComponent,
-    AdminPageComponent,
-    TelefoneMask
+    AdminPageComponent
   ],
   imports: [
     HttpModule,
@@ -66,7 +64,8 @@ import { AdminPageComponent }               from './profile/admin-page/admin-pag
     OrderModule,
     ReactiveFormsModule,
     MaterializeModule,
-    AppRouterModule
+    AppRouterModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [
     LoginGuard,
