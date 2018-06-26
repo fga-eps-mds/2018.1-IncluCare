@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterializeModule }             from 'angular2-materialize';
 import { Angular2TokenService }             from 'angular2-token';
 import { OrderModule }                      from 'ngx-order-pipe';
+import { TelefoneMask }                     from 'telefone-mask-ng2';
+
 
 import { AppComponent }                     from './app.component';
 import { AppRouterModule } from "./app-router.module";
@@ -54,7 +56,8 @@ import { AdminPageComponent }               from './profile/admin-page/admin-pag
     ReferralPanelComponent,
     DailyLogPanelComponent,
     RecommendationPanelComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    TelefoneMask
   ],
   imports: [
     HttpModule,

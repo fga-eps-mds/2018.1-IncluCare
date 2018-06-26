@@ -70,7 +70,7 @@
         </div>
         <div class="input-field col s4">
           <label for="parent_telephone">Telefone do responsável</label>
-          <input type="text" id="add_parent_telephone" required [(ngModel)]="student.parent_telephone" name='parent_telephone' class="validate" #parent_telephone="ngModel">
+          <input TelefoneMask type="text" id="add_parent_telephone" required [(ngModel)]="student.parent_telephone" name='parent_telephone' class="validate" #parent_telephone="ngModel">
           <span class="helper-text"  *ngIf="!parent_telephone.valid && parent_telephone.touched" data-error="wrong" data-success="right">Telefone do responsável é necessário!</span>
         </div>
       </div>
