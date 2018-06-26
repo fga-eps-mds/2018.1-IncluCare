@@ -56,7 +56,7 @@ export class ReferralPanelComponent implements OnInit {
     result.subscribe(data => this.router.navigate(['/referrals', this.referral.student.id]));
   }
 
-  public generatePDFReferral(){
+  public generatePDFReferral(name){
     let doc = new jsPDF();
 
     let specialElementHandlers = {
