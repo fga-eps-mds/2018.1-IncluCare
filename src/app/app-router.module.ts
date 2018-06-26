@@ -16,6 +16,7 @@ import { ReferralPanelComponent } from './students/referral-panel/referral-panel
 import { ReportComponent } from './students/report/report.component';
 import { ReportFormComponent } from './students/report-form/report-form.component';
 import { RecommendationPanelComponent } from './students/recommendation-panel/recommendation-panel.component';
+import { TutorialComponent }            from './tutorial/tutorial.component';
 
 import { AuthGuard }                    from "./shared/guards/auth.guard";
 import { LoginGuard }                   from "./shared/guards/login.guard";
@@ -36,7 +37,8 @@ const ROUTES = RouterModule.forRoot([
   { path: 'referralpanel/:id' , component: ReferralPanelComponent ,                     canActivate: [AuthGuard] },
   { path: 'report/:id'        , component: ReportFormComponent    ,                     canActivate: [AuthGuard] },
   { path: 'reports'           , component: ReportComponent        ,                     canActivate: [AuthGuard] },
-  { path: 'recommendation/:id', component: RecommendationPanelComponent,                canActivate: [AuthGuard] }
+  { path: 'recommendation/:id', component: RecommendationPanelComponent,                canActivate: [AuthGuard] },
+  { path: 'tutorial'          , component: TutorialComponent,                           canActivate: [AuthGuard] }
 ])
 
 @NgModule({

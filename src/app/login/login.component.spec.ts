@@ -3,10 +3,12 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
 
 import { AuthService } from "../shared/services/auth.service";
 import { LoginComponent } from './login.component';
+import { TutorialLoginComponent } from '../tutorial/tutorial-login/tutorial-login.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -17,10 +19,14 @@ describe('LoginComponent', () => {
     tokenMock.validateToken.and.returnValue(tokenMock);
 
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [
+        LoginComponent,
+        TutorialLoginComponent
+      ],
       imports: [
         HttpModule,
         FormsModule,
+        MaterializeModule,
         ReactiveFormsModule,
         RouterTestingModule
       ],
