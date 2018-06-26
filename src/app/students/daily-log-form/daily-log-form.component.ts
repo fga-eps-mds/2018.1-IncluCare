@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Angular2TokenService } from "angular2-token";
-
 import { DailyLog } from "../../shared/models/models";
 import { AuthService } from '../../shared/services/auth.service';
 import { StudentsService } from '../../shared/services/students.service';
@@ -13,7 +11,7 @@ import { StudentsService } from '../../shared/services/students.service';
   styleUrls: ['./daily-log-form.component.css']
 })
 export class DailyLogFormComponent implements OnInit {
-  daily_log: DailyLog = new DailyLog();
+  dailyLog: DailyLog = new DailyLog();
 
   id: number;
 
@@ -32,17 +30,21 @@ export class DailyLogFormComponent implements OnInit {
     });
   }
 
+  returnToList(dailylog) {
+    this.router.navigate(['/dailylogs', this.dailyLog.student.id]);
+  }
+
   save() {
     var result;
 
-    this.daily_log.student_id = this.id
-    this.daily_log.created_by = this.authService.currentUserData().name
-    this.daily_log.updated_by = this.authService.currentUserData().name
+    this.dailyLog.student_id = this.id
+    this.dailyLog.created_by = this.authService.currentUserData().name
+    this.dailyLog.updated_by = this.authService.currentUserData().name
 
-    if (this.daily_log.id)
-    result = this.studentsService.updateDailyLog(this.daily_log);
+    if (this.dailyLog.id)
+    result = this.studentsService.updateDailyLog(this.dailyLog);
     else
-    result = this.studentsService.addDailyLog(this.daily_log);
+    result = this.studentsService.addDailyLog(this.dailyLog);
 
     result.subscribe(data => this.router.navigate(['/dailylogs', this.id]));
   }

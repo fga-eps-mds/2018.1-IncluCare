@@ -1,3 +1,5 @@
-.gradient-inclucare {
-  background: linear-gradient(#000046, #1cb5e0);
+.referral-text {
+  word-wrap: break-word;
+  max-width: 1000px;
+  white-space: pre-line;
 }

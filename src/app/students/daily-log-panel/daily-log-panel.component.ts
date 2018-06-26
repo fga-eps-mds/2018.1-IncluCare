@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import { StudentsService } from '../../shared/services/students.service';
-
-import { DailyLog } from "../../shared/models/models";
-
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { DailyLog } from "../../shared/models/models";
+import { StudentsService } from '../../shared/services/students.service';
 
 @Component({
   selector: 'app-daily-log-panel',
@@ -17,12 +14,10 @@ export class DailyLogPanelComponent implements OnInit {
   editMode: boolean;
   dailylog: DailyLog = new DailyLog();
 
-
   constructor(
-
-    private dailylogService: StudentsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dailylogService: StudentsService
   ) { }
 
   ngOnInit() {
@@ -39,17 +34,22 @@ export class DailyLogPanelComponent implements OnInit {
     });
   }
 
+  returnToList() {
+    this.router.navigate(['/dailylogs', this.dailylog.student.id]);
+  }
+
   deleteDailyLog(dailylog) {
     if (confirm("Você tem certeza que quer deletar o registro diário" + dailylog.id + "?")) {
-      this.dailylogService.deleteDailyLog(dailylog.id).subscribe(null);
+      var stId = dailylog.student.id;
+      this.dailylogService.deleteDailyLog(dailylog.id)
+      .subscribe(data => this.router.navigate(['/dailylogs', stId]));
     }
   }
 
   updateDailyLog(dailylog){
-    var result;
-    result = this.dailylogService.updateDailyLog(this.dailylog);
-
-    result.subscribe(data => this.router.navigate(['/dailylogs']));
+    var update;
+    update = this.dailylogService.updateDailyLog(this.dailylog)
+    update.subscribe(data => this.router.navigate(['/dailylogs', this.dailylog.student.id]));
   }
 
 }

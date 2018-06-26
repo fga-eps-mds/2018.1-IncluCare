@@ -57,7 +57,7 @@
         <tr *ngFor="let s of students | orderBy: order:reverse:'case-insensitive' | filter:'name':filterStudent | filter:'year_class':filterClass">
           <td>{{ s.name }}</td>
           <td>{{ s.year_class }}</td>
-          <td>{{ s.birth_date }}</td>
+          <td>{{ s.birth_date | date: 'dd/MM/yyyy' }}</td>
           <td>{{ s.parent_telephone }}</td>
           <td>
             <a [routerLink]="['/studentpanel', s.id]">

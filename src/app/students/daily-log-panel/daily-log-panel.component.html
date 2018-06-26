@@ -1,73 +1,47 @@
-<div id="showprofile">
+<div class="container">
+  <div class="row">
+    <div class="col s10 m6 l6">
+      <h5 class="mt-2 mb-0">Painel do Registro Diário</h5>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="card">
-    <h4 align="center"> Painel do Registro Diário </h4>
     <form id="dailylog_data" role="form">
-      <div class="row">
-        <div class="row">
-          <div class="card-action" align="right">
-            <a (click)="editMode = !editMode" class="btn waves-effect waves-light gradient-inclucare" type="submit" name="action">Editar
-              <i class="material-icons right">edit</i>
-            </a>
-            <a (click)="deleteDailyLog(dailylog)" href="/dailylogs" class="btn waves-effect waves-light gradient-inclucare"
-              type="button" name="action">Deletar Registro Diário
-              <i class="material-icons right">delete</i>
-            </a>
-          </div>
-        </div>
-          <div class="container">
-          <div class="input-field">
-            <input
-                   type="text"
-                   id="date"
-                   placeholder=""
-                   [(ngModel)]="dailylog.date"
-                   name="date"
-                   #date="ngModel"
-                   [readonly]="!editMode"
-            >
-            <label class="active" for="date">Data</label>
-          </div>
-          <div class="input-field">
-            <input
-                  type="text"
-                  id="activity"
-                  placeholder=""
-                  [(ngModel)]="dailylog.activity"
-                  name='activity'
-                  #activity="ngModel"
-                  [readonly]="!editMode"
-            >
-            <label class="active" for="activity">Atividade Desenvolvida</label>
-          </div>
-          <div class="input-field">
-            <textarea
-                  id="note"
-                  placeholder=""
-                  [(ngModel)]="dailylog.note"
-                  name='note'
-                  #note="ngModel"
-                  class="materialize-textarea"
-                  [readonly]="!editMode"
-            >
-          </textarea>
-            <label class="active" for="note">Observação</label>
-          </div>
-      </div>
-      <div class="row">
+      <div class="card-content row">
         <div class="input-field">
-            <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light gradient-inclucare"
-               type="button" name="action">Cancelar
-              <i class="material-icons right">close</i>
-            </button>
+          <input type="text" id="date" placeholder="" [(ngModel)]="dailylog.date" name="date" #date="ngModel" [readonly]="!editMode">
+          <label class="active" for="date">Data</label>
         </div>
-        <div class="input-field col s6">
-            <a  (click)="updateDailyLog(dailylog)" *ngIf="editMode" class="btn waves-effect waves-light gradient-inclucare"
-               type="button" name="action">Salvar alterações
-              <i class="material-icons right">send</i>
-            </a>
+        <div class="input-field">
+          <input type="text" id="activity" placeholder="" [(ngModel)]="dailylog.activity" name='activity' #activity="ngModel" [readonly]="!editMode">
+          <label class="active" for="activity">Atividade Desenvolvida</label>
         </div>
-    </div>
-    </div>
+        <div class="input-field">
+          <textarea id="note" placeholder="" [(ngModel)]="dailylog.note" name='note' #note="ngModel" class="materialize-textarea" [readonly]="!editMode"></textarea>
+          <label class="active" for="note">Observação</label>
+        </div>
+      </div>
+      <div class="card-action" align="right">
+        <button (click)="returnToList()" class="waves-effect waves-light btn blue left">Voltar</button>
+        <button (click)="editMode = !editMode" *ngIf="!editMode" class="btn waves-effect waves-light" type="submit" name="action">
+          Editar
+          <i class="material-icons right">edit</i>
+        </button>
+        <button *ngIf="editMode" (click)="deleteDailyLog(dailylog)" class="btn waves-effect waves-light red" type="button" name="action">
+          Deletar Registro
+          <i class="material-icons right">delete</i>
+        </button>
+        <button *ngIf="editMode" (click)="editMode = !editMode"class="btn waves-effect waves-light" type="button" name="action">
+          Cancelar
+          <i class="material-icons right">close</i>
+        </button>
+        <button *ngIf="editMode" (click)="updateDailyLog(dailylog)" class="btn waves-effect waves-light" type="button" name="action">
+          Salvar alterações
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
     </form>
   </div>
 </div>

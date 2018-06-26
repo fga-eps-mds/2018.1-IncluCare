@@ -43,7 +43,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let d of dailyLogs | orderBy: order:reverse:'case-insensitive'">
-          <td>{{ d.date }}</td>
+          <td>{{ d.date | date: 'dd/MM/yyyy' }}</td>
           <td>{{ d.activity }}</td>
           <td class="list-text">{{ d.note }}</td>
           <td>{{ d.updated_by }}</td>
