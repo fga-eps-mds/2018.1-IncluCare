@@ -58,6 +58,24 @@
       </li>
     </ul>
   </li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li class="bold">
+        <a class="collapsible-header waves-effect waves-cyan">
+          <span class="nav-text" *ngIf='authTokenService.currentUserData'>Novo no sistema?</span>
+        </a>
+        <div class="collapsible-body">
+          <ul>
+            <li>
+              <a [routerLink]="['/tutorial']">
+                <span>Visitar Tutorial</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <app-register-form #registerForm></app-register-form>
