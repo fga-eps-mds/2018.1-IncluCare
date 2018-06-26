@@ -18,8 +18,8 @@ export class ReferralFormComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private studentsService: StudentsService,
-    public authService: AuthService
+    private authService: AuthService,
+    private studentsService: StudentsService
   ) { }
 
   ngOnInit() {

@@ -12,16 +12,16 @@ import { StudentsService } from '../../shared/services/students.service';
   styleUrls: ['./referral-panel.component.css']
 })
 export class ReferralPanelComponent implements OnInit {
-
-  @ViewChild( 'content' ) content: ElementRef;
   name: string;
   editMode: boolean;
   referral: Referral = new Referral();
 
+  @ViewChild('content') content: ElementRef;
+
   constructor(
     private studentsService: StudentsService,
-    private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -38,17 +38,22 @@ export class ReferralPanelComponent implements OnInit {
     });
   }
 
+  returnToList() {
+    this.router.navigate(['/referrals', this.referral.student.id]);
+  }
+
   deleteReferral(referral) {
     if (confirm("Você tem certeza que quer deletar o encaminhamento " + referral.id + "?")) {
-      this.studentsService.deleteReferral(referral.id).subscribe(null);
+      var stId = referral.student.id;
+      this.studentsService.deleteReferral(referral.id)
+      .subscribe(data => this.router.navigate(['/referrals', stId]));
     }
   }
 
   updateReferral(referral){
     var result;
     result = this.studentsService.updateReferral(this.referral);
-
-    result.subscribe(data => this.router.navigate(['/referrals']));
+    result.subscribe(data => this.router.navigate(['/referrals', this.referral.student.id]));
   }
 
   public generatePDFReferral(){

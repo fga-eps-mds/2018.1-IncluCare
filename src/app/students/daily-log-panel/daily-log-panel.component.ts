@@ -34,7 +34,7 @@ export class DailyLogPanelComponent implements OnInit {
     });
   }
 
-  returnToList(dailylog) {
+  returnToList() {
     this.router.navigate(['/dailylogs', this.dailylog.student.id]);
   }
 

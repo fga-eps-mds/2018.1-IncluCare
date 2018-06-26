@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="card-action">
-      <button [routerLink]="['/referrals', id]" class="waves-effect waves-light btn blue left">Voltar</button>
+      <button routerLink="/students" class="waves-effect waves-light btn blue left">Voltar</button>
       <button type="submit" [disabled]="!(f.valid)" [ngClass]="{'disabled': !(f.valid)}" class="waves-effect waves-light btn green right">Enviar</button>
     </div>
   </form>
