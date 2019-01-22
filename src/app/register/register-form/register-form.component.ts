@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 import { RegisterData } from "angular2-token";
 import { MaterializeAction } from "angular2-materialize";
 
-import { AuthService } from "../../services/auth.service"
+import { AuthService } from "../../shared/services/auth.service"
 import { FormUtils } from "../../shared/form.utils";
 
 @Component({

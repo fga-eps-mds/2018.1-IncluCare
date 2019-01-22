@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { OrderPipe } from 'ngx-order-pipe';
 
 import { ReferralComponent } from './referral.component';
-import { StudentsService } from '../../services/students.service';
+import { StudentsService } from '../../shared/services/students.service';
 
 describe('ReferralComponent', () => {
   let component: ReferralComponent;

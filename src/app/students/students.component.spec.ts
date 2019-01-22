@@ -8,9 +8,9 @@ import { Angular2TokenService } from 'angular2-token';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { StudentsComponent } from './students.component';
-import { AuthService } from "../services/auth.service";
-import { StudentsService } from '../services/students.service';
-import { FilterPipe } from "../shared/filter.pipe";
+import { AuthService } from "../shared/services/auth.service";
+import { StudentsService } from '../shared/services/students.service';
+import { FilterPipe } from "../shared/pipes/filter.pipe";
 
 describe('StudentsComponent', () => {
   let component: StudentsComponent;

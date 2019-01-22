@@ -6,19 +6,19 @@ import { HttpModule }                       from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 import { Angular2TokenService } from 'angular2-token';
 
-import { NavbarComponent } from './navbar.component';
-import { RegisterFormComponent } from '../register/register-form/register-form.component';
+import { SidenavComponent } from './sidenav.component';
+import { RegisterFormComponent } from '../../register/register-form/register-form.component';
 
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 
-describe('NavbarComponent', () => {
+describe('SidenavComponent', () => {
   let tokenMock = jasmine.createSpyObj('tokenMock', ['validateToken', 'subscribe']);
   tokenMock.validateToken.and.returnValue(tokenMock);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        NavbarComponent,
+        SidenavComponent,
         RegisterFormComponent
       ],
       imports: [
@@ -36,7 +36,7 @@ describe('NavbarComponent', () => {
   }));
 
   it('should create', async(() => {
-    const fixture = TestBed.createComponent(NavbarComponent);
+    const fixture = TestBed.createComponent(SidenavComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
